@@ -1,0 +1,1 @@
+When working on the project in MIS Lab open project in VS as a project not a website or double click sln file in windows explorer

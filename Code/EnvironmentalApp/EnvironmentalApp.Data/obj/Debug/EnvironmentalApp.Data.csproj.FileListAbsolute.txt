@@ -1,0 +1,4 @@
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\bin\Debug\EnvironmentalApp.Data.dll
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\bin\Debug\EnvironmentalApp.Data.pdb
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.dll
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.pdb

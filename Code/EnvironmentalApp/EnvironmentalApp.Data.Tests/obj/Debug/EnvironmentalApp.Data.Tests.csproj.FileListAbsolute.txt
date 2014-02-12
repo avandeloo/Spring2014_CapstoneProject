@@ -1,0 +1,5 @@
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EnvironmentalApp.Data.Tests.dll
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EnvironmentalApp.Data.Tests.pdb
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.csprojResolveAssemblyReference.cache
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.dll
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.pdb
