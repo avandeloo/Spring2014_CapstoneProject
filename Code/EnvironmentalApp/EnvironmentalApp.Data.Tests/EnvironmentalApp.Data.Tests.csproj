@@ -50,7 +50,23 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="PiServer\ChilledWaterRespositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ConnectionTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnvironmentalApp.Core\EnvironmentalApp.Core.csproj">
+      <Project>{91ca13f9-79be-47ff-a25c-67e73e28d642}</Project>
+      <Name>EnvironmentalApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvironmentalApp.Data\EnvironmentalApp.Data.csproj">
+      <Project>{9840891b-180b-413f-b7da-831294d92a60}</Project>
+      <Name>EnvironmentalApp.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Data.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -39,11 +39,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\IConfiguration.cs" />
+    <Compile Include="Data\PiServer\IAirTempRepository.cs" />
+    <Compile Include="Data\PiServer\IElectricRepository.cs" />
+    <Compile Include="Data\PiServer\IHumidityRepository.cs" />
+    <Compile Include="Data\PiServer\IPiServerRepository.cs" />
+    <Compile Include="Data\PiServer\ISolarRepository.cs" />
+    <Compile Include="Data\PiServer\ISteamRepository.cs" />
+    <Compile Include="Data\PiServer\IWindRepository.cs" />
+    <Compile Include="Models\AirTemp.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\ChilledWater.cs" />
+    <Compile Include="Models\Electric.cs" />
+    <Compile Include="Models\Humidity.cs" />
+    <Compile Include="Models\Solar.cs" />
+    <Compile Include="Models\Steam.cs" />
+    <Compile Include="Models\Wind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Models\" />
+    <Compile Include="Data\PiServer\IChilledWaterRespository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
