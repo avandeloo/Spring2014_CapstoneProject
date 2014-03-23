@@ -8650,7 +8650,7 @@ jQuery.fx.prototype = {
 		var self = this,
 			fx = jQuery.fx;
 
-		this.startTime = fxNow || createFxNow();
+		this.startDateTime = fxNow || createFxNow();
 		this.end = to;
 		this.now = this.start = from;
 		this.pos = this.state = 0;
@@ -8712,7 +8712,7 @@ jQuery.fx.prototype = {
 			elem = this.elem,
 			options = this.options;
 
-		if ( gotoEnd || t >= options.duration + this.startTime ) {
+		if ( gotoEnd || t >= options.duration + this.startDateTime ) {
 			this.now = this.end;
 			this.pos = this.state = 1;
 			this.update();
@@ -8768,7 +8768,7 @@ jQuery.fx.prototype = {
 			if ( options.duration == Infinity ) {
 				this.now = t;
 			} else {
-				n = t - this.startTime;
+				n = t - this.startDateTime;
 				this.state = n / options.duration;
 
 				// Perform the easing function, defaults to swing

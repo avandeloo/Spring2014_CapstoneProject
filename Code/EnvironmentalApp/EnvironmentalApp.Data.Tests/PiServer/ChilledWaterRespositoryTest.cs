@@ -22,7 +22,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
             var chilledWaterList = chilledWaterRepo.GetByTime("yesterday");
 
             Assert.IsNotNull(chilledWaterList);
-            Assert.IsTrue(chilledWaterList.Count >= 1, "No records in chilled water list");
+           
         }
         [TestMethod]
         public void CanGetChilledWaterByTimeRange()
@@ -49,7 +49,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
             var chilledWaterList = chilledWaterRepo.CapmusTotalByDate("yesterday");
 
             Assert.IsNotNull(chilledWaterList);
-            Assert.IsTrue(chilledWaterList.Count >= 1, "No records in chilled water list");
+          
         }
         [TestMethod]
         public void CanGetTotalChilledWaterByTimeRange()

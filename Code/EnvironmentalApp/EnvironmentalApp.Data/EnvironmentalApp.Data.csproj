@@ -41,8 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="PiServer\AirTempRepository.cs" />
     <Compile Include="PiServer\ChilledWaterRepository.cs" />
+    <Compile Include="PiServer\ElectricRepository.cs" />
+    <Compile Include="PiServer\HumidityRepository.cs" />
     <Compile Include="PiServer\PiServerRepositoryBase.cs" />
+    <Compile Include="PiServer\SolarRadiationRepository.cs" />
+    <Compile Include="PiServer\SolarRepository.cs" />
+    <Compile Include="PiServer\SteamRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface ISolarRepository:IPiServerRepository<Core.Models.Solar>
+    public interface ISolarRepository
     {
+        Core.Models.Solar GetToday(Core.PiServerTableTags.SolarSource solarSource);
+        Core.Models.Solar GetByTime(Core.PiServerTableTags.SolarSource solarSource, string time);
+        List<Core.Models.Solar> GetByTime(Core.PiServerTableTags.SolarSource solarSource, string startDateTime, string endDateTime);
     }
 }

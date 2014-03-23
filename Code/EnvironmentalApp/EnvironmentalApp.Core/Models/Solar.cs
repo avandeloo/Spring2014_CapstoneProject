@@ -9,4 +9,5 @@ namespace EnvironmentalApp.Core.Models
     public class Solar: BaseModel
     {
     }
+  
 }
