@@ -9,7 +9,7 @@ using EnvironmentalApp.Core.PiServerTableTags;
 
 namespace EnvironmentalApp.Data.PiServer
 {
-    public class SteamRepository:PiServerRepositoryBase,Core.Data.PiServer.ISteamRepository
+    public class SteamRepository : PiServerRepositoryBase, Core.Data.PiServer.IPiServerRepository<Core.Models.Steam, Core.PiServerTableTags.SteamSources>, Core.Data.PiServer.ISteamRepository
     {
 
         public Core.Models.Steam GetToday(SteamSources source)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface ISolarRepository : IPiServerRepository<Core.Models.Solar, PiServerTableTags.SolarSource>
+    public interface ISolarRepository : IPiServerRepository<Core.Models.Solar, PiServerTableTags.SolarSources>
     {
 
     }

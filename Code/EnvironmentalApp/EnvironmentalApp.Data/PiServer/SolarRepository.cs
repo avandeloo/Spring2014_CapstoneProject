@@ -10,7 +10,7 @@ namespace EnvironmentalApp.Data.PiServer
     public class SolarRepository:PiServerRepositoryBase,Core.Data.PiServer.ISolarRepository
     {
 
-        public Core.Models.Solar GetToday(Core.PiServerTableTags.SolarSource solarSource)
+        public Core.Models.Solar GetToday(Core.PiServerTableTags.SolarSources solarSource)
         {
             var selectCmd = SelectCommand("*", "piinterp", GetEnumDescription(solarSource), "today");
             var solar = (Core.Models.Solar)ExecuteQuery(selectCmd)[0];
@@ -18,23 +18,23 @@ namespace EnvironmentalApp.Data.PiServer
         }
 
 
-        public Core.Models.Solar GetByTime(Core.PiServerTableTags.SolarSource solarSource, string time)
+        public Core.Models.Solar GetByTime(Core.PiServerTableTags.SolarSources solarSource, string time)
         {
             var selectCmd = SelectCommand("*", "piinterp", GetEnumDescription(solarSource), "today");
             var solar = (Core.Models.Solar)ExecuteQuery(selectCmd)[0];
             return solar;
         }
 
-        public List<Core.Models.Solar> GetByTime(Core.PiServerTableTags.SolarSource solarSource, string startDateTime, string endDateTime)
+        public List<Core.Models.Solar> GetByTime(Core.PiServerTableTags.SolarSources solarSource, string startDateTime, string endDateTime)
         {
             var selectCmd = SelectCommand("*", "piinterp", GetEnumDescription(solarSource), "today");
             var solar = ExecuteQuery(selectCmd);
             return solar;
         }
 
-        private string GetEnumDescription(Core.PiServerTableTags.SolarSource solarSource)
+        private string GetEnumDescription(Core.PiServerTableTags.SolarSources solarSource)
         {
-            return Core.EnumerationHelper.GetEnumDescription((Core.PiServerTableTags.SolarSource)solarSource);
+            return Core.EnumerationHelper.GetEnumDescription((Core.PiServerTableTags.SolarSources)solarSource);
         }
 
         private List<Core.Models.Solar> ExecuteQuery(string selectCmd)

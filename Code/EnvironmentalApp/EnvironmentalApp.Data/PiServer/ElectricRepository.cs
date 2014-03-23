@@ -9,7 +9,7 @@ using EnvironmentalApp.Core;
 
 namespace EnvironmentalApp.Data.PiServer
 {
-    public class ElectricRepository:PiServerRepositoryBase,Core.Data.PiServer.IElectricRepository
+    public class ElectricRepository : PiServerRepositoryBase, Core.Data.PiServer.IPiServerRepository<Core.Models.Electric, Core.PiServerTableTags.ElectricSources>, Core.Data.PiServer.IElectricRepository
     {
         
         public Core.Models.Electric GetToday(ElectricSources source)

@@ -9,7 +9,7 @@ using EnvironmentalApp.Core.PiServerTableTags;
 
 namespace EnvironmentalApp.Data.PiServer
 {
-    public class HumidityRepository : PiServerRepositoryBase, Core.Data.PiServer.IHumidityRepository
+    public class HumidityRepository : PiServerRepositoryBase, Core.Data.PiServer.IPiServerRepository<Core.Models.Humidity, Core.PiServerTableTags.HumiditySources>, Core.Data.PiServer.IHumidityRepository
     {
         
    

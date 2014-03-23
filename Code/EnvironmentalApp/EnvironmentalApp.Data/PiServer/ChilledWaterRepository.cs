@@ -9,10 +9,8 @@ using EnvironmentalApp.Core;
 using EnvironmentalApp.Core.PiServerTableTags;
 namespace EnvironmentalApp.Data.PiServer
 {
-    public class ChilledWaterRepository : PiServerRepositoryBase, Core.Data.PiServer.IChilledWaterRespository
+    public class ChilledWaterRepository : PiServerRepositoryBase, Core.Data.PiServer.IPiServerRepository<ChilledWater,Core.PiServerTableTags.ChilledWaterSources>, Core.Data.PiServer.IChilledWaterRespository
     {
-       // string pbbTableTag = EnumerationHelper.GetEnumDescription(Core.PiServerTableTags.ChilledWaterSources.PBB_ChilledWater);
-       // string campusTableTag = EnumerationHelper.GetEnumDescription(Core.PiServerTableTags.ChilledWaterSources.Campus_Total);
         public ChilledWater GetToday(ChilledWaterSources chilledWaterSource)
         {
             var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(chilledWaterSource), "today");

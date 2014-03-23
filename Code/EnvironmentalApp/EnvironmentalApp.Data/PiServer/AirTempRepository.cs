@@ -8,7 +8,7 @@ using EnvironmentalApp.Core;
 using EnvironmentalApp.Core.PiServerTableTags;
 namespace EnvironmentalApp.Data.PiServer
 {
-   public class AirTempRepository:PiServerRepositoryBase, Core.Data.PiServer.IAirTempRepository
+    public class AirTempRepository : PiServerRepositoryBase, Core.Data.PiServer.IPiServerRepository<Core.Models.AirTemp, Core.PiServerTableTags.AirTempSource> //Core.Data.PiServer.IAirTempRepository<Core.Data.PiServer.IPiServerRepository<Core.Models.AirTemp,AirTempSource>>
     {
        //string tableTag = EnumerationHelper.GetEnumDescription(Core.PiServerTableTags.AirTempSource.OutsideTemp);
 

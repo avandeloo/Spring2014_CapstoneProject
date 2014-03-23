@@ -8,7 +8,7 @@ using EnvironmentalApp.Core;
 using EnvironmentalApp.Core.PiServerTableTags;
 namespace EnvironmentalApp.Data.PiServer
 {
-    public class SolarRadiationRepository:PiServerRepositoryBase,Core.Data.PiServer.ISolarRadiationRespository
+    public class SolarRadiationRepository : PiServerRepositoryBase, Core.Data.PiServer.IPiServerRepository<Core.Models.SolarRadiation, Core.PiServerTableTags.SolarRadiationSources>, Core.Data.PiServer.ISolarRadiationRespository
     {
         
 

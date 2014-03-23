@@ -39,10 +39,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PiServerServices\IPiServices.cs" />
+    <Compile Include="PiServerServices\Pi_AirTempService.cs" />
+    <Compile Include="PiServerServices\Pi_ChilledWaterService.cs" />
+    <Compile Include="PiServerServices\Pi_ElectricService.cs" />
+    <Compile Include="PiServerServices\Pi_HumidityService.cs" />
+    <Compile Include="PiServerServices\Pi_SolarRadiationService.cs" />
+    <Compile Include="PiServerServices\Pi_SolarService.cs" />
+    <Compile Include="PiServerServices\Pi_SteamService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PiServerServices\" />
+    <ProjectReference Include="..\EnvironmentalApp.Core\EnvironmentalApp.Core.csproj">
+      <Project>{91ca13f9-79be-47ff-a25c-67e73e28d642}</Project>
+      <Name>EnvironmentalApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnvironmentalApp.Data\EnvironmentalApp.Data.csproj">
+      <Project>{9840891b-180b-413f-b7da-831294d92a60}</Project>
+      <Name>EnvironmentalApp.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

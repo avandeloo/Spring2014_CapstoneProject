@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface IHumidityRepository:IPiServerRepository<Core.Models.Humidity,PiServerTableTags.HumiditySources>
+    public interface IHumidityRepository
     {
     }
 }
