@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EnvironmentalApp.Data.PiServer;
+using EnvironmentalApp.Core.PiServerTableTags;
 
 namespace EnvironmentalApp.Data.Tests.PiServer
 {
@@ -8,54 +9,54 @@ namespace EnvironmentalApp.Data.Tests.PiServer
     public class ChilledWaterRespositoryTest
     {
         [TestMethod]
-        public void CanGetTodayChilledWater()
+        public void ChilledWater_PBB_CanGetToday()
         {
             var chilledWaterRepo = new ChilledWaterRepository();
-            var chilledWaterList = chilledWaterRepo.GetToday();
+            var chilledWaterList = chilledWaterRepo.GetToday(ChilledWaterSources.PBB_ChilledWater);
 
             Assert.IsNotNull(chilledWaterList);
         }
         [TestMethod]
-        public void CanGetChilledWaterByTime()
+        public void ChilledWater_PBB_CanGetWaterByTime()
         {
             var chilledWaterRepo = new ChilledWaterRepository();
-            var chilledWaterList = chilledWaterRepo.GetByTime("yesterday");
+            var chilledWaterList = chilledWaterRepo.GetByTime(ChilledWaterSources.PBB_ChilledWater,"yesterday");
 
             Assert.IsNotNull(chilledWaterList);
            
         }
         [TestMethod]
-        public void CanGetChilledWaterByTimeRange()
+        public void ChilledWater_PBB_CanGetByTimeRange()
         {
             var chilledWaterRepo = new ChilledWaterRepository();
-            var chilledWaterList = chilledWaterRepo.GetByTime("yesterday","today");
+            var chilledWaterList = chilledWaterRepo.GetByTime(ChilledWaterSources.PBB_ChilledWater,"yesterday","today");
 
             Assert.IsNotNull(chilledWaterList);
             Assert.IsTrue(chilledWaterList.Count >= 1, "No records in chilled water list");
         }
         [TestMethod]
-        public void CanGetTodayTotalChilledWater()
+        public void ChilledWater_CampusTotal_CanGetToday()
         {
             var chilledWaterRepo = new ChilledWaterRepository();
-            var chilledWaterList = chilledWaterRepo.CampusTotalToday();
+            var chilledWaterList = chilledWaterRepo.GetToday(ChilledWaterSources.Campus_Total);
 
             Assert.IsNotNull(chilledWaterList);
 
         }
         [TestMethod]
-        public void CanGetTotalChilledWaterByTime()
+        public void ChilledWater_CampusTotal_CanGetlByTime()
         {
             var chilledWaterRepo = new ChilledWaterRepository();
-            var chilledWaterList = chilledWaterRepo.CapmusTotalByDate("yesterday");
+            var chilledWaterList = chilledWaterRepo.GetByTime(ChilledWaterSources.Campus_Total,"yesterday");
 
             Assert.IsNotNull(chilledWaterList);
           
         }
         [TestMethod]
-        public void CanGetTotalChilledWaterByTimeRange()
+        public void ChilledWater_CampusTotal_CanGetByTimeRange()
         {
             var chilledWaterRepo = new ChilledWaterRepository();
-            var chilledWaterList = chilledWaterRepo.CapmusTotalByDate("yesterday","today");
+            var chilledWaterList = chilledWaterRepo.GetByTime(ChilledWaterSources.Campus_Total,"yesterday","today");
 
             Assert.IsNotNull(chilledWaterList);
             Assert.IsTrue(chilledWaterList.Count >= 1, "No records in chilled water list");

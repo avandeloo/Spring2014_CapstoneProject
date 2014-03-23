@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface IWindRepository:IPiServerRepository<Core.Models.Wind>
+    public interface IWindRepository:IPiServerRepository<Core.Models.Wind,PiServerTableTags.WindSources>
     {
     }
 }

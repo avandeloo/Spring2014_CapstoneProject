@@ -5,59 +5,39 @@ using System.Text;
 using System.Threading.Tasks;
 using EnvironmentalApp.Core.Models;
 using System.Data.Odbc;
-
+using EnvironmentalApp.Core;
+using EnvironmentalApp.Core.PiServerTableTags;
 namespace EnvironmentalApp.Data.PiServer
 {
     public class ChilledWaterRepository : PiServerRepositoryBase, Core.Data.PiServer.IChilledWaterRespository
     {
-        string pbbTableTag = "CWP_C35MMBTU/HR_PICalc";
-        string campusTableTag = "CWP_TOTAL_Chilled_Water_Production";
-        public ChilledWater GetToday()
+       // string pbbTableTag = EnumerationHelper.GetEnumDescription(Core.PiServerTableTags.ChilledWaterSources.PBB_ChilledWater);
+       // string campusTableTag = EnumerationHelper.GetEnumDescription(Core.PiServerTableTags.ChilledWaterSources.Campus_Total);
+        public ChilledWater GetToday(ChilledWaterSources chilledWaterSource)
         {
-            var selectCmd = SelectCommand("*", "piinterp", pbbTableTag, "today");
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(chilledWaterSource), "today");
             var chilledWater = (ChilledWater)ExecuteQuery(selectCmd)[0];
             return chilledWater;
         }
 
-        public ChilledWater GetByTime(string time)
+        public ChilledWater GetByTime(ChilledWaterSources chilledWaterSource,string time)
         {
 
-            var selectCmd = SelectCommand("*", "piinterp", pbbTableTag, time);
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(chilledWaterSource), time);
             var chilledWater = (ChilledWater)ExecuteQuery(selectCmd)[0];
             return chilledWater;
         }
 
-        public List<ChilledWater> GetByTime(string startDateTime, string endDateTime)
+        public List<ChilledWater> GetByTime(ChilledWaterSources chilledWaterSource,string startDateTime, string endDateTime)
         {
 
-            var selectCmd = SelectCommand("*", "piinterp", pbbTableTag, startDateTime, endDateTime);
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(chilledWaterSource), startDateTime, endDateTime);
             var chilledWater = (List<ChilledWater>)ExecuteQuery(selectCmd);
             return chilledWater;
 
         }
 
-        public ChilledWater CampusTotalToday()
-        {
-
-            var selectCmd = SelectCommand("*", "piinterp", campusTableTag, "today");
-            var chilledWater = (ChilledWater)ExecuteQuery(selectCmd)[0];
-            return chilledWater;
-        }
-        public ChilledWater CapmusTotalByDate(string date)
-        {
-            var selectCmd = SelectCommand("*", "piinterp", campusTableTag, date);
-            var chilledWater = (ChilledWater)ExecuteQuery(selectCmd)[0];
-            return chilledWater;
-
-        }
-        public List<ChilledWater> CapmusTotalByDate(string startDate, string endDate)
-        {
-            var selectCmd = SelectCommand("*", "piinterp", campusTableTag, startDate, endDate);
-            var chilledWater = ExecuteQuery(selectCmd);
-            return chilledWater;
-
-        }
-
+      
 
         private List<ChilledWater> ExecuteQuery(string selectCmd)
         {

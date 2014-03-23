@@ -1,3 +1,8 @@
 
 *.suo
 *.cache
+*.pdb
+*/bin/Debug/*
+/Code/EnvironmentalApp/TestResults/*.mdf
+/Code/EnvironmentalApp/TestResults/*.ldf
+/Code/EnvironmentalApp/TestResults/ab4e2638-d6ac-4fae-91f9-e4f37d727abe/*.coverage

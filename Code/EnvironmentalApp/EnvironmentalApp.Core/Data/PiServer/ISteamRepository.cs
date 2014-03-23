@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface ISteamRepository:IPiServerRepository<Core.Models.Steam>
+    public interface ISteamRepository:IPiServerRepository<Core.Models.Steam,PiServerTableTags.SteamSources>
     {
     }
 }

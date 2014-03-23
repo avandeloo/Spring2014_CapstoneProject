@@ -58,6 +58,13 @@
     <Compile Include="Models\SolarRadiation.cs" />
     <Compile Include="Models\Steam.cs" />
     <Compile Include="Models\Wind.cs" />
+    <Compile Include="PiServerTableTags\AirTempSource.cs" />
+    <Compile Include="PiServerTableTags\ChilledWaterSources.cs" />
+    <Compile Include="PiServerTableTags\ElectricSources.cs" />
+    <Compile Include="PiServerTableTags\HumiditySources.cs" />
+    <Compile Include="PiServerTableTags\SolarRadiationSources.cs" />
+    <Compile Include="PiServerTableTags\SteamSources.cs" />
+    <Compile Include="PiServerTableTags\WindSources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PiServerTableTags\SolarSource.cs" />
   </ItemGroup>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface IAirTempRepository:IPiServerRepository<Core.Models.AirTemp>
+    public interface IAirTempRepository:IPiServerRepository<Core.Models.AirTemp,PiServerTableTags.AirTempSource>
     {
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface IPiServerRepository<T>
+    public interface IPiServerRepository<T,U> where U: struct, IComparable
     {
-        T GetToday();
-        T GetByTime(string time);
-        List<T> GetByTime(string startDateTime, string endDateTime);
+        T GetToday(U value) ;
+        T GetByTime(U value,string time);
+        List<T> GetByTime(U value,string startDateTime, string endDateTime);
     }
 }

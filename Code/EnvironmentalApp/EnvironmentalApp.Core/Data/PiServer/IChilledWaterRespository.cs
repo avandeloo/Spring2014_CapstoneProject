@@ -7,10 +7,8 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface IChilledWaterRespository : Data.PiServer.IPiServerRepository<ChilledWater>
+    public interface IChilledWaterRespository : Data.PiServer.IPiServerRepository<ChilledWater,PiServerTableTags.ChilledWaterSources>
     {
-        ChilledWater CampusTotalToday();
-        ChilledWater CapmusTotalByDate(string date);
-        List<ChilledWater> CapmusTotalByDate(string startDate, string endDate);
+      
     }
 }
