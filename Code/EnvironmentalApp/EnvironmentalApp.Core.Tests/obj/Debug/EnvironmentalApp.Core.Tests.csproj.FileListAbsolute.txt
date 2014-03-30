@@ -1,7 +1,0 @@
-C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\bin\Debug\EnvironmentalApp.Core.Tests.dll
-C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\bin\Debug\EnvironmentalApp.Core.Tests.pdb
-C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\bin\Debug\EnvironmentalApp.Core.dll
-C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\bin\Debug\EnvironmentalApp.Core.pdb
-C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\obj\Debug\EnvironmentalApp.Core.Tests.csprojResolveAssemblyReference.cache
-C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\obj\Debug\EnvironmentalApp.Core.Tests.dll
-C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\obj\Debug\EnvironmentalApp.Core.Tests.pdb

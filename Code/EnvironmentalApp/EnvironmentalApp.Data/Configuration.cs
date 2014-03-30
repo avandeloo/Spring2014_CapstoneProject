@@ -20,10 +20,18 @@ namespace EnvironmentalApp.Data
         }
         public static OdbcConnection GetPiServerConnection(string piServerConnectionString)
         {
-        
-            var piConnection = new OdbcConnection(piServerConnectionString);
+            OdbcConnection piConnection = null;
+            try
+            {
+                piConnection = new OdbcConnection(piServerConnectionString);
+                return piConnection;
+            }
+            catch (OdbcException ex)
+            {
+                throw ex;
+            }
 
-            return piConnection;
+           
         }
 
         public string GetSqlServerConnectionString()
