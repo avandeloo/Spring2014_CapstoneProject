@@ -6,3 +6,11 @@ C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Da
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.csprojResolveAssemblyReference.cache
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.dll
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.pdb
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\bin\Debug\Data.config
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\bin\Debug\EnvironmentalApp.Data.dll
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\bin\Debug\EnvironmentalApp.Data.pdb
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\bin\Debug\EnvironmentalApp.Core.dll
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\bin\Debug\EnvironmentalApp.Core.pdb
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.csprojResolveAssemblyReference.cache
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.dll
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.pdb
