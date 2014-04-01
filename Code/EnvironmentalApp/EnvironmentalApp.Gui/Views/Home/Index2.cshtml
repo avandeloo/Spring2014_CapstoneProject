@@ -1,0 +1,132 @@
+﻿@model List<EnvironmentalApp.Gui.Models.DataList>
+<html>
+
+<head>
+    <title>BAIS Capstone</title>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/styles.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/jquery.jqplot.js")"></script>
+
+    <link class="include" rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jqPlot/jquery.jqplot.min.css")" />
+    <!--[if lt IE 9]><script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/excanvas.min.js")"></script><![endif]-->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.canvasTextRenderer.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.canvasAxisTickRenderer.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.dateAxisRenderer.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.highlighter.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js")"></script>
+      <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js")"></script>
+</head>
+
+
+<body>
+    <script type="text/javascript">
+
+        //attempt two
+        $(document).ready(function () {
+            var line = [];
+                @foreach (var m in Model)
+                { 
+             <text> var line</text>@m.Id<text> = [];</text>
+                    foreach (var l in m.chilledWaterData)
+                    { 
+                <text>line</text>@m.Id<text>.push(["@l.Date.ToString("MM/dd/yyyy hh:mm:ss tt")", @l.Value]);</text>
+                    }
+                <text>line.push(line</text>@m.Id<text>);</text>
+                }
+          
+            function plotData(line) {
+
+            var plot=    $.jqplot('chartdiv', line, {
+                    seriesDefaults: {
+                        renderer: $.jqplot.BarRenderer,
+                        rendererOptions: { fillToZero: true }
+                    },
+                    axes: {
+                        xaxis: {
+                            tickrenderer: $.jqplot.CanvasAxisTickRenderer,
+                            renderer: $.jqplot.DateAxisRenderer,
+                            label: 'Date',
+                            tickoptions: {
+                                angle: -15,
+                                formatstring: '%m/%d/%y\n %p'
+                            }
+                        },
+                        yaxis: {
+                            label: 'Value',
+                            labelrenderer: $.jqplot.CanvasAxisLabelRenderer
+                        }
+                    }
+
+                })
+           // plot.redraw();
+            }
+            var plot = plotData(line);
+           
+
+            //var plot2 = $.jqplot('chartdiv', [line], {
+            //    //series: labels,
+            //    //legend: {
+            //    //    show: true,
+            //    //    placement: 'outsidegrid'
+            //    //},
+            //    ////                highlighter: {
+            //    //                    show: true,
+            //    //                    showtooltip: true,
+            //    //                    yvalues: 2,
+            //    //                    formatstring: '<table class="jqplot-highlighter"><tr><td>point </td><td>"%s"</td></tr><tr><td>value </td><td>"%s"</td></tr><tr><td>series </td><td>"%s"</td></tr></table>'
+            //    //                },
+            //    //cursor: {
+            //    //    show: true,
+            //    //    tooltiplocation: 'sw'
+            //    //},
+            //    axes: {
+            //        xaxis: {
+            //           // tickrenderer: $.jqplot.CanvasAxisTickRenderer,
+            //            renderer: $.jqplot.DateAxisRenderer//,
+            //            //label: 'Date',
+            //            //tickoptions: {
+            //            //    angle: -15,
+            //            //    formatstring: '%m/%d/%y'
+            //            //}
+            //        }//,
+            //        //yaxis: {
+            //        //    label: 'Value',
+            //        //    labelrenderer: $.jqplot.CanvasAxisLabelRenderer
+            //        //}
+            //    }
+            //});
+
+        });
+    </script>
+
+    <div id="pageContainer">
+        <div id="header">
+            <div id="logo">
+                <img src="@Url.Content("~/Images/EnviroHawk2.png")" alt="EnviroHawk2" />
+            </div>
+        </div>
+
+        @*      <div id="mainContent">
+            <div id="leftColumn">
+                <div id="nav"></div>
+            </div>
+
+            <div id="rightColumn">
+                <div id="mainGraph"></div>
+                <div id="statsBox"></div>
+                <div id="statsBox"></div>
+            </div>
+
+        </div>*@
+        <h2>chart test</h2>
+        <div id="chartdiv" >
+        </div>
+
+        <div id="footer"></div>
+
+    </div>
+
+
+</body>
+
+</html>

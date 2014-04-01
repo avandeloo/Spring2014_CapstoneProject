@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BAIS Capstone</title>
+    <link type="text/css" rel="stylesheet" href="Content/styles.css" />
+
+    <script lang="javascript" type="text/javascript" src="Scripts/jplot/jquery.min.js"></script>
+    <script lang="javascript" type="text/javascript" src="Scripts/jplot/jquery.jqplot.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="jplot/jquery.jqplot.css" />
+
+</head>
+
+<body>
+
+    <div id="pageContainer">
+        <div id="header">
+            <div id="logo">
+                <img src="Images/EnviroHawk2.png" alt="EnviroHawk2" /></div>
+        </div>
+
+        <div id="mainContent">
+            <div id="leftColumn">
+                <div id="nav"></div>
+            </div>
+
+            <div id="rightColumn">
+                <div id="mainGraph"></div>
+                <div id="statsBox"></div>
+                <div id="Div1"></div>
+            </div>
+
+        </div>
+
+        <div id="footer"></div>
+
+    </div>
+
+    <script>
+
+       
+
+        $.jqplot('mainGraph',
+                    [
+
+                        [[1, 2], [3, 5.12], [5, 13.1], [7, 33.6], [9, 85.9], [11, 219.9]],
+                        [[1, 10], [3, 11], [5, 35], [7, 38], [9, 90], [11, 400]],
+                        [[1, 15], [3, 20], [5, 40], [7, 48], [9, 85], [11, 250]],
+                        [[1, 20], [3, 30], [5, 6], [7, 10], [9, 65], [11, 500]]
+                    ],
+                    optionObj = {
+                        textColor: "#ccc",
+                        grid: { background: "#444", borderWidth: 1.0 },
+                        series: [{ color: "#FF0000" }, { color: "#FF7400" }, { color: "#009999" }, { color: "#01CC00" }],
+                        axes: { xaxis: { min: 0 }, yaxis: { min: 0 } }
+                    }
+                );
+
+       
+    </script>
+    <script runat="server">
+         Array GetData()
+        {
+            //get data
+            //for each value in return
+            
+
+        }
+        
+
+    </script>
+    <%
+    %>
+
+</body>
+
+</html>
