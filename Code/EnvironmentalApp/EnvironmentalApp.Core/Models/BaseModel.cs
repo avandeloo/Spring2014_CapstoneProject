@@ -8,6 +8,7 @@ namespace EnvironmentalApp.Core.Models
 {
     public class BaseModel
     {
+        public Guid Id { get; set; }
         public long TimeStamp { get; set; }
         public DateTime ReadingDateTime { get; set; }
         public string Reading { get; set; }

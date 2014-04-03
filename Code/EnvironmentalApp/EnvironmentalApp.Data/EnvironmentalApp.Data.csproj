@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +48,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="SQLServer\EnergyDataContext.cs" />
+    <Compile Include="SQLServer\Mapping\OUTSIDE_AIR_TEMPMap.cs" />
+    <Compile Include="SQLServer\Mapping\OUTSIDE_HUMIDITYMap.cs" />
+    <Compile Include="SQLServer\Mapping\PBB_CHILLED_WATERMap.cs" />
+    <Compile Include="SQLServer\Mapping\PBB_CHILLED_WATER_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\PBB_ELECTRICMap.cs" />
+    <Compile Include="SQLServer\Mapping\PBB_ELECTRIC_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\PBB_STEAMMap.cs" />
+    <Compile Include="SQLServer\Mapping\PBB_STEAM_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\REPORTMap.cs" />
+    <Compile Include="SQLServer\Mapping\SOLAR_BUS_BARNMap.cs" />
+    <Compile Include="SQLServer\Mapping\SOLAR_BUS_BARN_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\SOLAR_CAR_CHARGINGMap.cs" />
+    <Compile Include="SQLServer\Mapping\SOLAR_CAR_CHARGING_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\SOLAR_RADIATIONMap.cs" />
+    <Compile Include="SQLServer\Mapping\SOLAR_RADIATION_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\TC_CHILLED_WATER_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\TC_ELECTRICITY_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\TC_STEAM_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\TOTAL_CAMPUS_CHILLED_WATERMap.cs" />
+    <Compile Include="SQLServer\Mapping\TOTAL_CAMPUS_ELECTRICITYMap.cs" />
+    <Compile Include="SQLServer\Mapping\TOTAL_CAMPUS_STEAMMap.cs" />
+    <Compile Include="Models\OUTSIDE_AIR_TEMP.cs" />
+    <Compile Include="Models\OUTSIDE_HUMIDITY.cs" />
+    <Compile Include="Models\PBB_CHILLED_WATER.cs" />
+    <Compile Include="Models\PBB_CHILLED_WATER_SUM_BY_DAY.cs" />
+    <Compile Include="Models\PBB_ELECTRIC.cs" />
+    <Compile Include="Models\PBB_ELECTRIC_SUM_BY_DAY.cs" />
+    <Compile Include="Models\PBB_STEAM.cs" />
+    <Compile Include="Models\PBB_STEAM_SUM_BY_DAY.cs" />
+    <Compile Include="Models\REPORT.cs" />
+    <Compile Include="Models\SOLAR_BUS_BARN.cs" />
+    <Compile Include="Models\SOLAR_BUS_BARN_SUM_BY_DAY.cs" />
+    <Compile Include="Models\SOLAR_CAR_CHARGING.cs" />
+    <Compile Include="Models\SOLAR_CAR_CHARGING_SUM_BY_DAY.cs" />
+    <Compile Include="Models\SOLAR_RADIATION.cs" />
+    <Compile Include="Models\SOLAR_RADIATION_SUM_BY_DAY.cs" />
+    <Compile Include="Models\TC_CHILLED_WATER_SUM_BY_DAY.cs" />
+    <Compile Include="Models\TC_ELECTRICITY_SUM_BY_DAY.cs" />
+    <Compile Include="Models\TC_STEAM_SUM_BY_DAY.cs" />
+    <Compile Include="Models\TOTAL_CAMPUS_CHILLED_WATER.cs" />
+    <Compile Include="Models\TOTAL_CAMPUS_ELECTRICITY.cs" />
+    <Compile Include="Models\TOTAL_CAMPUS_STEAM.cs" />
     <Compile Include="PiServer\AirTempRepository.cs" />
     <Compile Include="PiServer\ChilledWaterRepository.cs" />
     <Compile Include="PiServer\ElectricRepository.cs" />
@@ -52,9 +102,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Data.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnvironmentalApp.Core\EnvironmentalApp.Core.csproj">
@@ -62,9 +114,7 @@
       <Name>EnvironmentalApp.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SQLServer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
