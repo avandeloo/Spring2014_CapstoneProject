@@ -83,6 +83,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServer\Repositories\AirTempRepository.cs" />
     <Compile Include="SQLServer\Repositories\BaseRepository.cs" />
+    <Compile Include="SQLServer\Repositories\UnfinishedAirTempDailyTotals.cs" />
+    <Compile Include="SQLServer\Repositories\UnfinishedHumidityDailyTotals.cs" />
+    <Compile Include="SQLServer\Repositories\SolarBusBarnDailyTotals.cs" />
+    <Compile Include="SQLServer\Repositories\TotalCampusSteamDailyTotals.cs" />
+    <Compile Include="SQLServer\Repositories\TotalCampusElectricDailyTotals.cs" />
+    <Compile Include="SQLServer\Repositories\TotalCampusChilledWaterDailyTotals.cs" />
+    <Compile Include="SQLServer\Repositories\PBBElectricDailyTotals.cs" />
+    <Compile Include="SQLServer\Repositories\PBBSteamDailyTotals.cs" />
+    <Compile Include="SQLServer\Repositories\PBBChilledWaterDailyTotals.cs" />
+    <Compile Include="SQLServer\Repositories\SolarCarChargingRepository.cs" />
+    <Compile Include="SQLServer\Repositories\SolarBusBarnRepository.cs" />
+    <Compile Include="SQLServer\Repositories\TotalCampusChilledWaterRepository.cs" />
+    <Compile Include="SQLServer\Repositories\PBBChilledWaterRepository.cs" />
+    <Compile Include="SQLServer\Repositories\TotalCampusSteamRepository.cs" />
+    <Compile Include="SQLServer\Repositories\PBBSteamRepository.cs" />
+    <Compile Include="SQLServer\Repositories\TotalCampusElectricRepository.cs" />
+    <Compile Include="SQLServer\Repositories\PBBElectricRepository.cs" />
+    <Compile Include="SQLServer\Repositories\HumidityRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data.config">

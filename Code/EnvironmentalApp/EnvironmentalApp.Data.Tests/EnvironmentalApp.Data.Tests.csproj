@@ -51,6 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ConnectionTestSQL.cs" />
     <Compile Include="PiServer\ChilledWaterRespositoryTest.cs" />
     <Compile Include="PiServer\AirTempRepositoryTest.cs" />
     <Compile Include="PiServer\ElectricRepositoryTest.cs" />

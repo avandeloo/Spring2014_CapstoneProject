@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace EnvironmentalApp.Core.Models
 {
-    public class HumidityDailyTotals:BaseModelDailyTotals
+    public class HumidityDailyTotals : BaseModelDailyTotals
     {
+
+
     }
 }

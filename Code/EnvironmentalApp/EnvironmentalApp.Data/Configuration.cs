@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Odbc;
+using System.Data.SqlClient;
 
 namespace EnvironmentalApp.Data
 {
@@ -38,6 +39,22 @@ namespace EnvironmentalApp.Data
         {
             var connString = System.Configuration.ConfigurationManager.ConnectionStrings["EnergyDataContext"].ConnectionString;
             return connString;
+        }
+
+        public static SqlConnection GetSqlServerConnection(string sqlServerConnectionString)
+        {
+            SqlConnection sqlConnection = null;
+            try
+            {
+                sqlConnection = new SqlConnection(sqlServerConnectionString);
+                return sqlConnection;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+
         }
     }
 }
