@@ -8,28 +8,10 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class SolarBusBarnDailyTotals:BaseRepository, Core.Data.SQLServer.ISolarRepository
+    public class SolarBusBarnDailyTotalsRepository:BaseRepository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SolarDailyTotals,Solar>
     {
-        public int Create(Core.Models.SolarDailyTotals entity)
-        {
-            try
-            {
-
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    ctx.SOLAR_BUS_BARN_SUM_BY_DAY.Add(entity);
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public int Create(List<Core.Models.SolarDailyTotals> entityList)
+      
+        public int Create(List<Core.Models.Solar> entityList)
         {
             try
             {
@@ -51,37 +33,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             }
         }
         
-        public int Update(Core.Models.SolarDailyTotals entity)
-        {
-            try
-            {
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    var solarBusBarnDailyTotals = ctx.SOLAR_BUS_BARN_SUM_BY_DAY.FirstOrDefault(x => x.Id == entity.Id);
-                    if (solarBusBarnDailyTotals == null)
-                    {
-                        throw new Exception("Record doesn't exist and cannot be updated");
-                    }
-                    solarBusBarnDailyTotals.Id = entity.Id;
-                    solarBusBarnDailyTotals.ReadingDateTime = entity.ReadingDateTime;
-                    solarBusBarnDailyTotals.HighValue = entity.HighValue;
-                    solarBusBarnDailyTotals.LowValue = entity.LowValue;
-                    solarBusBarnDailyTotals.DailySum = entity.DailySum;
-                    solarBusBarnDailyTotals.DailyAverage = entity.DailyAverage;
-
-                    ctx.Entry(solarBusBarnDailyTotals).State = System.Data.Entity.EntityState.Modified;
-
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+       
         public Core.Models.SolarDailyTotals Get(DateTime dateTime)
         {
             var solarBusBarnDailyTotals = new SolarDailyTotals();

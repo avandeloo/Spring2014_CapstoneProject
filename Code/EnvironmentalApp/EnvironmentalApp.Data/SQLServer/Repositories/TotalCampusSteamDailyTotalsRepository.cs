@@ -8,28 +8,10 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class TotalCampusSteamDailyTotals:BaseRepository, Core.Data.SQLServer.ISteamRepository
+    public class TotalCampusSteamDailyTotalsRepository:BaseRepository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SteamDailyTotals,Steam>
     {
-        public int Create(Core.Models.SteamDailyTotals entity)
-        {
-            try
-            {
-
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    ctx.TC_STEAM_SUM_BY_DAY.Add(entity);
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public int Create(List<Core.Models.SteamDailyTotals> entityList)
+       
+        public int Create(List<Core.Models.Steam> entityList)
         {
             try
             {
@@ -51,37 +33,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             }
         }
         
-        public int Update(Core.Models.SteamDailyTotals entity)
-        {
-            try
-            {
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    var totalCampusSteamDailyTotals = ctx.TC_STEAM_SUM_BY_DAY.FirstOrDefault(x => x.Id == entity.Id);
-                    if (totalCampusSteamDailyTotals == null)
-                    {
-                        throw new Exception("Record doesn't exist and cannot be updated");
-                    }
-                    totalCampusSteamDailyTotals.Id = entity.Id;
-                    totalCampusSteamDailyTotals.ReadingDateTime = entity.ReadingDateTime;
-                    totalCampusSteamDailyTotals.HighValue = entity.HighValue;
-                    totalCampusSteamDailyTotals.LowValue = entity.LowValue;
-                    totalCampusSteamDailyTotals.DailySum = entity.DailySum;
-                    totalCampusSteamDailyTotals.DailyAverage = entity.DailyAverage;
-
-                    ctx.Entry(totalCampusSteamDailyTotals).State = System.Data.Entity.EntityState.Modified;
-
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+       
         public Core.Models.SteamDailyTotals Get(DateTime dateTime)
         {
             var totalCampusSteamDailyTotals = new SteamDailyTotals();

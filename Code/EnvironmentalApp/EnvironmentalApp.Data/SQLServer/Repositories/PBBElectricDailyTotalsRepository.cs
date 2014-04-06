@@ -8,28 +8,10 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class PBBElectricDailyTotals:BaseRepository, Core.Data.SQLServer.ISteamRepository
+    public class PBBElectricDailyTotalsRepository:BaseRepository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<ElectricDailyTotals,Electric>
     {
-        public int Create(Core.Models.ElectricDailyTotals entity)
-        {
-            try
-            {
-
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    ctx.PBB_ELECTRIC_SUM_BY_DAY.Add(entity);
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public int Create(List<Core.Models.ElectricDailyTotals> entityList)
+       
+        public int Create(List<Core.Models.Electric> entityList)
         {
             try
             {
@@ -50,38 +32,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                 throw ex;
             }
         }
-        
-        public int Update(Core.Models.ElectricDailyTotals entity)
-        {
-            try
-            {
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    var pbbElectricDailyTotals = ctx.PBB_ELECTRIC_SUM_BY_DAY.FirstOrDefault(x => x.Id == entity.Id);
-                    if (pbbElectricDailyTotals == null)
-                    {
-                        throw new Exception("Record doesn't exist and cannot be updated");
-                    }
-                    pbbElectricDailyTotals.Id = entity.Id;
-                    pbbElectricDailyTotals.ReadingDateTime = entity.ReadingDateTime;
-                    pbbElectricDailyTotals.HighValue = entity.HighValue;
-                    pbbElectricDailyTotals.LowValue = entity.LowValue;
-                    pbbElectricDailyTotals.DailySum = entity.DailySum;
-                    pbbElectricDailyTotals.DailyAverage = entity.DailyAverage;
-
-                    ctx.Entry(pbbElectricDailyTotals).State = System.Data.Entity.EntityState.Modified;
-
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+    
         public Core.Models.ElectricDailyTotals Get(DateTime dateTime)
         {
             var pbbElectricDailyTotals = new ElectricDailyTotals();

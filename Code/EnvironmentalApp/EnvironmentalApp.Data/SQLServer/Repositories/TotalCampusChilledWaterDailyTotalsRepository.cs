@@ -8,28 +8,9 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class TotalCampusChilledWaterDailyTotals:BaseRepository, Core.Data.SQLServer.IChilledWaterRepository
+    public class TotalCampusChilledWaterDailyTotalsRepository:BaseRepository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<ChilledWaterDailyTotals,ChilledWater>
     {
-        public int Create(Core.Models.ChilledWaterDailyTotals entity)
-        {
-            try
-            {
-
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    ctx.TC_CHILLED_WATER_SUM_BY_DAY.Add(entity);
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public int Create(List<Core.Models.ChilledWaterDailyTotals> entityList)
+        public int Create(List<Core.Models.ChilledWater> entityList)
         {
             try
             {
@@ -51,36 +32,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             }
         }
         
-        public int Update(Core.Models.ChilledWaterDailyTotals entity)
-        {
-            try
-            {
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    var totalCampusChilledWaterDailyTotals = ctx.TC_CHILLED_WATER_SUM_BY_DAY.FirstOrDefault(x => x.Id == entity.Id);
-                    if (totalCampusChilledWaterDailyTotals == null)
-                    {
-                        throw new Exception("Record doesn't exist and cannot be updated");
-                    }
-                    totalCampusChilledWaterDailyTotals.Id = entity.Id;
-                    totalCampusChilledWaterDailyTotals.ReadingDateTime = entity.ReadingDateTime;
-                    totalCampusChilledWaterDailyTotals.HighValue = entity.HighValue;
-                    totalCampusChilledWaterDailyTotals.LowValue = entity.LowValue;
-                    totalCampusChilledWaterDailyTotals.DailySum = entity.DailySum;
-                    totalCampusChilledWaterDailyTotals.DailyAverage = entity.DailyAverage;
-
-                    ctx.Entry(totalCampusChilledWaterDailyTotals).State = System.Data.Entity.EntityState.Modified;
-
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+       
 
         public Core.Models.ChilledWaterDailyTotals Get(DateTime dateTime)
         {

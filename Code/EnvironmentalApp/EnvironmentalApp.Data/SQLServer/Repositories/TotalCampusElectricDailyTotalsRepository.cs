@@ -8,28 +8,10 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class TotalCampusElectricDailyTotals:BaseRepository, Core.Data.SQLServer.IElectricRepository
+    public class TotalCampusElectricDailyTotalsRepository:BaseRepository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<ElectricDailyTotals,Electric>
     {
-        public int Create(Core.Models.ElectricDailyTotals entity)
-        {
-            try
-            {
-
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    ctx.TC_ELECTRICITY_SUM_BY_DAY.Add(entity);
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public int Create(List<Core.Models.ElectricDailyTotals> entityList)
+      
+        public int Create(List<Core.Models.Electric> entityList)
         {
             try
             {
@@ -51,37 +33,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             }
         }
         
-        public int Update(Core.Models.ElectricDailyTotals entity)
-        {
-            try
-            {
-                using (var ctx = new EnergyDataContext(ConnString))
-                {
-                    var totalCampusElectricDailyTotals = ctx.TC_ELECTRICITY_SUM_BY_DAY.FirstOrDefault(x => x.Id == entity.Id);
-                    if (totalCampusElectricDailyTotals == null)
-                    {
-                        throw new Exception("Record doesn't exist and cannot be updated");
-                    }
-                    totalCampusElectricDailyTotals.Id = entity.Id;
-                    totalCampusElectricDailyTotals.ReadingDateTime = entity.ReadingDateTime;
-                    totalCampusElectricDailyTotals.HighValue = entity.HighValue;
-                    totalCampusElectricDailyTotals.LowValue = entity.LowValue;
-                    totalCampusElectricDailyTotals.DailySum = entity.DailySum;
-                    totalCampusElectricDailyTotals.DailyAverage = entity.DailyAverage;
-
-                    ctx.Entry(totalCampusElectricDailyTotals).State = System.Data.Entity.EntityState.Modified;
-
-                    int result = ctx.SaveChanges();
-
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
+       
         public Core.Models.ElectricDailyTotals Get(DateTime dateTime)
         {
             var totalCampusElectricDailyTotals = new ElectricDailyTotals();

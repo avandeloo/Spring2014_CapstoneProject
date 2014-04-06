@@ -10,7 +10,7 @@ namespace EnvironmentalApp.Core.Data.SQLServer
     {
         int Create(List<E> listOfDailyValues);
         T Get(DateTime dateTime);
-        T Get(DateTime startDate, DateTime endTime);
+        List<T> Get(DateTime startDate, DateTime endTime);
 
     }
 }
