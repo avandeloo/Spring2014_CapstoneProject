@@ -12,3 +12,10 @@ C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Co
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\obj\Debug\EnvironmentalApp.Core.Tests.csprojResolveAssemblyReference.cache
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\obj\Debug\EnvironmentalApp.Core.Tests.dll
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\obj\Debug\EnvironmentalApp.Core.Tests.pdb
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\bin\Debug\EnvironmentalApp.Core.Tests.dll
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\bin\Debug\EnvironmentalApp.Core.Tests.pdb
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\bin\Debug\EnvironmentalApp.Core.dll
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\bin\Debug\EnvironmentalApp.Core.pdb
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\obj\Debug\EnvironmentalApp.Core.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\obj\Debug\EnvironmentalApp.Core.Tests.dll
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core.Tests\obj\Debug\EnvironmentalApp.Core.Tests.pdb

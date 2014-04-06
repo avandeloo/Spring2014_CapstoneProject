@@ -11,7 +11,6 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
     public class AirTempRepository : BaseRepository, Core.Data.SQLServer.IAirTempRepository
     {
 
-
         public AirTemp Get(DateTime dateTime)
         {
             var airTemp = new AirTemp();
@@ -68,7 +67,34 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
 
         public int Update(AirTemp entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var ctx = new EnergyDataContext(ConnString))
+                {
+                    var airTemp = ctx.OUTSIDE_AIR_TEMP.FirstOrDefault(x => x.Id == entity.Id);
+                    if (airTemp == null)
+                    {
+                        throw new Exception("Record doesn't exist and cannot be updated");
+                    }
+                    airTemp.Id = entity.Id;
+                    airTemp.Reading = entity.Reading;
+                    airTemp.ReadingDateTime = entity.ReadingDateTime;
+                    airTemp.Status = entity.Status;
+                    airTemp.TimeStamp = entity.TimeStamp;
+                    airTemp.TimeStep = entity.TimeStep;
+
+                    ctx.Entry(airTemp).State = System.Data.Entity.EntityState.Modified;
+
+                    int result = ctx.SaveChanges();
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }
