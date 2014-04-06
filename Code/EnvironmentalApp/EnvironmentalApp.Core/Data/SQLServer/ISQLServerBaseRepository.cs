@@ -15,8 +15,7 @@ namespace EnvironmentalApp.Core.Data.SQLServer
         T Get(DateTime dateTime);
         List<T> Get(DateTime startTime, DateTime endTime);
     
-        //daily totals
-       // int CreateDailyTotal(List<T> entity,)
+       
     
     }
 }

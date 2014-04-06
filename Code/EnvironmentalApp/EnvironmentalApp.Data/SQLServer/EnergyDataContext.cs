@@ -18,7 +18,9 @@ namespace EnvironmentalApp.Data.SQLServer
         }
 
         public DbSet<AirTemp> OUTSIDE_AIR_TEMP { get; set; }
+        public DbSet<AirTempDailyTotals> AIR_TEMP_SUM_BY_DAY { get; set; }
         public DbSet<Humidity> OUTSIDE_HUMIDITY { get; set; }
+        public DbSet<HumidityDailyTotals> HUMIDITY_SUM_BY_DAY { get; set; }
         public DbSet<ChilledWater> PBB_CHILLED_WATER { get; set; }
         public DbSet<ChilledWaterDailyTotals> PBB_CHILLED_WATER_SUM_BY_DAY { get; set; }
         public DbSet<Electric> PBB_ELECTRIC { get; set; }
@@ -41,7 +43,9 @@ namespace EnvironmentalApp.Data.SQLServer
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new AIR_TEMP_SUM_BY_DAYMap());
             modelBuilder.Configurations.Add(new OUTSIDE_AIR_TEMPMap());
+            modelBuilder.Configurations.Add(new HUMIDITY_SUM_BY_DAYMap());
             modelBuilder.Configurations.Add(new OUTSIDE_HUMIDITYMap());
             modelBuilder.Configurations.Add(new PBB_CHILLED_WATERMap());
             modelBuilder.Configurations.Add(new PBB_CHILLED_WATER_SUM_BY_DAYMap());

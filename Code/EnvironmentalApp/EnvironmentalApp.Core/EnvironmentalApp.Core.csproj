@@ -50,6 +50,7 @@
     <Compile Include="Data\PiServer\IWindRepository.cs" />
     <Compile Include="Data\SQLServer\IAirTempRepository.cs" />
     <Compile Include="Data\SQLServer\ISQLServerBaseRepository.cs" />
+    <Compile Include="Data\SQLServer\ISQLServerBase_DailySumRepository.cs" />
     <Compile Include="EnumerationHelper.cs" />
     <Compile Include="Models\AirTemp.cs" />
     <Compile Include="Models\AirTempDailyTotals.cs" />

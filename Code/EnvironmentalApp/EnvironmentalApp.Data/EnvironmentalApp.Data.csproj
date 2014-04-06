@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="SQLServer\EnergyDataContext.cs" />
+    <Compile Include="SQLServer\Mapping\AIR_TEMP_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\HUMIDITY_SUM_BY_DAYMap.cs" />
     <Compile Include="SQLServer\Mapping\OUTSIDE_AIR_TEMPMap.cs" />
     <Compile Include="SQLServer\Mapping\OUTSIDE_HUMIDITYMap.cs" />
     <Compile Include="SQLServer\Mapping\PBB_CHILLED_WATERMap.cs" />
