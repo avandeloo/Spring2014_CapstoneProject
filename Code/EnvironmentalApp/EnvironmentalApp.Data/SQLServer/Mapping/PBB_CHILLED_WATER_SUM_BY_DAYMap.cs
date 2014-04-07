@@ -4,7 +4,7 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Data.SQLServer.Mapping
 {
-    public class PBB_CHILLED_WATER_SUM_BY_DAYMap : EntityTypeConfiguration<ChilledWater>
+    public class PBB_CHILLED_WATER_SUM_BY_DAYMap : EntityTypeConfiguration<ChilledWaterDailyTotals>
     {
         public PBB_CHILLED_WATER_SUM_BY_DAYMap()
         {
@@ -15,11 +15,11 @@ namespace EnvironmentalApp.Data.SQLServer.Mapping
             // Table & Column Mappings
             this.ToTable("PBB_CHILLED_WATER_SUM_BY_DAY");
             this.Property(t => t.Id).HasColumnName("PBBChilledWaterSumByDayID");
-            this.Property(t => t.Reading).HasColumnName("Reading");
-            this.Property(t => t.TimeStamp).HasColumnName("TimeStamp");
             this.Property(t => t.ReadingDateTime).HasColumnName("ReadingDateTime");
-            this.Property(t => t.TimeStep).HasColumnName("TimeStep");
-            this.Property(t => t.Status).HasColumnName("Status");
+            this.Property(t => t.DailySum).HasColumnName("DailySum");
+            this.Property(t => t.DailyAverage).HasColumnName("DailyAverage");
+            this.Property(t => t.HighValue).HasColumnName("HighValue");
+            this.Property(t => t.LowValue).HasColumnName("LowValue");
         }
     }
 }

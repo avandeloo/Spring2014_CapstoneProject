@@ -3,7 +3,7 @@ using System.Data.Entity.Infrastructure;
 using EnvironmentalApp.Data.SQLServer.Mapping;
 using EnvironmentalApp.Core.Models;
 
-namespace EnvironmentalApp.Data.Models
+namespace EnvironmentalApp.Data.SQLServer
 {
     public partial class EnergyDataContext : DbContext
     {
@@ -20,21 +20,21 @@ namespace EnvironmentalApp.Data.Models
         public DbSet<AirTemp> OUTSIDE_AIR_TEMP { get; set; }
         public DbSet<Humidity> OUTSIDE_HUMIDITY { get; set; }
         public DbSet<ChilledWater> PBB_CHILLED_WATER { get; set; }
-        public DbSet<ChilledWater> PBB_CHILLED_WATER_SUM_BY_DAY { get; set; }
+        public DbSet<ChilledWaterDailyTotals> PBB_CHILLED_WATER_SUM_BY_DAY { get; set; }
         public DbSet<Electric> PBB_ELECTRIC { get; set; }
-        public DbSet<Electric> PBB_ELECTRIC_SUM_BY_DAY { get; set; }
+        public DbSet<ElectricDailyTotals> PBB_ELECTRIC_SUM_BY_DAY { get; set; }
         public DbSet<Steam> PBB_STEAM { get; set; }
-        public DbSet<Steam> PBB_STEAM_SUM_BY_DAY { get; set; }
+        public DbSet<SteamDailyTotals> PBB_STEAM_SUM_BY_DAY { get; set; }
         public DbSet<Report> REPORTs { get; set; }
         public DbSet<Solar> SOLAR_BUS_BARN { get; set; }
-        public DbSet<Solar> SOLAR_BUS_BARN_SUM_BY_DAY { get; set; }
+        public DbSet<SolarDailyTotals> SOLAR_BUS_BARN_SUM_BY_DAY { get; set; }
         public DbSet<Solar> SOLAR_CAR_CHARGING { get; set; }
-        public DbSet<Solar> SOLAR_CAR_CHARGING_SUM_BY_DAY { get; set; }
+        public DbSet<SolarDailyTotals> SOLAR_CAR_CHARGING_SUM_BY_DAY { get; set; }
         public DbSet<SolarRadiation> SOLAR_RADIATION { get; set; }
-        public DbSet<SolarRadiation> SOLAR_RADIATION_SUM_BY_DAY { get; set; }
-        public DbSet<ChilledWater> TC_CHILLED_WATER_SUM_BY_DAY { get; set; }
-        public DbSet<Electric> TC_ELECTRICITY_SUM_BY_DAY { get; set; }
-        public DbSet<Steam> TC_STEAM_SUM_BY_DAY { get; set; }
+        public DbSet<SolarRadiationDailyTotals> SOLAR_RADIATION_SUM_BY_DAY { get; set; }
+        public DbSet<ChilledWaterDailyTotals> TC_CHILLED_WATER_SUM_BY_DAY { get; set; }
+        public DbSet<ElectricDailyTotals> TC_ELECTRICITY_SUM_BY_DAY { get; set; }
+        public DbSet<SteamDailyTotals> TC_STEAM_SUM_BY_DAY { get; set; }
         public DbSet<ChilledWater> TOTAL_CAMPUS_CHILLED_WATER { get; set; }
         public DbSet<Electric> TOTAL_CAMPUS_ELECTRICITY { get; set; }
         public DbSet<Steam> TOTAL_CAMPUS_STEAM { get; set; }
