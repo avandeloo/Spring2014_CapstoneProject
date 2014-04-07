@@ -70,27 +70,6 @@
     <Compile Include="SQLServer\Mapping\TOTAL_CAMPUS_CHILLED_WATERMap.cs" />
     <Compile Include="SQLServer\Mapping\TOTAL_CAMPUS_ELECTRICITYMap.cs" />
     <Compile Include="SQLServer\Mapping\TOTAL_CAMPUS_STEAMMap.cs" />
-    <Compile Include="Models\OUTSIDE_AIR_TEMP.cs" />
-    <Compile Include="Models\OUTSIDE_HUMIDITY.cs" />
-    <Compile Include="Models\PBB_CHILLED_WATER.cs" />
-    <Compile Include="Models\PBB_CHILLED_WATER_SUM_BY_DAY.cs" />
-    <Compile Include="Models\PBB_ELECTRIC.cs" />
-    <Compile Include="Models\PBB_ELECTRIC_SUM_BY_DAY.cs" />
-    <Compile Include="Models\PBB_STEAM.cs" />
-    <Compile Include="Models\PBB_STEAM_SUM_BY_DAY.cs" />
-    <Compile Include="Models\REPORT.cs" />
-    <Compile Include="Models\SOLAR_BUS_BARN.cs" />
-    <Compile Include="Models\SOLAR_BUS_BARN_SUM_BY_DAY.cs" />
-    <Compile Include="Models\SOLAR_CAR_CHARGING.cs" />
-    <Compile Include="Models\SOLAR_CAR_CHARGING_SUM_BY_DAY.cs" />
-    <Compile Include="Models\SOLAR_RADIATION.cs" />
-    <Compile Include="Models\SOLAR_RADIATION_SUM_BY_DAY.cs" />
-    <Compile Include="Models\TC_CHILLED_WATER_SUM_BY_DAY.cs" />
-    <Compile Include="Models\TC_ELECTRICITY_SUM_BY_DAY.cs" />
-    <Compile Include="Models\TC_STEAM_SUM_BY_DAY.cs" />
-    <Compile Include="Models\TOTAL_CAMPUS_CHILLED_WATER.cs" />
-    <Compile Include="Models\TOTAL_CAMPUS_ELECTRICITY.cs" />
-    <Compile Include="Models\TOTAL_CAMPUS_STEAM.cs" />
     <Compile Include="PiServer\AirTempRepository.cs" />
     <Compile Include="PiServer\ChilledWaterRepository.cs" />
     <Compile Include="PiServer\ElectricRepository.cs" />
@@ -100,9 +79,10 @@
     <Compile Include="PiServer\SolarRepository.cs" />
     <Compile Include="PiServer\SteamRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLServer\Repositories\AirTempRepository.cs" />
+    <Compile Include="SQLServer\Repositories\BaseRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="Data.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

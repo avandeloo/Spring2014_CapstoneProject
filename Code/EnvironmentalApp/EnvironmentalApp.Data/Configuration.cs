@@ -36,7 +36,8 @@ namespace EnvironmentalApp.Data
 
         public string GetSqlServerConnectionString()
         {
-            throw new NotImplementedException();
+            var connString = System.Configuration.ConfigurationManager.ConnectionStrings["EnergyDataContext"].ConnectionString;
+            return connString;
         }
     }
 }

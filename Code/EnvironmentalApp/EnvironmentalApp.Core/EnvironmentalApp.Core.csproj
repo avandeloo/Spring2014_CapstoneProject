@@ -48,12 +48,15 @@
     <Compile Include="Data\PiServer\ISolarRepository.cs" />
     <Compile Include="Data\PiServer\ISteamRepository.cs" />
     <Compile Include="Data\PiServer\IWindRepository.cs" />
+    <Compile Include="Data\SQLServer\IAirTempRepository.cs" />
+    <Compile Include="Data\SQLServer\ISQLServerBaseRepository.cs" />
     <Compile Include="EnumerationHelper.cs" />
     <Compile Include="Models\AirTemp.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\ChilledWater.cs" />
     <Compile Include="Models\Electric.cs" />
     <Compile Include="Models\Humidity.cs" />
+    <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Solar.cs" />
     <Compile Include="Models\SolarRadiation.cs" />
     <Compile Include="Models\Steam.cs" />
