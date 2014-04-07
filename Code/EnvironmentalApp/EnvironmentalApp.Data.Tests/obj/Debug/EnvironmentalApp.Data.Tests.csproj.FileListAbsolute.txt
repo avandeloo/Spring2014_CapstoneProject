@@ -20,3 +20,16 @@ C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\Enviro
 C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.dll
 C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.pdb
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.csprojResolveAssemblyReference.cache
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\Data.config
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EnvironmentalApp.Data.Tests.dll.config
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EnvironmentalApp.Data.Tests.dll
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EnvironmentalApp.Data.Tests.pdb
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EnvironmentalApp.Core.dll
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EnvironmentalApp.Data.dll
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EntityFramework.dll
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EnvironmentalApp.Core.pdb
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EnvironmentalApp.Data.pdb
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EntityFramework.xml
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.dll
+C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.pdb

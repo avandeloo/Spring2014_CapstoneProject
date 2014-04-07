@@ -12,8 +12,8 @@ namespace EnvironmentalApp.Data.Models
             Database.SetInitializer<EnergyDataContext>(null);
         }
 
-        public EnergyDataContext()
-            : base("Name=EnergyDataContext")
+        public EnergyDataContext(string connString)
+            : base(connString)
         {
         }
 

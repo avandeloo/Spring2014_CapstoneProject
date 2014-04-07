@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{BAFE9142-F378-43E9-937F-CEB7D1A3D100}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentalApp.Core", "EnvironmentalApp.Core\EnvironmentalApp.Core.csproj", "{91CA13F9-79BE-47FF-A25C-67E73E28D642}"
@@ -18,8 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentalApp.Core.Tests", "EnvironmentalApp.Core.Tests\EnvironmentalApp.Core.Tests.csproj", "{05EE6E81-A292-4AFC-A877-B1EC74D15267}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentalApp.Gui", "EnvironmentalApp.Gui\EnvironmentalApp.Gui.csproj", "{268B400D-FC61-42A0-B738-E11A313B8388}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentalApp.Gui.WebForm", "EnvironmentalApp.Gui.WebForm\EnvironmentalApp.Gui.WebForm.csproj", "{701CB1D0-92AA-4554-B969-310C74F73453}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +49,6 @@ Global
 		{268B400D-FC61-42A0-B738-E11A313B8388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{268B400D-FC61-42A0-B738-E11A313B8388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{268B400D-FC61-42A0-B738-E11A313B8388}.Release|Any CPU.Build.0 = Release|Any CPU
-		{701CB1D0-92AA-4554-B969-310C74F73453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{701CB1D0-92AA-4554-B969-310C74F73453}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{701CB1D0-92AA-4554-B969-310C74F73453}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{701CB1D0-92AA-4554-B969-310C74F73453}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,7 +58,6 @@ Global
 		{9840891B-180B-413F-B7DA-831294D92A60} = {BAFE9142-F378-43E9-937F-CEB7D1A3D100}
 		{D2B9E60D-90EA-421C-9F2D-57B8B146B338} = {BAFE9142-F378-43E9-937F-CEB7D1A3D100}
 		{268B400D-FC61-42A0-B738-E11A313B8388} = {98FF0C8C-06E5-4C1F-89A5-6070633072DE}
-		{701CB1D0-92AA-4554-B969-310C74F73453} = {98FF0C8C-06E5-4C1F-89A5-6070633072DE}
 		{890123BE-C393-4C49-9750-E6952CADB956} = {01D4CA5F-2A33-4740-97F8-E70DC5D5E2EB}
 		{05EE6E81-A292-4AFC-A877-B1EC74D15267} = {01D4CA5F-2A33-4740-97F8-E70DC5D5E2EB}
 	EndGlobalSection
