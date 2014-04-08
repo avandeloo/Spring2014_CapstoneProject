@@ -6,3 +6,4 @@ C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Co
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\bin\Debug\EnvironmentalApp.Core.pdb
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\obj\Debug\EnvironmentalApp.Core.dll
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\obj\Debug\EnvironmentalApp.Core.pdb
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\obj\Debug\EnvironmentalApp.Core.csprojResolveAssemblyReference.cache

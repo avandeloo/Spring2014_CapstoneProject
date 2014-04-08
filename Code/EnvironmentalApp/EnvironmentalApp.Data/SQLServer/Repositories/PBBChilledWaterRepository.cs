@@ -37,6 +37,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
                     var chilledWaterList = new List<ChilledWater>();
+                    
                     for (int i = 0; i < chilledWaterList.Count; i++)
                     {
                         ctx.PBB_CHILLED_WATER.Add(chilledWaterList[i]);

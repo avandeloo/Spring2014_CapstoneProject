@@ -10,19 +10,65 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
     public class PBBElectricDailyTotalsRepository:BaseRepository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<ElectricDailyTotals,Electric>
     {
-       
+        public static decimal sum = 0;
+        public static decimal average = 0;
+        public static decimal max = 0;
+        public static decimal min;
+        public static int count = 0;
+
         public int Create(List<Core.Models.Electric> entityList)
         {
+         
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
                     var pbbElectricDailyTotalsList = new List<ElectricDailyTotals>();
+
+                    var entityValues = entityList.Select(x => new
+                                                {
+                                                    date = x.ReadingDateTime,
+                                                    value = Convert.ToDecimal(x.Reading),
+                                                    
+                                                });
+                    
+                    foreach (var item in entityValues)
+                    {
+                        var e = entityValues.First();
+                        min = e.value;
+                        break;
+                    }
+                    
+                    foreach (var item in entityValues)
+                    {
+                        sum += item.value;
+                        count += 1;
+                        if (item.value > max)
+                        {
+                            max = item.value;
+                        }
+                        if (item.value < min)
+                        {
+                            min = item.value;
+                        }
+                    }
+                    average = sum / count;
+
+                    pbbElectricDailyTotalsList.AsEnumerable().Select(b => new AirTempDailyTotals
+                    {
+                        Id = Guid.NewGuid(),
+                        ReadingDateTime = DateTime.Now,
+                        DailySum = sum,
+                        DailyAverage = average,
+                        HighValue = max,
+                        LowValue = min
+                    }).ToList();
+
                     for (int i = 0; i < pbbElectricDailyTotalsList.Count; i++)
                     {
                         ctx.PBB_ELECTRIC_SUM_BY_DAY.Add(pbbElectricDailyTotalsList[i]);
-                        
                     }
+
                     int result = ctx.SaveChanges();
                     return result;
                 }

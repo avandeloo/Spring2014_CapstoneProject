@@ -17,9 +17,9 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    var airTempTotals = new AirTempDailyTotals();
-
-                    var entityTotals = entityList.GroupBy(g => g.ReadingDateTime)
+                    var airTempTotals = new List<AirTempDailyTotals>();
+                    
+                    var entityTotals = entityList.GroupBy(g => g.ReadingDateTime.Date)
                                                 .Select(x => new
                                                 {
                                                     id = Guid.NewGuid(),
@@ -29,8 +29,21 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                                                     max = x.Max(y => Convert.ToDecimal(y.Reading)),
                                                     min = x.Min(y => Convert.ToDecimal(y.Reading))
                                                 });
-
                     
+                    airTempTotals = entityTotals.AsEnumerable().Select(b => new AirTempDailyTotals
+                    {
+                        Id = b.id,
+                        ReadingDateTime = DateTime.Now,
+                        DailySum = b.sum,
+                        DailyAverage = b.avg,
+                        HighValue = b.max,
+                        LowValue = b.min
+                    }).ToList();
+
+                    for (int i = 0; i < airTempTotals.Count; i++)
+                    {
+                        ctx.AIR_TEMP_SUM_BY_DAY.Add(airTempTotals[i]);
+                    }
 
                     int result = ctx.SaveChanges();
                     return result;
@@ -42,7 +55,6 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             }
         }
         
-       
         public Core.Models.AirTempDailyTotals Get(DateTime dateTime)
         {
             var totals = new AirTempDailyTotals();

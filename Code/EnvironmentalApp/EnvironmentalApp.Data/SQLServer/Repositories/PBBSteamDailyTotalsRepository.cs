@@ -10,19 +10,41 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
     public class PBBSteamDailyTotalsRepository:BaseRepository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SteamDailyTotals,Steam>
     {
-       
+
         public int Create(List<Core.Models.Steam> entityList)
         {
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    var pbbSteamDailyTotalsList = new List<SteamDailyTotals>();
-                    for (int i = 0; i < pbbSteamDailyTotalsList.Count; i++)
+                    var SteamTotals = new List<SteamDailyTotals>();
+
+                    var entityTotals = entityList.GroupBy(g => g.ReadingDateTime.Date)
+                                                .Select(x => new
+                                                {
+                                                    id = Guid.NewGuid(),
+                                                    date = x.Select(y => y.ReadingDateTime),
+                                                    sum = x.Sum(y => Convert.ToDecimal(y.Reading)),
+                                                    avg = x.Average(y => Convert.ToDecimal(y.Reading)),
+                                                    max = x.Max(y => Convert.ToDecimal(y.Reading)),
+                                                    min = x.Min(y => Convert.ToDecimal(y.Reading))
+                                                });
+
+                    SteamTotals = entityTotals.AsEnumerable().Select(b => new SteamDailyTotals
                     {
-                        ctx.PBB_STEAM_SUM_BY_DAY.Add(pbbSteamDailyTotalsList[i]);
-                        
+                        Id = b.id,
+                        ReadingDateTime = DateTime.Now,
+                        DailySum = b.sum,
+                        DailyAverage = b.avg,
+                        HighValue = b.max,
+                        LowValue = b.min
+                    }).ToList();
+
+                    for (int i = 0; i < SteamTotals.Count; i++)
+                    {
+                        ctx.PBB_STEAM_SUM_BY_DAY.Add(SteamTotals[i]);
                     }
+
                     int result = ctx.SaveChanges();
                     return result;
                 }
@@ -32,6 +54,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                 throw ex;
             }
         }
+        
         
        
         public Core.Models.SteamDailyTotals Get(DateTime dateTime)
