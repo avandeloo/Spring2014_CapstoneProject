@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title=""  description="">
+
+    <siteMapNode url="" title="Chilled Water"  description="" />
+
+    <siteMapNode url="" title="Electric"  description="" />
+
+    <siteMapNode url="" title="Steam"  description="" />
+
+    <siteMapNode url="" title="Wind"  description="" />
+
+    <siteMapNode url="" title="Solar"  description="" />
+
+    <siteMapNode url="" title="Solar Radiation"  description="" />
+
+    <siteMapNode url="" title="Humidity"  description="" />
+
+    <siteMapNode url="" title="Air Temp"  description="" />
+
+    <siteMapNode url="" title="??Report??"  description="" />
+
+  </siteMapNode>
+</siteMap>

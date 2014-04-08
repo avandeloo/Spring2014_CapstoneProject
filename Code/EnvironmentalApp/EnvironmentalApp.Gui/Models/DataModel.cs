@@ -5,7 +5,7 @@ using System.Web;
 
 namespace EnvironmentalApp.Gui.Models
 {
-    public class ChilledWaterModel
+    public class DataModel
     {
         //public string Label { get; set; }
         //public decimal[] Series { get; set; }
@@ -17,6 +17,6 @@ namespace EnvironmentalApp.Gui.Models
     {
         public int Id { get;set; }
         public string LineName { get; set; }
-        public List<ChilledWaterModel> chilledWaterData { get; set; }
+        public List<DataModel> dataListData { get; set; }
     }
 }

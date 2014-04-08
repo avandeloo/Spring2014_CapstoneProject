@@ -1,5 +1,5 @@
 ﻿@model List<EnvironmentalApp.Gui.Models.DataList>
-<html>
+@*using (Html.BeginForm("Index2", "HomeController", new { id = "AirTemp" }, FormMethod.Post))*@
 
 <head>
     <title>BAIS Capstone</title>
@@ -18,7 +18,6 @@
 </head>
 
 
-<body>
     <script type="text/javascript">
 
         //attempt two
@@ -27,7 +26,7 @@
                 @foreach (var m in Model)
                 { 
              <text> var line</text>@m.Id<text> = [];</text>
-                    foreach (var l in m.chilledWaterData)
+                    foreach (var l in m.dataListData)
                     { 
                 <text>line</text>@m.Id<text>.push(["@l.Date.ToString("MM/dd/yyyy hh:mm:ss tt")", @l.Value]);</text>
                     }
@@ -38,17 +37,17 @@
 
             var plot=    $.jqplot('chartdiv', line, {
                     seriesDefaults: {
-                        renderer: $.jqplot.BarRenderer,
+                        renderer: $.jqplot.trendline,
                         rendererOptions: { fillToZero: true }
                     },
                     axes: {
                         xaxis: {
-                            tickrenderer: $.jqplot.CanvasAxisTickRenderer,
+                            tickRenderer: $.jqplot.CanvasAxisTickRenderer,
                             renderer: $.jqplot.DateAxisRenderer,
                             label: 'Date',
-                            tickoptions: {
-                                angle: -15,
-                                formatstring: '%m/%d/%y\n %p'
+                            tickOptions: {
+                                angle: -40,
+                                formatString: '%m/%d/%y %R'
                             }
                         },
                         yaxis: {
@@ -100,11 +99,7 @@
     </script>
 
     <div id="pageContainer">
-        <div id="header">
-            <div id="logo">
-                <img src="@Url.Content("~/Images/EnviroHawk2.png")" alt="EnviroHawk2" />
-            </div>
-        </div>
+
 
         @*      <div id="mainContent">
             <div id="leftColumn">
@@ -118,15 +113,11 @@
             </div>
 
         </div>*@
-        <h2>chart test</h2>
+
+        @{var pageTitle = Request.QueryString["data"];}
+
+        <h3>@pageTitle</h3>
         <div id="chartdiv" >
         </div>
 
-        <div id="footer"></div>
-
     </div>
-
-
-</body>
-
-</html>
