@@ -93,9 +93,16 @@ h5, h6 {
 
 /* main layout
 ----------------------------------------------------------*/
-.content-wrapper {
+.header-wrapper {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 1000px;
+    height:175px;
+}
+
+.header-wrapper {
+    margin: 0 auto;
+    max-width: 1000px;
+    overflow:auto;
 }
 
 #body {

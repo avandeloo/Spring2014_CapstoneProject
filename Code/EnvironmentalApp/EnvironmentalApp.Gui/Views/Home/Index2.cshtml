@@ -1,5 +1,4 @@
 ﻿@model List<EnvironmentalApp.Gui.Models.DataList>
-<html>
 
 <head>
     <title>BAIS Capstone</title>
@@ -18,7 +17,6 @@
 </head>
 
 
-<body>
     <script type="text/javascript">
 
         //attempt two
@@ -38,17 +36,17 @@
 
             var plot=    $.jqplot('chartdiv', line, {
                     seriesDefaults: {
-                        renderer: $.jqplot.BarRenderer,
+                        renderer: $.jqplot.trendline,
                         rendererOptions: { fillToZero: true }
                     },
                     axes: {
                         xaxis: {
-                            tickrenderer: $.jqplot.CanvasAxisTickRenderer,
+                            tickRenderer: $.jqplot.CanvasAxisTickRenderer,
                             renderer: $.jqplot.DateAxisRenderer,
                             label: 'Date',
-                            tickoptions: {
-                                angle: -15,
-                                formatstring: '%m/%d/%y\n %p'
+                            tickOptions: {
+                                angle: -40,
+                                formatString: '%m/%d/%y %R'
                             }
                         },
                         yaxis: {
@@ -100,11 +98,7 @@
     </script>
 
     <div id="pageContainer">
-        <div id="header">
-            <div id="logo">
-                <img src="@Url.Content("~/Images/EnviroHawk2.png")" alt="EnviroHawk2" />
-            </div>
-        </div>
+
 
         @*      <div id="mainContent">
             <div id="leftColumn">
@@ -125,8 +119,3 @@
         <div id="footer"></div>
 
     </div>
-
-
-</body>
-
-</html>
