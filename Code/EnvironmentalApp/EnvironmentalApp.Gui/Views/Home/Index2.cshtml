@@ -1,4 +1,5 @@
 ﻿@model List<EnvironmentalApp.Gui.Models.DataList>
+@*using (Html.BeginForm("Index2", "HomeController", new { id = "AirTemp" }, FormMethod.Post))*@
 
 <head>
     <title>BAIS Capstone</title>
@@ -25,7 +26,7 @@
                 @foreach (var m in Model)
                 { 
              <text> var line</text>@m.Id<text> = [];</text>
-                    foreach (var l in m.chilledWaterData)
+                    foreach (var l in m.dataListData)
                     { 
                 <text>line</text>@m.Id<text>.push(["@l.Date.ToString("MM/dd/yyyy hh:mm:ss tt")", @l.Value]);</text>
                     }
@@ -112,10 +113,11 @@
             </div>
 
         </div>*@
-        <h2>chart test</h2>
+
+        @{var pageTitle = Request.QueryString["data"];}
+
+        <h3>@pageTitle</h3>
         <div id="chartdiv" >
         </div>
-
-        <div id="footer"></div>
 
     </div>

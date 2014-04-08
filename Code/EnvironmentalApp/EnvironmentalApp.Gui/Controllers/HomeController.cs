@@ -17,21 +17,47 @@ namespace EnvironmentalApp.Gui.Controllers
 
             return View();
         }
-        public ActionResult Index2()
+        public ActionResult Index2(string id)
         {
             var dataList = new List<Models.DataList>();
             var dataModel = new Models.DataList();
-             Pi_ChilledWaterService cws = new Pi_ChilledWaterService();
+
+            switch (id) {
+                case "AirTemp":
+                    getData_AirTemp(dataList, dataModel);
+                    break;
+                case "ChilledWater":
+                    getData_ChilledWater(dataList, dataModel);
+                    break;
+            }
+  
+            return View(dataList);
+        }
+
+        private static void getData_AirTemp(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_AirTempService artmp = new Pi_AirTempService();
+
+            var airTemp = artmp.Get_AirTemp_ByDateRange(AirTempSource.OutsideTemp, "-2d", "today");
+            dataModel.LineName = "AirTemp";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < airTemp.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = airTemp[i].ReadingDateTime, Value = Double.Parse(airTemp[i].Reading) });
+            dataList.Add(dataModel);
+        }
+
+        private static void getData_ChilledWater(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_ChilledWaterService cws = new Pi_ChilledWaterService();
 
             var chilledWater = cws.Get_ChilledWater_ByTime(ChilledWaterSources.PBB_ChilledWater, "-2d", "today");
             dataModel.LineName = "ChilledWater";
             dataModel.Id = 1;
-            dataModel.chilledWaterData = new List<Models.ChilledWaterModel>();
+            dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < chilledWater.Count; i++)
-                dataModel.chilledWaterData.Add(new Models.ChilledWaterModel() { Date = chilledWater[i].ReadingDateTime, Value = Double.Parse(chilledWater[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = chilledWater[i].ReadingDateTime, Value = Double.Parse(chilledWater[i].Reading) });
             dataList.Add(dataModel);
-
-                return View(dataList);
         }
 
         //public ActionResult GetJsonResults()
