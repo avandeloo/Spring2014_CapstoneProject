@@ -10,7 +10,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Humidity_CanGetToday()
         {
-            var humidityRepo = new Data.PiServer.HumidityRepository();
+            var humidityRepo = new Data.PiServer.Humidity_PI_Repository();
             var result = humidityRepo.GetToday(HumiditySources.Campus_Total);
 
             Assert.IsNotNull(result, "Object is null");
@@ -20,7 +20,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Humidity_CanGetByTime()
         {
-            var humidityRepo = new Data.PiServer.HumidityRepository();
+            var humidityRepo = new Data.PiServer.Humidity_PI_Repository();
             var result = humidityRepo.GetByTime(HumiditySources.Campus_Total,"yesterday");
 
             Assert.IsNotNull(result, "Object is null");
@@ -29,7 +29,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Humidity_CanGetByTimeRange()
         {
-            var humidityRepo = new Data.PiServer.HumidityRepository();
+            var humidityRepo = new Data.PiServer.Humidity_PI_Repository();
             var result = humidityRepo.GetByTime(HumiditySources.Campus_Total,"-2d", "today");
 
             Assert.IsNotNull(result, "Object is null");

@@ -29,7 +29,7 @@ namespace EnvironmentalApp.Data.Tests.SqlServer
             [TestMethod]
             public void IndexGetsAllRecords()
             {
-                var fakeSteamRepo = new PBBSteamRepository();
+                var fakeSteamRepo = new Steam_SQL_Repository();
                 Assert.AreEqual(3, steamList.Count);
 
                 var result = fakeSteamRepo.Create(steamList);

@@ -4,7 +4,7 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Data.SQLServer.Mapping
 {
-    public class TOTAL_CAMPUS_STEAMMap : EntityTypeConfiguration<Steam>
+    public class TOTAL_CAMPUS_STEAMMap : EntityTypeConfiguration<Steam_Campus>
     {
         public TOTAL_CAMPUS_STEAMMap()
         {

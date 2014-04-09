@@ -4,7 +4,7 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Data.SQLServer.Mapping
 {
-    public class TC_STEAM_SUM_BY_DAYMap : EntityTypeConfiguration<Core.Models.SteamDailyTotals>
+    public class TC_STEAM_SUM_BY_DAYMap : EntityTypeConfiguration<Core.Models.SteamDailyTotals_Campus>
     {
         public TC_STEAM_SUM_BY_DAYMap()
         {

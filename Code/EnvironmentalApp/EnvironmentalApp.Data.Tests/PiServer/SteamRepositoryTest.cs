@@ -11,7 +11,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Steam_PBB_CanGetToday()
         {
-            var steamRepo = new Data.PiServer.SteamRepository();
+            var steamRepo = new Data.PiServer.Steam_PI_Repository();
             var result = steamRepo.GetToday(SteamSources.PBB_Steam);
 
             Assert.IsNotNull(result, "Object is null");
@@ -21,7 +21,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Steam_PBB_CanGetByTime()
         {
-            var steamRepo = new Data.PiServer.SteamRepository();
+            var steamRepo = new Data.PiServer.Steam_PI_Repository();
             var result = steamRepo.GetByTime(SteamSources.PBB_Steam,"yesterday");
 
             Assert.IsNotNull(result, "Object is null");
@@ -30,7 +30,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Steam_PBB_CanGetByTimeRange()
         {
-            var steamRepo = new Data.PiServer.SteamRepository();
+            var steamRepo = new Data.PiServer.Steam_PI_Repository();
             var result = steamRepo.GetByTime(SteamSources.PBB_Steam,"-2d", "today");
 
             Assert.IsNotNull(result, "Object is null");
@@ -40,7 +40,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Steam_CampusTotal_CanGetToday()
         {
-            var steamRepo = new Data.PiServer.SteamRepository();
+            var steamRepo = new Data.PiServer.Steam_PI_Repository();
             var result = steamRepo.GetToday(SteamSources.Campus_Total);
 
             Assert.IsNotNull(result, "Object is null");
@@ -50,7 +50,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Steam_CampusTotal_CanGetByTime()
         {
-            var steamRepo = new Data.PiServer.SteamRepository();
+            var steamRepo = new Data.PiServer.Steam_PI_Repository();
             var result = steamRepo.GetByTime(SteamSources.Campus_Total, "yesterday");
 
             Assert.IsNotNull(result, "Object is null");
@@ -59,7 +59,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Steam_CampusTotal_CanGetByTimeRange()
         {
-            var steamRepo = new Data.PiServer.SteamRepository();
+            var steamRepo = new Data.PiServer.Steam_PI_Repository();
             var result = steamRepo.GetByTime(SteamSources.Campus_Total, "-2d", "today");
 
             Assert.IsNotNull(result, "Object is null");

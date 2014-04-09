@@ -4,7 +4,7 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Data.SQLServer.Mapping
 {
-    public class PBB_CHILLED_WATER_SUM_BY_DAYMap : EntityTypeConfiguration<ChilledWaterDailyTotals>
+    public class PBB_CHILLED_WATER_SUM_BY_DAYMap : EntityTypeConfiguration<CW_DailyTotals>
     {
         public PBB_CHILLED_WATER_SUM_BY_DAYMap()
         {
