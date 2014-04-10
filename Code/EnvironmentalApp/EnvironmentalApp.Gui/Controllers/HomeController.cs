@@ -29,6 +29,31 @@ namespace EnvironmentalApp.Gui.Controllers
                 case "ChilledWater":
                     getData_ChilledWater(dataList, dataModel);
                     break;
+                case "Electric":
+                    getData_Electric(dataList, dataModel);
+                    break;
+                case "Humidity":
+                    getData_Humidity(dataList, dataModel);
+                    break;
+                case "SolarRadiation":
+                    getData_SolarRadiation(dataList, dataModel);
+                    break;
+
+                case "SolarBusBarn":
+                    getData_SolarServiceBusBarn(dataList, dataModel);
+                    break;
+
+                case "SolarCarPort":
+                    getData_SolarServiceCarPort(dataList, dataModel);
+                    break;
+
+                case "SteamPBB":
+                    getData_SteamPBB(dataList, dataModel);
+                    break;
+
+                case "SteamCampus":
+                    getData_SteamCampus(dataList, dataModel);
+                    break;
             }
   
             return View(dataList);
@@ -57,6 +82,97 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < chilledWater.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = chilledWater[i].ReadingDateTime, Value = Double.Parse(chilledWater[i].Reading) });
+            dataList.Add(dataModel);
+        }
+
+        private static void getData_Electric(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_ElectricService elec = new Pi_ElectricService();
+
+            var electric = elec.Get_Electric_ByTime(ElectricSources.PBB_Electric, "-2d", "today");
+            dataModel.LineName = "Electric";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < electric.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = electric[i].ReadingDateTime, Value = Double.Parse(electric[i].Reading) });
+            dataList.Add(dataModel);
+        }
+
+        private static void getData_Humidity(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_HumidityService hum = new Pi_HumidityService();
+
+            var humidity = hum.Get_Humidity_ByDateRange(HumiditySources.Campus_Total, "-2d", "today");
+            dataModel.LineName = "Humidity";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < humidity.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = humidity[i].ReadingDateTime, Value = Double.Parse(humidity[i].Reading) });
+            dataList.Add(dataModel);
+        }
+
+        private static void getData_SolarRadiation(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_SolarRadiationService solarr = new Pi_SolarRadiationService();
+
+            var solarrad = solarr.Get_SolarRadiation_ByDateRange(SolarRadiationSources.Campus_Total, "-2d", "today");
+            dataModel.LineName = "Solar Radiation";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < solarrad.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = solarrad[i].ReadingDateTime, Value = Double.Parse(solarrad[i].Reading) });
+            dataList.Add(dataModel);
+        }
+
+        private static void getData_SolarServiceBusBarn(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_SolarService sol = new Pi_SolarService();
+
+            var solar = sol.Get_Solar_ByDateRange(SolarSources.BusBarn, "-2d", "today");
+            dataModel.LineName = "Solar";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < solar.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = solar[i].ReadingDateTime, Value = Double.Parse(solar[i].Reading) });
+            dataList.Add(dataModel);
+        }
+
+        private static void getData_SolarServiceCarPort(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_SolarService sol = new Pi_SolarService();
+
+            var solar = sol.Get_Solar_ByDateRange(SolarSources.CarPort, "-2d", "today");
+            dataModel.LineName = "Solar";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < solar.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = solar[i].ReadingDateTime, Value = Double.Parse(solar[i].Reading) });
+            dataList.Add(dataModel);
+        }
+
+        private static void getData_SteamPBB(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_SteamService stPBB = new Pi_SteamService();
+
+            var steamPBB = stPBB.Get_Steam_ByDateRange(SteamSources.PBB_Steam, "-2d", "today");
+            dataModel.LineName = "Steam PBB";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < steamPBB.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = steamPBB[i].ReadingDateTime, Value = Double.Parse(steamPBB[i].Reading) });
+            dataList.Add(dataModel);
+        }
+
+        private static void getData_SteamCampus(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_SteamService stCampus = new Pi_SteamService();
+
+            var steamCampus = stCampus.Get_Steam_ByDateRange(SteamSources.PBB_Steam, "-2d", "today");
+            dataModel.LineName = "Steam Campus";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < steamCampus.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = steamCampus[i].ReadingDateTime, Value = Double.Parse(steamCampus[i].Reading) });
             dataList.Add(dataModel);
         }
 
