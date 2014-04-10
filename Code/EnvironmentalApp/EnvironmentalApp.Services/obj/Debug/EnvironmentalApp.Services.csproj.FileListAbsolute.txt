@@ -20,3 +20,17 @@ C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\Enviro
 C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.dll
 C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.pdb
 C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.csprojResolveAssemblyReference.cache
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\Data.config
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EnvironmentalApp.Services.dll
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EnvironmentalApp.Services.pdb
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EnvironmentalApp.Core.dll
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EnvironmentalApp.Data.dll
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.dll
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EnvironmentalApp.Core.pdb
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EnvironmentalApp.Data.pdb
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.xml
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.csprojResolveAssemblyReference.cache
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.dll
+C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.pdb
