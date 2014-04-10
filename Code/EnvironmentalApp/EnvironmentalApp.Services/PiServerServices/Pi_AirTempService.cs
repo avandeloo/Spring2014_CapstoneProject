@@ -10,11 +10,11 @@ namespace EnvironmentalApp.Services.PiServerServices
 {
     public class Pi_AirTempService
     {
-        IPiServerRepository<Core.Models.AirTemp,Core.PiServerTableTags.AirTempSource> airRepo =null;
+        AirTemp_PI_Repository airRepo = null;
 
         public Pi_AirTempService()
         {
-            airRepo = new AirTempRepository();
+            airRepo = new AirTemp_PI_Repository();
         }
         /// <summary>
         /// Get air temp by time defaults is today

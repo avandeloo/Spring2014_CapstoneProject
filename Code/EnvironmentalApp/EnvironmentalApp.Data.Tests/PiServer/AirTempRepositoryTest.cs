@@ -9,7 +9,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void AirTemp_CanGetToday()
         {
-            var airTempRepo = new Data.PiServer.AirTempRepository();
+            var airTempRepo = new Data.PiServer.AirTemp_PI_Repository();
             var result = airTempRepo.GetToday(AirTempSource.OutsideTemp);
 
             Assert.IsNotNull(result,"Object is null");
@@ -19,7 +19,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void AirTemp_CanGetByTime()
         {
-            var airTempRepo = new Data.PiServer.AirTempRepository();
+            var airTempRepo = new Data.PiServer.AirTemp_PI_Repository();
             var result = airTempRepo.GetByTime(AirTempSource.OutsideTemp,"yesterday");
 
             Assert.IsNotNull(result, "Object is null");
@@ -28,7 +28,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void AirTemp_CanGetTimeRange()
         {
-            var airTempRepo = new Data.PiServer.AirTempRepository();
+            var airTempRepo = new Data.PiServer.AirTemp_PI_Repository();
             var result = airTempRepo.GetByTime(AirTempSource.OutsideTemp,"-2d","today");
 
             Assert.IsNotNull(result, "Object is null");

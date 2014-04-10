@@ -4,7 +4,7 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Data.SQLServer.Mapping
 {
-    public class TOTAL_CAMPUS_CHILLED_WATERMap : EntityTypeConfiguration<ChilledWater>
+    public class TOTAL_CAMPUS_CHILLED_WATERMap : EntityTypeConfiguration<ChilledWater_Campus>
     {
         public TOTAL_CAMPUS_CHILLED_WATERMap()
         {

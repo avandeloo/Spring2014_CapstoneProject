@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface IWindRepository:IPiServerRepository<Core.Models.Wind,PiServerTableTags.WindSources>
+    public interface IWindRepository
     {
+        Core.Models.Wind GetToday(PiServerTableTags.WindSources value);
+        Core.Models.Wind GetByTime(PiServerTableTags.WindSources value, string time);
+        List<Core.Models.Wind> GetByTime(PiServerTableTags.WindSources value, string startDateTime, string endDateTime);
+   
     }
 }

@@ -10,7 +10,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void SolarRadiation_CampusTotal_CanGetToday()
         {
-            var solarRRepo = new Data.PiServer.SolarRadiationRepository();
+            var solarRRepo = new Data.PiServer.SolarRadiation_PI_Repository();
             var result = solarRRepo.GetToday(SolarRadiationSources.Campus_Total);
 
             Assert.IsNotNull(result, "Object is null");
@@ -20,7 +20,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void SolarRadiation_CampusTotal_CanGetByTime()
         {
-            var solarRRepo = new Data.PiServer.SolarRadiationRepository();
+            var solarRRepo = new Data.PiServer.SolarRadiation_PI_Repository();
             var result = solarRRepo.GetByTime(SolarRadiationSources.Campus_Total,"yesterday");
 
             Assert.IsNotNull(result, "Object is null");
@@ -29,7 +29,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void SolarRadiation_CampusTotal_CanGetByTimeRange()
         {
-            var solarRRepo = new Data.PiServer.SolarRadiationRepository();
+            var solarRRepo = new Data.PiServer.SolarRadiation_PI_Repository();
             var result = solarRRepo.GetByTime(SolarRadiationSources.Campus_Total,"-2d", "today");
 
             Assert.IsNotNull(result, "Object is null");

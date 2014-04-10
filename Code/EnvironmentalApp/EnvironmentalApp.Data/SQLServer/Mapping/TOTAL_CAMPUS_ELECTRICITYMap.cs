@@ -4,7 +4,7 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Data.SQLServer.Mapping
 {
-    public class TOTAL_CAMPUS_ELECTRICITYMap : EntityTypeConfiguration<Electric>
+    public class TOTAL_CAMPUS_ELECTRICITYMap : EntityTypeConfiguration<Electric_Campus>
     {
         public TOTAL_CAMPUS_ELECTRICITYMap()
         {

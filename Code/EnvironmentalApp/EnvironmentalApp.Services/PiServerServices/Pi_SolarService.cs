@@ -11,26 +11,28 @@ namespace EnvironmentalApp.Services.PiServerServices
 {
     public class Pi_SolarService
     {
-         IPiServerRepository<Core.Models.Solar, SolarSources> Repo = null;
+        ISolarRepository<Core.Models.Solar_CarCharger> Solar_CarCharger_Repo = null;
+        ISolarRepository<Core.Models.Solar_BusBarn> Solar_BusBarn_Repo = null;
         public Pi_SolarService()
         {
-            Repo = new SolarRepository();
+            Solar_CarCharger_Repo = new Solar_CarCharger_PI_Repository();
+            Solar_BusBarn_Repo = new Solar_BusBarn_PI_Repository();
         }
-        public Core.Models.Solar Get_Solar_ByTime(SolarSources source, string dateTime="today")
+        public Core.Models.Solar_CarCharger Get_Solar_ByTime(SolarSources source, string dateTime="today")
         {
-            var solar = new Core.Models.Solar();
+            var solar = new Core.Models.Solar_CarCharger();
             if (dateTime.ToLower() == "today")
             {
-                solar = Repo.GetToday(source);
+                solar = Solar_CarCharger_Repo.GetToday(source);
             }
             else {
-                solar = Repo.GetByTime(source, dateTime);
+                solar = Solar_CarCharger_Repo.GetByTime(source, dateTime);
             }
             return solar;
         }
-        public List<Core.Models.Solar> Get_Solar_ByDateRange(SolarSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.Solar_CarCharger> Get_Solar_ByDateRange(SolarSources source, string startDateTime, string endDateTime)
         {
-            return Repo.GetByTime(source, startDateTime, endDateTime);
+            return Solar_CarCharger_Repo.GetByTime(source, startDateTime, endDateTime);
         }
     }
 }

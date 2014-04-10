@@ -11,10 +11,10 @@ namespace EnvironmentalApp.Services.PiServerServices
 {
     public class Pi_HumidityService
     {
-        IPiServerRepository<Core.Models.Humidity, HumiditySources> humRepo = null;
+        Humidity_PI_Repository humRepo = null;
         public Pi_HumidityService()
         {
-            humRepo = new HumidityRepository();
+            humRepo = new Humidity_PI_Repository();
         }
         public Core.Models.Humidity Get_Humidity_ByTime(HumiditySources source, string dateTime="today")
         {

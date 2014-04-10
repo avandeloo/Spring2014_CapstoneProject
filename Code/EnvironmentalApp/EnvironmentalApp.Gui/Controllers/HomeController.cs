@@ -21,12 +21,12 @@ namespace EnvironmentalApp.Gui.Controllers
         {
             var dataList = new List<Models.DataList>();
             var dataModel = new Models.DataList();
-
-            switch (id) {
-                case "AirTemp":
+            if (id == null) { id = "AirTemp"; }
+            switch (id.ToLower()) {
+                case "airtemp":
                     getData_AirTemp(dataList, dataModel);
                     break;
-                case "ChilledWater":
+                case "chilledwater":
                     getData_ChilledWater(dataList, dataModel);
                     break;
                 case "Electric":

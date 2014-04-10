@@ -10,10 +10,12 @@ namespace EnvironmentalApp.Services.PiServerServices
 {
     public class Pi_ChilledWaterService
     {
-        IPiServerRepository<Core.Models.ChilledWater,ChilledWaterSources> chilledWaterRepo = null;
+        IChilledWaterRespository<Core.Models.ChilledWater> chilledWaterRepo = null;
+        IChilledWaterRespository<Core.Models.ChilledWater_Campus> chilledWater_Campus_Repo = null;
         public Pi_ChilledWaterService()
         {
-            chilledWaterRepo = new ChilledWaterRepository();
+            chilledWaterRepo = new ChilledWater_PI_Repository();
+            chilledWater_Campus_Repo = new ChilledWater_Campus_PI_Repository();
         }
         public Core.Models.ChilledWater Get_ChilledWater_ByTime(ChilledWaterSources source, string dateTime = "today")
         {

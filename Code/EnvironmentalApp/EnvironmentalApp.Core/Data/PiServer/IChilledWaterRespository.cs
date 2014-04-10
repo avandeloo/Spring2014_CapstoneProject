@@ -7,8 +7,11 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Core.Data.PiServer
 {
-    public interface IChilledWaterRespository 
+    public interface IChilledWaterRespository<T> 
     {
-      
+        T GetToday(PiServerTableTags.ChilledWaterSources value);
+        T GetByTime(PiServerTableTags.ChilledWaterSources value, string time);
+        List<T> GetByTime(PiServerTableTags.ChilledWaterSources value, string startDateTime, string endDateTime);
+  
     }
 }

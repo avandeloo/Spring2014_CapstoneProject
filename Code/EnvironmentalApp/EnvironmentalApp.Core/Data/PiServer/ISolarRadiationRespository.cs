@@ -8,5 +8,9 @@ namespace EnvironmentalApp.Core.Data.PiServer
 {
     public interface ISolarRadiationRespository
     {
+        Core.Models.SolarRadiation GetToday(PiServerTableTags.SolarRadiationSources value);
+        Core.Models.SolarRadiation GetByTime(PiServerTableTags.SolarRadiationSources value, string time);
+        List<Core.Models.SolarRadiation> GetByTime(PiServerTableTags.SolarRadiationSources value, string startDateTime, string endDateTime);
+   
     }
 }

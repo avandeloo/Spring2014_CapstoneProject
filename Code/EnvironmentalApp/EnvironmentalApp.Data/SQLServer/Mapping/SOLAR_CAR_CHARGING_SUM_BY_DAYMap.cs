@@ -4,7 +4,7 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Data.SQLServer.Mapping
 {
-    public class SOLAR_CAR_CHARGING_SUM_BY_DAYMap : EntityTypeConfiguration<SolarDailyTotals>
+    public class SOLAR_CAR_CHARGING_SUM_BY_DAYMap : EntityTypeConfiguration<SolarDailyTotals_CarCharger>
     {
         public SOLAR_CAR_CHARGING_SUM_BY_DAYMap()
         {

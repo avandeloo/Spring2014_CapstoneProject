@@ -11,10 +11,10 @@ namespace EnvironmentalApp.Services.PiServerServices
 {
     public class Pi_SolarRadiationService
     {
-         IPiServerRepository<Core.Models.SolarRadiation, SolarRadiationSources> solarRadRepo = null;
+        SolarRadiation_PI_Repository solarRadRepo = null;
         public Pi_SolarRadiationService()
         {
-            solarRadRepo = new SolarRadiationRepository();
+            solarRadRepo = new SolarRadiation_PI_Repository();
         }
         public Core.Models.SolarRadiation Get_SolarRadiation_ByTime(SolarRadiationSources source, string dateTime="today")
         {

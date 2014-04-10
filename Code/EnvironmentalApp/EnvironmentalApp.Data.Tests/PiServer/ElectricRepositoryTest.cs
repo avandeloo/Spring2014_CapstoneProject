@@ -10,7 +10,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Electric_PBB_CanGetToday()
         {
-            var eRepo = new Data.PiServer.ElectricRepository();
+            var eRepo = new Data.PiServer.Electric_PI_Repository();
             var result = eRepo.GetToday(ElectricSources.PBB_Electric);
 
             Assert.IsNotNull(result, "Object is null");
@@ -20,7 +20,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Electric_PBB_CanGetByTime()
         {
-            var eRepo = new Data.PiServer.ElectricRepository();
+            var eRepo = new Data.PiServer.Electric_PI_Repository();
             var result = eRepo.GetByTime(ElectricSources.PBB_Electric,"yesterday");
 
             Assert.IsNotNull(result, "Object is null");
@@ -29,7 +29,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Electric_PBB_CanGetByTimeRange()
         {
-            var eRepo = new Data.PiServer.ElectricRepository();
+            var eRepo = new Data.PiServer.Electric_PI_Repository();
             var result = eRepo.GetByTime(ElectricSources.PBB_Electric,"-2d", "today");
 
             Assert.IsNotNull(result, "Object is null");
@@ -39,7 +39,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Electric_CampustTotal_CanGetToday()
         {
-            var eRepo = new Data.PiServer.ElectricRepository();
+            var eRepo = new Data.PiServer.Electric_PI_Repository();
             var result = eRepo.GetToday(ElectricSources.Campus_Total);
 
             Assert.IsNotNull(result, "Object is null");
@@ -49,7 +49,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Electric_CampustTotal_CanGetByTime()
         {
-            var eRepo = new Data.PiServer.ElectricRepository();
+            var eRepo = new Data.PiServer.Electric_PI_Repository();
             var result = eRepo.GetByTime(ElectricSources.Campus_Total, "yesterday");
 
             Assert.IsNotNull(result, "Object is null");
@@ -58,7 +58,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void Electric_CampustTotal_CanGetByTimeRange()
         {
-            var eRepo = new Data.PiServer.ElectricRepository();
+            var eRepo = new Data.PiServer.Electric_PI_Repository();
             var result = eRepo.GetByTime(ElectricSources.Campus_Total, "-2d", "today");
 
             Assert.IsNotNull(result, "Object is null");

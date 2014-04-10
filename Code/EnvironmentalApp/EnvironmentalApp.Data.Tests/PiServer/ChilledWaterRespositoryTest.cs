@@ -11,7 +11,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void ChilledWater_PBB_CanGetToday()
         {
-            var chilledWaterRepo = new ChilledWaterRepository();
+            var chilledWaterRepo = new ChilledWater_PI_Repository();
             var chilledWaterList = chilledWaterRepo.GetToday(ChilledWaterSources.PBB_ChilledWater);
 
             Assert.IsNotNull(chilledWaterList);
@@ -19,7 +19,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void ChilledWater_PBB_CanGetWaterByTime()
         {
-            var chilledWaterRepo = new ChilledWaterRepository();
+            var chilledWaterRepo = new ChilledWater_PI_Repository();
             var chilledWaterList = chilledWaterRepo.GetByTime(ChilledWaterSources.PBB_ChilledWater,"yesterday");
 
             Assert.IsNotNull(chilledWaterList);
@@ -28,7 +28,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void ChilledWater_PBB_CanGetByTimeRange()
         {
-            var chilledWaterRepo = new ChilledWaterRepository();
+            var chilledWaterRepo = new ChilledWater_PI_Repository();
             var chilledWaterList = chilledWaterRepo.GetByTime(ChilledWaterSources.PBB_ChilledWater,"yesterday","today");
 
             Assert.IsNotNull(chilledWaterList);
@@ -37,7 +37,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void ChilledWater_CampusTotal_CanGetToday()
         {
-            var chilledWaterRepo = new ChilledWaterRepository();
+            var chilledWaterRepo = new ChilledWater_PI_Repository();
             var chilledWaterList = chilledWaterRepo.GetToday(ChilledWaterSources.Campus_Total);
 
             Assert.IsNotNull(chilledWaterList);
@@ -46,7 +46,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void ChilledWater_CampusTotal_CanGetlByTime()
         {
-            var chilledWaterRepo = new ChilledWaterRepository();
+            var chilledWaterRepo = new ChilledWater_PI_Repository();
             var chilledWaterList = chilledWaterRepo.GetByTime(ChilledWaterSources.Campus_Total,"yesterday");
 
             Assert.IsNotNull(chilledWaterList);
@@ -55,7 +55,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
         [TestMethod]
         public void ChilledWater_CampusTotal_CanGetByTimeRange()
         {
-            var chilledWaterRepo = new ChilledWaterRepository();
+            var chilledWaterRepo = new ChilledWater_PI_Repository();
             var chilledWaterList = chilledWaterRepo.GetByTime(ChilledWaterSources.Campus_Total,"yesterday","today");
 
             Assert.IsNotNull(chilledWaterList);

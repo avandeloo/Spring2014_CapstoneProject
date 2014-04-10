@@ -10,10 +10,12 @@ namespace EnvironmentalApp.Services.PiServerServices
 {
     public class Pi_ElectricService
     {
-        IPiServerRepository<Core.Models.Electric,ElectricSources> electricRepo = null;
+        IElectricRepository<Core.Models.Electric> electricRepo = null;
+        IElectricRepository<Core.Models.Electric_Campus> electric_Campus_Repo = null;
         public Pi_ElectricService()
         {
-            electricRepo = new ElectricRepository();
+            electricRepo = new Electric_PI_Repository();
+            electric_Campus_Repo = new Electric_Campus_PI_Repository();
         }
         public Core.Models.Electric Get_Electric_ByTime(ElectricSources source, string dateTime = "today")
         {

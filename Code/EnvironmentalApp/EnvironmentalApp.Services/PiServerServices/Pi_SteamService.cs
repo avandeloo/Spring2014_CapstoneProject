@@ -11,10 +11,12 @@ namespace EnvironmentalApp.Services.PiServerServices
 {
     public class Pi_SteamService
     {
-         IPiServerRepository<Core.Models.Steam, SteamSources> steamRepo = null;
+        ISteamRepository<Core.Models.Steam> steamRepo = null;
+        ISteamRepository<Core.Models.Steam_Campus> steam_Campus_Repo = null;
         public Pi_SteamService()
         {
-            steamRepo = new SteamRepository();
+            steamRepo = new Steam_PI_Repository();
+            steam_Campus_Repo = new Steam_Campus_PI_Repository();
         }
         public Core.Models.Steam Get_Steam_ByTime(SteamSources source, string dateTime="today")
         {
