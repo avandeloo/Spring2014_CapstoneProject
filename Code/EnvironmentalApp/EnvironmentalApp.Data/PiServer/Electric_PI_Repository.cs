@@ -47,8 +47,8 @@ namespace EnvironmentalApp.Data.PiServer
                     electric = new Core.Models.Electric();
                     var currentRow = reader[rowIdx]; //tag
                     electric.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
-                    electric.Reading = reader[rowIdx + 2].ToString();
-                    electric.TimeStamp = Convert.ToDateTime(reader[rowIdx + 1].ToString()).Ticks;
+                    electric.Reading = Convert.ToDecimal(reader[rowIdx + 2].ToString());
+                    electric.TimeStamp = Convert.ToDateTime(reader[rowIdx + 1].ToString());
                     electric.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
                     electric.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 

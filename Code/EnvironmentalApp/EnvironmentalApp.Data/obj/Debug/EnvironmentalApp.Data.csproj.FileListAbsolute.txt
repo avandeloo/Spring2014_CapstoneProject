@@ -35,3 +35,4 @@ C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp
 C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.csprojResolveAssemblyReference.cache
 C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.dll
 C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Data\obj\Debug\EnvironmentalApp.Data.pdb
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data\bin\Debug\Remote.Linq.dll

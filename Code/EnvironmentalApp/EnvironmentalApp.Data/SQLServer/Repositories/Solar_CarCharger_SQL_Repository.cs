@@ -36,10 +36,9 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    var solarCarChargingList = new List<Solar_CarCharger>();
-                    for (int i = 0; i < solarCarChargingList.Count; i++)
+                    for (int i = 0; i < entityList.Count; i++)
                     {
-                        ctx.SOLAR_CAR_CHARGING.Add(solarCarChargingList[i]);
+                        ctx.SOLAR_CAR_CHARGING.Add(entityList[i]);
 
                     }
                     int result = ctx.SaveChanges();

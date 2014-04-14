@@ -34,3 +34,5 @@ C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp
 C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.csprojResolveAssemblyReference.cache
 C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.dll
 C:\Users\adamfrink\Desktop\CapstoneFolder\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.pdb
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.SqlServer.xml

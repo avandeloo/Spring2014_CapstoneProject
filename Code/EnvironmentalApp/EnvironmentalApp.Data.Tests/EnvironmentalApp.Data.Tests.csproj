@@ -61,7 +61,16 @@
     <Compile Include="PiServer\SteamRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConnectionTest.cs" />
-    <Compile Include="SqlServer\SqlSteamRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlHumidityRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlAirTempRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlSolarCarChargerRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlSolarBusBarnRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlTotalCampusChilledWaterRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlTotalCampusElectricRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlPBBChilledWaterRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlPBBElectricRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlTotalCampusSteamRepositoryTest.cs" />
+    <Compile Include="SqlServer\SqlPBBSteamRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnvironmentalApp.Core\EnvironmentalApp.Core.csproj">

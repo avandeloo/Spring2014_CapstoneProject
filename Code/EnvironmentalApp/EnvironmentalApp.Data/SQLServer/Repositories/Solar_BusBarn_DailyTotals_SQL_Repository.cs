@@ -8,21 +8,43 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Solar_BusBarn_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SolarDailyTotals_BusBarn,Solar_CarCharger>
+    public class Solar_BusBarn_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SolarDailyTotals_BusBarn,Solar_BusBarn>
     {
-      
-        public int Create(List<Core.Models.Solar_CarCharger> entityList)
+
+        public int Create(List<Core.Models.Solar_BusBarn> entityList)
         {
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    var solarBusBarnDailyTotalsList = new List<SolarDailyTotals_BusBarn>();
-                    for (int i = 0; i < solarBusBarnDailyTotalsList.Count; i++)
+                    var solarBusBarnTotals = new List<SolarDailyTotals_BusBarn>();
+
+                    var entityTotals = entityList.GroupBy(g => g.ReadingDateTime.Date)
+                                                .Select(x => new
+                                                {
+                                                    id = Guid.NewGuid(),
+                                                    date = x.Select(y => y.ReadingDateTime),
+                                                    sum = x.Sum(y => Convert.ToDecimal(y.Reading)),
+                                                    avg = x.Average(y => Convert.ToDecimal(y.Reading)),
+                                                    max = x.Max(y => Convert.ToDecimal(y.Reading)),
+                                                    min = x.Min(y => Convert.ToDecimal(y.Reading))
+                                                });
+
+                    solarBusBarnTotals = entityTotals.AsEnumerable().Select(b => new SolarDailyTotals_BusBarn
                     {
-                        ctx.SOLAR_BUS_BARN_SUM_BY_DAY.Add(solarBusBarnDailyTotalsList[i]);
-                        
+                        Id = b.id,
+                        ReadingDateTime = DateTime.Now,
+                        DailySum = b.sum,
+                        DailyAverage = b.avg,
+                        HighValue = b.max,
+                        LowValue = b.min
+                    }).ToList();
+
+                    for (int i = 0; i < solarBusBarnTotals.Count; i++)
+                    {
+                        ctx.SOLAR_BUS_BARN_SUM_BY_DAY.Add(solarBusBarnTotals[i]);
                     }
+
                     int result = ctx.SaveChanges();
                     return result;
                 }

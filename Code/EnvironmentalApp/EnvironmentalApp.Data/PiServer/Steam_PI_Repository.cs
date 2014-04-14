@@ -47,8 +47,8 @@ namespace EnvironmentalApp.Data.PiServer
                     steam = new Core.Models.Steam();
                     var currentRow = reader[rowIdx]; //tag
                     steam.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
-                    steam.Reading = reader[rowIdx + 2].ToString();
-                    steam.TimeStamp = Convert.ToDateTime(reader[rowIdx + 1].ToString()).Ticks;
+                    steam.Reading = Convert.ToDecimal(reader[rowIdx + 2].ToString());
+                    steam.TimeStamp = DateTime.Now;
                     steam.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
                     steam.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 

@@ -22,3 +22,5 @@ C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\Enviro
 C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.dll
 C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\obj\Debug\EnvironmentalApp.Data.Tests.pdb
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Blade\Documents\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Data.Tests\bin\Debug\EntityFramework.SqlServer.xml
