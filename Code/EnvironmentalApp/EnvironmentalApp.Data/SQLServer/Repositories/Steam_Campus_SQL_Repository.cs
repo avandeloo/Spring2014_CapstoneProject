@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Steam_Campus_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISteamSQLRepository<Steam_Campus>
+    public class Steam_Campus_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISteamSQLRepository<Core.Models.Steam_Campus>
     {
 
         public int Create(Core.Models.Steam_Campus entity)
@@ -36,10 +36,9 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    var totalCampusSteamList = new List<Steam_Campus>();
-                    for (int i = 0; i < totalCampusSteamList.Count; i++)
+                    for (int i = 0; i < entityList.Count; i++)
                     {
-                        ctx.TOTAL_CAMPUS_STEAM.Add(totalCampusSteamList[i]);
+                        ctx.TOTAL_CAMPUS_STEAM.Add(entityList[i]);
 
                     }
                     int result = ctx.SaveChanges();

@@ -6,3 +6,11 @@
 /Code/EnvironmentalApp/TestResults/*.mdf
 /Code/EnvironmentalApp/TestResults/*.ldf
 /Code/EnvironmentalApp/TestResults/ab4e2638-d6ac-4fae-91f9-e4f37d727abe/*.coverage
+/Code/EnvironmentalApp/EnvironmentalApp.Services/bin/Debug/*.dll
+/Code/EnvironmentalApp/EnvironmentalApp.Services/bin/Debug/*.pdb
+bin
+bin
+bin
+bin
+bin
+bin

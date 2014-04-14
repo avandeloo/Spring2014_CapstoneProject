@@ -64,6 +64,28 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             }
         }
 
+        public int Create(List<Core.Models.AirTemp> entityList)
+        {
+            try
+            {
+                using (var ctx = new EnergyDataContext(ConnString))
+                {
+
+                    for (int i = 0; i < entityList.Count; i++)
+                    {
+                        ctx.OUTSIDE_AIR_TEMP.Add(entityList[i]);
+
+                    }
+                    int result = ctx.SaveChanges();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public int Update(AirTemp entity)
         {
