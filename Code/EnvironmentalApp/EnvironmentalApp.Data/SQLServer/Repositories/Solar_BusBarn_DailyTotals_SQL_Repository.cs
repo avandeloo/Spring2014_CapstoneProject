@@ -8,10 +8,10 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Solar_BusBarn_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SolarDailyTotals_BusBarn,Solar_CarCharger>
+    public class Solar_BusBarn_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SolarDailyTotals_BusBarn,Solar_BusBarn>
     {
       
-        public int Create(List<Core.Models.Solar_CarCharger> entityList)
+        public int Create(List<Core.Models.Solar_BusBarn> entityList)
         {
             try
             {

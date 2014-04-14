@@ -51,8 +51,7 @@ namespace EnvironmentalApp.Data.PiServer
                     solar = new Core.Models.Solar_BusBarn();
                     var currentRow = reader[rowIdx]; //tag
                     solar.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
-                    solar.Reading = reader[rowIdx + 2].ToString();
-                    solar.TimeStamp = Convert.ToDateTime(reader[rowIdx + 1].ToString()).Ticks;
+                    solar.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//(decimal)Double.Parse(reader[rowIdx + 2].ToString(), System.Globalization.NumberStyles.Float);
                     solar.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
                     solar.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 

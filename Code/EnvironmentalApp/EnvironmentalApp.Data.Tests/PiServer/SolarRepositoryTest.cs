@@ -15,7 +15,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
             var result = solarRepo.GetToday(SolarSources.BusBarn);
 
             Assert.IsNotNull(result, "Object is null");
-            Assert.IsInstanceOfType(result, typeof(Core.Models.Solar_CarCharger), "Not an instance of Air temp");
+            Assert.IsInstanceOfType(result, typeof(Core.Models.Solar_BusBarn), "Not an instance of Air temp");
 
         }
         [TestMethod]
@@ -34,7 +34,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
             var result = solarRepo.GetByTime(SolarSources.BusBarn,"-2d", "today");
 
             Assert.IsNotNull(result, "Object is null");
-            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Solar_CarCharger), "Collection does not contain the correct object type");
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Solar_BusBarn), "Collection does not contain the correct object type");
             Assert.IsTrue(result.Count >= 1, "Record set is empty");
         }
         [TestMethod]

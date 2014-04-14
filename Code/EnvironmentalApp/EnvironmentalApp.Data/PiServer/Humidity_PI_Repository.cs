@@ -49,8 +49,7 @@ namespace EnvironmentalApp.Data.PiServer
                     humidity = new Core.Models.Humidity();
                     var currentRow = reader[rowIdx]; //tag
                     humidity.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
-                    humidity.Reading = reader[rowIdx + 2].ToString();
-                    humidity.TimeStamp = Convert.ToDateTime(reader[rowIdx + 1].ToString()).Ticks;
+                    humidity.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//Convert.ToDecimal(reader[rowIdx + 2].ToString());
                     humidity.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
                     humidity.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 

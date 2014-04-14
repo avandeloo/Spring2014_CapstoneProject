@@ -30,7 +30,7 @@
           <AlwaysStartWebServerOnDebug>True</AlwaysStartWebServerOnDebug>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1396</DevelopmentServerPort>
+          <DevelopmentServerPort>5348</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:3862/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

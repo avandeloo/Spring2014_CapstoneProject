@@ -43,7 +43,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < airTemp.Count; i++)
-                dataModel.dataListData.Add(new Models.DataModel() { Date = airTemp[i].ReadingDateTime, Value = Double.Parse(airTemp[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = airTemp[i].ReadingDateTime, Value = airTemp[i].Reading });
             dataList.Add(dataModel);
         }
 
@@ -56,7 +56,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < chilledWater.Count; i++)
-                dataModel.dataListData.Add(new Models.DataModel() { Date = chilledWater[i].ReadingDateTime, Value = Double.Parse(chilledWater[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = chilledWater[i].ReadingDateTime, Value = chilledWater[i].Reading });
             dataList.Add(dataModel);
         }
 

@@ -4,7 +4,7 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Data.SQLServer.Mapping
 {
-    public class SOLAR_BUS_BARNMap : EntityTypeConfiguration<Solar_CarCharger>
+    public class SOLAR_BUS_BARNMap : EntityTypeConfiguration<Solar_BusBarn>
     {
         public SOLAR_BUS_BARNMap()
         {

@@ -52,8 +52,7 @@ namespace EnvironmentalApp.Data.PiServer
                     chilledWater = new Core.Models.ChilledWater();
                     var currentRow = reader[rowIdx]; //tag
                     chilledWater.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
-                    chilledWater.Reading = reader[rowIdx + 2].ToString();
-                    chilledWater.TimeStamp = Convert.ToDateTime(reader[rowIdx + 1].ToString()).Ticks;
+                    chilledWater.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//Convert.ToDecimal(reader[rowIdx + 2].ToString());
                     chilledWater.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
                     chilledWater.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 

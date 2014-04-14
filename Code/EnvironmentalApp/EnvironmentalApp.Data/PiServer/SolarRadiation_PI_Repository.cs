@@ -47,8 +47,7 @@ namespace EnvironmentalApp.Data.PiServer
                     solarRadiation = new Core.Models.SolarRadiation();
                     var currentRow = reader[rowIdx]; //tag
                     solarRadiation.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
-                    solarRadiation.Reading = reader[rowIdx + 2].ToString();
-                    solarRadiation.TimeStamp = Convert.ToDateTime(reader[rowIdx + 1].ToString()).Ticks;
+                    solarRadiation.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//Convert.ToDecimal(reader[rowIdx + 2].ToString());
                     solarRadiation.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
                     solarRadiation.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 

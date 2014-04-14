@@ -9,9 +9,9 @@ namespace EnvironmentalApp.Core.Models
     public class BaseModel
     {
         public Guid Id { get; set; }
-        public long TimeStamp { get; set; }
+        public DateTime TimeStamp { get; set; }
         public DateTime ReadingDateTime { get; set; }
-        public string Reading { get; set; }
+        public decimal Reading { get; set; }
         public int TimeStep { get; set; }
         public int Status { get; set; }
 

@@ -10,7 +10,7 @@ namespace EnvironmentalApp.Gui.Models
         //public string Label { get; set; }
         //public decimal[] Series { get; set; }
         public DateTime Date { get; set; }
-        public double Value { get; set; }
+        public decimal Value { get; set; }
     }
 
     public class DataList

@@ -48,8 +48,7 @@ namespace EnvironmentalApp.Data.PiServer
                     airTemp = new Core.Models.AirTemp();
                     var currentRow = reader[rowIdx]; //tag
                     airTemp.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
-                    airTemp.Reading = reader[rowIdx + 2].ToString();
-                    airTemp.TimeStamp = Convert.ToDateTime(reader[rowIdx + 1].ToString()).Ticks;
+                    airTemp.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());// Convert.ToDecimal(reader[rowIdx + 2].ToString());
                     airTemp.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
                     airTemp.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 

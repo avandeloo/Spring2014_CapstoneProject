@@ -60,5 +60,27 @@ namespace EnvironmentalApp.Data.PiServer
             return selectCmd;
         }
 
+        
+        /// <summary>
+        ///readings from Pi server can be either a decimal or scientific number
+        ///ConvertReadingToDecimal checks for type of string is being passed in 
+        ///and converts accordingly. Returning a decimal rounded to the 8th digit.
+        /// </summary>
+        /// <param name="reading"></param>
+        /// <returns></returns>
+        protected decimal ConvertReadingToDecimal(string reading)
+        {
+            decimal decReading;
+            //if string is scientific number
+            if (reading.Contains("E+"))
+            {
+                decReading = (decimal)Math.Round(Double.Parse(reading, System.Globalization.NumberStyles.Float),8);
+            }
+            else
+            {
+                decReading = Convert.ToDecimal(reading);
+            }
+            return decReading;
+        }
     }
 }
