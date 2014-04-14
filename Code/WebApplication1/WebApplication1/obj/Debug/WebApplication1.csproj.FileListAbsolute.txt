@@ -1,5 +1,0 @@
-C:\Capstone\Spring2014_CapstoneProject\Code\WebApplication1\WebApplication1\bin\WebApplication1.dll
-C:\Capstone\Spring2014_CapstoneProject\Code\WebApplication1\WebApplication1\bin\WebApplication1.pdb
-C:\Capstone\Spring2014_CapstoneProject\Code\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
-C:\Capstone\Spring2014_CapstoneProject\Code\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
-C:\Capstone\Spring2014_CapstoneProject\Code\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
