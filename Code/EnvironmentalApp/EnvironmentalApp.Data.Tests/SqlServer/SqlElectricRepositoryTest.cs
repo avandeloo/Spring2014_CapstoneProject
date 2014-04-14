@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace EnvironmentalApp.Data.Tests.SqlServer
 {
     [TestClass]
-    public class SqlPBBElectricRepositoryTest
+    public class SqlElectricRepositoryTest
     {
 
             private List<Electric> electricList = null;

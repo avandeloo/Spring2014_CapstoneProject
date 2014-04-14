@@ -94,7 +94,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < electric.Count; i++)
-                dataModel.dataListData.Add(new Models.DataModel() { Date = electric[i].ReadingDateTime, Value = Double.Parse(electric[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = electric[i].ReadingDateTime, Value = electric[i].Reading });
             dataList.Add(dataModel);
         }
 
@@ -107,7 +107,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < humidity.Count; i++)
-                dataModel.dataListData.Add(new Models.DataModel() { Date = humidity[i].ReadingDateTime, Value = Double.Parse(humidity[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = humidity[i].ReadingDateTime, Value = humidity[i].Reading });
             dataList.Add(dataModel);
         }
 
@@ -120,7 +120,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solarrad.Count; i++)
-                dataModel.dataListData.Add(new Models.DataModel() { Date = solarrad[i].ReadingDateTime, Value = Double.Parse(solarrad[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = solarrad[i].ReadingDateTime, Value = solarrad[i].Reading });
             dataList.Add(dataModel);
         }
 
@@ -133,7 +133,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solar.Count; i++)
-                dataModel.dataListData.Add(new Models.DataModel() { Date = solar[i].ReadingDateTime, Value = Double.Parse(solar[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = solar[i].ReadingDateTime, Value = solar[i].Reading });
             dataList.Add(dataModel);
         }
 
@@ -146,7 +146,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solar.Count; i++)
-                dataModel.dataListData.Add(new Models.DataModel() { Date = solar[i].ReadingDateTime, Value = Double.Parse(solar[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = solar[i].ReadingDateTime, Value = solar[i].Reading });
             dataList.Add(dataModel);
         }
 
@@ -159,7 +159,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < steamPBB.Count; i++)
-                dataModel.dataListData.Add(new Models.DataModel() { Date = steamPBB[i].ReadingDateTime, Value = Double.Parse(steamPBB[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = steamPBB[i].ReadingDateTime, Value = steamPBB[i].Reading });
             dataList.Add(dataModel);
         }
 
@@ -172,7 +172,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < steamCampus.Count; i++)
-                dataModel.dataListData.Add(new Models.DataModel() { Date = steamCampus[i].ReadingDateTime, Value = Double.Parse(steamCampus[i].Reading) });
+                dataModel.dataListData.Add(new Models.DataModel() { Date = steamCampus[i].ReadingDateTime, Value = steamCampus[i].Reading });
             dataList.Add(dataModel);
         }
 
@@ -189,7 +189,7 @@ namespace EnvironmentalApp.Gui.Controllers
         //        var model = new Models.ChilledWaterModel();
         //        var dateAsInt = (int)(water.ReadingDateTime - new DateTime(1900, 1, 1)).TotalDays + 2;
         //        model.Label = "Chilled Water ";// water.ReadingDateTime.ToString();
-        //        model.Series = new decimal[2] { dateAsInt, Decimal.Parse(water.Reading) };
+        //        model.Series = new decimal[2] { dateAsInt, Decimal.Parse(water.Reading };
 
         //        modelList.Add(model);
         //    }

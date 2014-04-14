@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace EnvironmentalApp.Data.Tests.SqlServer
 {
     [TestClass]
-    public class SqlPBBChilledWaterRepositoryTest
+    public class SqlChilledWaterRepositoryTest
     {
 
             private List<ChilledWater> chilledWaterList = null;
