@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,9 +72,8 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                 catch (Exception ex)
                 {
                     throw ex;
-                };
+                }
             }
         }
       
     }
-}
