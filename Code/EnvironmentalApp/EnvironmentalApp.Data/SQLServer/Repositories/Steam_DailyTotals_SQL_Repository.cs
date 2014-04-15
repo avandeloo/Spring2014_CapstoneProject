@@ -17,7 +17,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    var SteamTotals = new List<SteamDailyTotals>();
+                    //var SteamTotals = new List<SteamDailyTotals>();
 
                     var dailyTotals = new SteamDailyTotals();
                     var readings =(List<decimal>) entityList.Select(x => x.Reading).ToList();
