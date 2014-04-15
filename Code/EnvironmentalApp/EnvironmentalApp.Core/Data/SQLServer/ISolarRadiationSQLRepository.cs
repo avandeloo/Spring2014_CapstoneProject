@@ -9,11 +9,7 @@ namespace EnvironmentalApp.Core.Data.SQLServer
 {
     public interface ISolarRadiationSQLRepository
     {
-        int Create(SolarRadiation entity);
-        int Create(List<SolarRadiation> entityList);
-        int Update(SolarRadiation entity);
-        SolarRadiation Get(DateTime dateTime);
-        List<SolarRadiation> Get(DateTime startTime, DateTime endTime);
+      
 
     }
 }

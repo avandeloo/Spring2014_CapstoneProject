@@ -7,14 +7,8 @@ using EnvironmentalApp.Core.Models;
 
 namespace EnvironmentalApp.Core.Data.SQLServer
 {
-    public interface IChilledWaterSQLRepository<T>
+    public interface IChilledWaterSQLRepository
     {
-        int Create(T entity);
-        int Create(List<T> entityList);
-        int Update(T entity);
-        T Get(DateTime dateTime);
-        List<T> Get(DateTime startTime, DateTime endTime);
        
-
     }
 }
