@@ -18,7 +18,8 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
                     var airTempTotals = new List<AirTempDailyTotals>();
-                    
+
+                    var readings = entityList.Select(x => x.Reading);
                     var entityTotals = entityList.GroupBy(g => g.ReadingDateTime.Date)
                                                 .Select(x => new
                                                 {

@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Steam_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SteamDailyTotals,Steam>
+    public class Steam_DailyTotals_SQL_Repository : Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SteamDailyTotals, Steam>
     {
 
         public int Create(List<Core.Models.Steam> entityList)
@@ -19,31 +19,43 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                 {
                     var SteamTotals = new List<SteamDailyTotals>();
 
-                    var entityTotals = entityList.GroupBy(g => g.ReadingDateTime.Date)
-                                                .Select(x => new
-                                                {
-                                                    id = Guid.NewGuid(),
-                                                    date = x.Select(y => y.ReadingDateTime),
-                                                    sum = x.Sum(y => Convert.ToDecimal(y.Reading)),
-                                                    avg = x.Average(y => Convert.ToDecimal(y.Reading)),
-                                                    max = x.Max(y => Convert.ToDecimal(y.Reading)),
-                                                    min = x.Min(y => Convert.ToDecimal(y.Reading))
-                                                });
+                    var dailyTotals = new SteamDailyTotals();
+                    var readings =(List<decimal>) entityList.Select(x => x.Reading).ToList();
 
-                    SteamTotals = entityTotals.AsEnumerable().Select(b => new SteamDailyTotals
-                    {
-                        Id = b.id,
-                        ReadingDateTime = DateTime.Now,
-                        DailySum = b.sum,
-                        DailyAverage = b.avg,
-                        HighValue = b.max,
-                        LowValue = b.min
-                    }).ToList();
+                    dailyTotals.Id = Guid.NewGuid();
+                    dailyTotals.ReadingDateTime = DateTime.Now;
+                    dailyTotals.DailySum= SumReadings(readings);
+                    dailyTotals.DailyAverage = AverageReadings(readings);
+                    dailyTotals.HighValue = MaxReading(readings);
+                    dailyTotals.LowValue= MinReading(readings);
 
-                    for (int i = 0; i < SteamTotals.Count; i++)
-                    {
-                        ctx.PBB_STEAM_SUM_BY_DAY.Add(SteamTotals[i]);
-                    }
+                    ctx.PBB_STEAM_SUM_BY_DAY.Add(dailyTotals);
+
+                    //var entityTotals = entityList.GroupBy(g => g.ReadingDateTime.Date)
+                    //                            .Select(x => new
+                    //                            {
+                    //                                id = Guid.NewGuid(),
+                    //                                date = x.Select(y => y.ReadingDateTime),
+                    //                                sum = x.Sum(y => Convert.ToDecimal(y.Reading)),
+                    //                                avg = x.Average(y => Convert.ToDecimal(y.Reading)),
+                    //                                max = x.Max(y => Convert.ToDecimal(y.Reading)),
+                    //                                min = x.Min(y => Convert.ToDecimal(y.Reading))
+                    //                            });
+
+                    //SteamTotals = entityTotals.AsEnumerable().Select(b => new SteamDailyTotals
+                    //{
+                    //    Id = b.id,
+                    //    ReadingDateTime = DateTime.Now,
+                    //    DailySum = b.sum,
+                    //    DailyAverage = b.avg,
+                    //    HighValue = b.max,
+                    //    LowValue = b.min
+                    //}).ToList();
+
+                    //for (int i = 0; i < SteamTotals.Count; i++)
+                    //{
+                    //    ctx.PBB_STEAM_SUM_BY_DAY.Add(SteamTotals[i]);
+                    //}
 
                     int result = ctx.SaveChanges();
                     return result;
@@ -54,9 +66,9 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                 throw ex;
             }
         }
-        
-        
-       
+
+
+
         public Core.Models.SteamDailyTotals Get(DateTime dateTime)
         {
             var pbbSteamDailyTotals = new SteamDailyTotals();
@@ -91,6 +103,6 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             };
         }
     }
-        
-    
+
+
 }

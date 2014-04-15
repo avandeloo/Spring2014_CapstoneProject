@@ -71,10 +71,13 @@ namespace EnvironmentalApp.Data.PiServer
         protected decimal ConvertReadingToDecimal(string reading)
         {
             decimal decReading;
+            
             //if string is scientific number
-            if (reading.Contains("E+"))
+            if (reading.Contains("E"))
             {
-                decReading = (decimal)Math.Round(Double.Parse(reading, System.Globalization.NumberStyles.Float),8);
+                var t = Double.Parse(reading, System.Globalization.NumberStyles.Float);
+
+                decReading = (decimal)Math.Round(Double.Parse(reading, System.Globalization.NumberStyles.Float),4);
             }
             else
             {
