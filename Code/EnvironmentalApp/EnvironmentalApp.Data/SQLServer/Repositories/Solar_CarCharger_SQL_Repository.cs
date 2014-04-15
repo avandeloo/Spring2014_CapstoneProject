@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Solar_CarCharger_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISolarSQLRepository<Solar_CarCharger>
+    public class Solar_CarCharger_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBaseRepository<Solar_CarCharger>
     {
 
         public int Create(Core.Models.Solar_CarCharger entity)

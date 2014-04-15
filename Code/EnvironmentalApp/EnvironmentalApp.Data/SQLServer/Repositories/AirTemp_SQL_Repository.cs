@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class AirTemp_SQL_Repository : Base_SQL_Repository, Core.Data.SQLServer.IAirTempSQLRepository
+    public class AirTemp_SQL_Repository : Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBaseRepository<AirTemp>
     {
 
         public AirTemp Get(DateTime dateTime)

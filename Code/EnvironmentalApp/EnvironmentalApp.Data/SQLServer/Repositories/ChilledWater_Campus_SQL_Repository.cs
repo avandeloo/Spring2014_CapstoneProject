@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class ChilledWater_Campus_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.IChilledWaterSQLRepository<ChilledWater_Campus>
+    public class ChilledWater_Campus_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBaseRepository<ChilledWater_Campus>
     {
 
         public int Create(Core.Models.ChilledWater_Campus entity)

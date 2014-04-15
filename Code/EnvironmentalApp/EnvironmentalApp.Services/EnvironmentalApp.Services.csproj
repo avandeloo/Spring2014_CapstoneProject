@@ -48,6 +48,13 @@
     <Compile Include="PiServerServices\Pi_SolarService.cs" />
     <Compile Include="PiServerServices\Pi_SteamService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLServerServices\Sql_AirTempService.cs" />
+    <Compile Include="SQLServerServices\Sql_ChilledWaterService.cs" />
+    <Compile Include="SQLServerServices\Sql_ElectricService.cs" />
+    <Compile Include="SQLServerServices\Sql_HumidityService.cs" />
+    <Compile Include="SQLServerServices\Sql_SolarRadiationService.cs" />
+    <Compile Include="SQLServerServices\Sql_SolarService.cs" />
+    <Compile Include="SQLServerServices\Sql_SteamService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnvironmentalApp.Core\EnvironmentalApp.Core.csproj">
@@ -61,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ETLServices\" />
-    <Folder Include="SQLServerServices\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Electric_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.IElectricSQLRepository
+    public class Electric_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBaseRepository<Electric>
     {
 
         public int Create(Core.Models.Electric entity)

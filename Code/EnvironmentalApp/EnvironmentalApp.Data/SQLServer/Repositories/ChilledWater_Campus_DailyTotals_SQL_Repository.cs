@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class ChilledWater_Campus_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<CW_DailyTotals_Campus,ChilledWater>
+    public class ChilledWater_Campus_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<CW_DailyTotals_Campus,ChilledWater_Campus>
     {
         public int Create(List<Core.Models.ChilledWater_Campus> entityList)
         {

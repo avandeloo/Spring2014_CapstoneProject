@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Steam_Campus_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISteamSQLRepository<Core.Models.Steam_Campus>
+    public class Steam_Campus_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBaseRepository<Steam_Campus>
     {
 
         public int Create(Core.Models.Steam_Campus entity)
