@@ -114,7 +114,7 @@
 
         </div>*@
 
-        @{var pageTitle = Request.QueryString["data"];}
+        @{var pageTitle = Model.FirstOrDefault().LineName;}
 
         <h3>@pageTitle</h3>
         <div id="chartdiv" >

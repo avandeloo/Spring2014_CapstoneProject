@@ -174,3 +174,5 @@ C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Gu
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Gui\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Gui\obj\Debug\EnvironmentalApp.Gui.dll
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Gui\obj\Debug\EnvironmentalApp.Gui.pdb
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Gui\bin\EntityFramework.SqlServer.dll
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Gui\bin\EntityFramework.SqlServer.xml

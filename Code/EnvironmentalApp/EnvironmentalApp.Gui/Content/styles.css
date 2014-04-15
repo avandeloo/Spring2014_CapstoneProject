@@ -77,3 +77,49 @@ body {
 	margin-top:30px;
 	background: aqua;
 }
+
+
+nav ul#menu {
+    margin: 50px 0 0 0;
+    padding: 0;
+}
+
+nav ul#menu li {
+    float:left;
+    background:#444;
+    padding:5px 10px;
+    margin:0;
+}
+
+    nav ul#menu li:hover {
+        color:#eee;
+    }
+
+    nav ul#menu li a:hover {
+        color:#eee !important;
+    }
+
+    nav ul#menu li ul {
+        display: none;
+        position: absolute;
+        padding:0;
+        margin:5px 0 0 0;
+    }
+
+    nav ul#menu li:hover ul {
+        display: block;
+    }
+
+    nav ul#menu li ul li {
+        float: none;
+        display:block !important;
+        padding:3px 30px 6px 15px;
+        margin:0;
+        text-align:left;
+        background:#444;
+        border-top:1px solid #555;
+    }
+
+        nav ul#menu li ul li:first-child {
+            border-top:none;
+        }

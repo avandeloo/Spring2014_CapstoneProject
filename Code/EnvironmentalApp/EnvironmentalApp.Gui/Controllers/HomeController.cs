@@ -17,6 +17,7 @@ namespace EnvironmentalApp.Gui.Controllers
 
             return View();
         }
+
         public ActionResult Index2(string id)
         {
             var dataList = new List<Models.DataList>();
@@ -29,29 +30,32 @@ namespace EnvironmentalApp.Gui.Controllers
                 case "chilledwater":
                     getData_ChilledWater(dataList, dataModel);
                     break;
-                case "Electric":
-                    getData_Electric(dataList, dataModel);
+                case "pbbelectric":
+                    getData_PBB_Electric(dataList, dataModel);
                     break;
-                case "Humidity":
+                case "campuselectric":
+                    getData_Camp_Electric(dataList, dataModel);
+                    break;
+                case "humidity":
                     getData_Humidity(dataList, dataModel);
                     break;
-                case "SolarRadiation":
+                case "solarradiation":
                     getData_SolarRadiation(dataList, dataModel);
                     break;
 
-                case "SolarBusBarn":
+                case "solarbusbarn":
                     getData_SolarServiceBusBarn(dataList, dataModel);
                     break;
 
-                case "SolarCarPort":
+                case "solarcarport":
                     getData_SolarServiceCarPort(dataList, dataModel);
                     break;
 
-                case "SteamPBB":
+                case "steampbb":
                     getData_SteamPBB(dataList, dataModel);
                     break;
 
-                case "SteamCampus":
+                case "steamcampus":
                     getData_SteamCampus(dataList, dataModel);
                     break;
             }
@@ -64,7 +68,7 @@ namespace EnvironmentalApp.Gui.Controllers
             Pi_AirTempService artmp = new Pi_AirTempService();
 
             var airTemp = artmp.Get_AirTemp_ByDateRange(AirTempSource.OutsideTemp, "-2d", "today");
-            dataModel.LineName = "AirTemp";
+            dataModel.LineName = "Air Temperature";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < airTemp.Count; i++)
@@ -77,7 +81,7 @@ namespace EnvironmentalApp.Gui.Controllers
             Pi_ChilledWaterService cws = new Pi_ChilledWaterService();
 
             var chilledWater = cws.Get_ChilledWater_ByTime(ChilledWaterSources.PBB_ChilledWater, "-2d", "today");
-            dataModel.LineName = "ChilledWater";
+            dataModel.LineName = "Chilled Water";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < chilledWater.Count; i++)
@@ -85,12 +89,25 @@ namespace EnvironmentalApp.Gui.Controllers
             dataList.Add(dataModel);
         }
 
-        private static void getData_Electric(List<Models.DataList> dataList, Models.DataList dataModel)
+        private static void getData_PBB_Electric(List<Models.DataList> dataList, Models.DataList dataModel)
         {
             Pi_ElectricService elec = new Pi_ElectricService();
 
             var electric = elec.Get_Electric_ByTime(ElectricSources.PBB_Electric, "-2d", "today");
-            dataModel.LineName = "Electric";
+            dataModel.LineName = "Papa John Electric";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < electric.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = electric[i].ReadingDateTime, Value = electric[i].Reading });
+            dataList.Add(dataModel);
+        }
+
+        private static void getData_Camp_Electric(List<Models.DataList> dataList, Models.DataList dataModel)
+        {
+            Pi_ElectricService elec = new Pi_ElectricService();
+
+            var electric = elec.Get_Electric_ByTime(ElectricSources.Campus_Total, "-2d", "today");
+            dataModel.LineName = "Campus Electric";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < electric.Count; i++)
@@ -129,7 +146,7 @@ namespace EnvironmentalApp.Gui.Controllers
             Pi_SolarService sol = new Pi_SolarService();
 
             var solar = sol.Get_Solar_ByDateRange(SolarSources.BusBarn, "-2d", "today");
-            dataModel.LineName = "Solar";
+            dataModel.LineName = "Solar Bus Barn";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solar.Count; i++)
@@ -142,7 +159,7 @@ namespace EnvironmentalApp.Gui.Controllers
             Pi_SolarService sol = new Pi_SolarService();
 
             var solar = sol.Get_Solar_ByDateRange(SolarSources.CarPort, "-2d", "today");
-            dataModel.LineName = "Solar";
+            dataModel.LineName = "Solar Car Port";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solar.Count; i++)
@@ -167,7 +184,7 @@ namespace EnvironmentalApp.Gui.Controllers
         {
             Pi_SteamService stCampus = new Pi_SteamService();
 
-            var steamCampus = stCampus.Get_Steam_ByDateRange(SteamSources.PBB_Steam, "-2d", "today");
+            var steamCampus = stCampus.Get_Steam_ByDateRange(SteamSources.Campus_Total, "-2d", "today");
             dataModel.LineName = "Steam Campus";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();

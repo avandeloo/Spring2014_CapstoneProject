@@ -34,3 +34,7 @@ C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Se
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.csprojResolveAssemblyReference.cache
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.dll
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\obj\Debug\EnvironmentalApp.Services.pdb
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.dll
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.SqlServer.dll
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.xml
+Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Services\bin\Debug\EntityFramework.SqlServer.xml
