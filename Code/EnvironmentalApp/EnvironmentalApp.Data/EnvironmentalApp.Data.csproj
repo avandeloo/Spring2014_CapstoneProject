@@ -91,6 +91,8 @@
     <Compile Include="SQLServer\Repositories\AirTemp_DailyTotals_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\AirTemp_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\Base_SQL_Repository.cs" />
+    <Compile Include="SQLServer\Repositories\SolarRadiation_SQL_Repository.cs" />
+    <Compile Include="SQLServer\Repositories\SolarRadiation_DailyTotals_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\Humidity_DailyTotals_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\Solar_BusBarn_DailyTotals_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\Solar_CarCharger_DailyTotals_SQL_Repository.cs" />

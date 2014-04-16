@@ -8,18 +8,17 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Humidity_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<HumidityDailyTotals,Humidity>
+    public class SolarRadiation_DailyTotals_SQL_Repository : Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SolarRadiationDailyTotals, SolarRadiation>
     {
 
-
-        public int Create(List<Core.Models.Humidity> entityList)
+        public int Create(List<Core.Models.SolarRadiation> entityList)
         {
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
 
-                    var dailyTotals = new HumidityDailyTotals();
+                    var dailyTotals = new SolarRadiationDailyTotals();
                     var readings = (List<decimal>)entityList.Select(x => x.Reading).ToList();
 
                     dailyTotals.Id = Guid.NewGuid();
@@ -29,7 +28,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                     dailyTotals.HighValue = MaxReading(readings);
                     dailyTotals.LowValue = MinReading(readings);
 
-                    ctx.HUMIDITY_SUM_BY_DAY.Add(dailyTotals);
+                    ctx.SOLAR_RADIATION_SUM_BY_DAY.Add(dailyTotals);
 
                     int result = ctx.SaveChanges();
                     return result;
@@ -39,17 +38,18 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 throw ex;
             }
-        }        
-      
-        public Core.Models.HumidityDailyTotals Get(DateTime dateTime)
+        }
+        
+       
+        public Core.Models.SolarRadiationDailyTotals Get(DateTime dateTime)
         {
-            var totals = new HumidityDailyTotals();
+            var solarRadiationDailyTotals = new SolarRadiationDailyTotals();
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    totals = ctx.HUMIDITY_SUM_BY_DAY.FirstOrDefault(x => x.ReadingDateTime == dateTime);
-                    return totals;
+                    solarRadiationDailyTotals = ctx.SOLAR_RADIATION_SUM_BY_DAY.FirstOrDefault(x => x.ReadingDateTime == dateTime);
+                    return solarRadiationDailyTotals;
                 }
             }
             catch (Exception ex)
@@ -58,16 +58,15 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             }
         }
 
-        public List<Core.Models.HumidityDailyTotals> Get(DateTime startTime, DateTime endTime)
+        public List<Core.Models.SolarRadiationDailyTotals> Get(DateTime startTime, DateTime endTime)
         {
-
-            var humidityTotalsList = new List<HumidityDailyTotals>();
+            var solarRadiationDailyTotalsList = new List<SolarRadiationDailyTotals>();
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    humidityTotalsList = ctx.HUMIDITY_SUM_BY_DAY.AsEnumerable().Where(x => x.ReadingDateTime >= startTime && x.ReadingDateTime <= endTime).ToList();
-                    return humidityTotalsList;
+                    solarRadiationDailyTotalsList = ctx.SOLAR_RADIATION_SUM_BY_DAY.AsEnumerable().Where(x => x.ReadingDateTime >= startTime && x.ReadingDateTime <= endTime).ToList();
+                    return solarRadiationDailyTotalsList;
                 }
             }
             catch (Exception ex)

@@ -48,6 +48,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
+                   totals = ctx.AIR_TEMP_SUM_BY_DAY.FirstOrDefault(x => x.ReadingDateTime == dateTime);
                    return totals;
                 }
             }
@@ -64,6 +65,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
+                    airTempTotalsList = ctx.AIR_TEMP_SUM_BY_DAY.AsEnumerable().Where(x => x.ReadingDateTime >= startTime && x.ReadingDateTime <= endTime).ToList();
                     return airTempTotalsList;
                 }
             }

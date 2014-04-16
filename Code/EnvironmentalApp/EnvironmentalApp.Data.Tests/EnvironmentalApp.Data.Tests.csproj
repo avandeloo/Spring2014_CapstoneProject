@@ -61,6 +61,7 @@
     <Compile Include="PiServer\SteamRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConnectionTest.cs" />
+    <Compile Include="SqlServer\SqlSolarRadiationRepositoryTest.cs" />
     <Compile Include="SqlServer\SqlAirTempRepositoryTest.cs" />
     <Compile Include="SqlServer\SqlHumidityRepositoryTest.cs" />
     <Compile Include="SqlServer\SqlChilledWaterRepositoryTest.cs" />

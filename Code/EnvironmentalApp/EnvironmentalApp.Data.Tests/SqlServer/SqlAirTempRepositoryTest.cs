@@ -41,7 +41,7 @@ namespace EnvironmentalApp.Data.Tests.SqlServer
             public void Air_Temp_CanGetToday()
             {
                 var airTempRepo = new AirTemp_SQL_Repository();
-                var dateTime = Convert.ToDateTime("2014-04-12 23:00:00.000");
+                var dateTime = Convert.ToDateTime("2014-04-15 00:00:00.000");
                 var result = airTempRepo.Get(dateTime);
 
                 Assert.IsNotNull(result, "Object is null");
@@ -52,7 +52,7 @@ namespace EnvironmentalApp.Data.Tests.SqlServer
             public void Air_Temp_CanGetByTime()
             {
                 var airTempRepo = new AirTemp_SQL_Repository();
-                var dateTime = Convert.ToDateTime("2014-04-12 23:00:00.000");
+                var dateTime = Convert.ToDateTime("2014-04-15 00:00:00.000");
                 var result = airTempRepo.Get(dateTime);
 
                 Assert.IsNotNull(result, "Object is null");
@@ -62,8 +62,8 @@ namespace EnvironmentalApp.Data.Tests.SqlServer
             public void Air_Temp_CanGetTimeRange()
             {
                 var airTempRepo = new AirTemp_SQL_Repository();
-                var startTime = Convert.ToDateTime("2014-04-10 23:00:00.000");
-                var endTime = Convert.ToDateTime("2014-04-12 23:00:00.000");
+                var startTime = Convert.ToDateTime("2014-04-15 00:00:00.000");
+                var endTime = Convert.ToDateTime("2014-04-15 00:00:00.000");
 
                 var result = airTempRepo.Get(startTime, endTime);
 
