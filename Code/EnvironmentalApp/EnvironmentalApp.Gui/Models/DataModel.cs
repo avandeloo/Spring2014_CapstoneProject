@@ -18,5 +18,7 @@ namespace EnvironmentalApp.Gui.Models
         public int Id { get;set; }
         public string LineName { get; set; }
         public List<DataModel> dataListData { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
     }
 }

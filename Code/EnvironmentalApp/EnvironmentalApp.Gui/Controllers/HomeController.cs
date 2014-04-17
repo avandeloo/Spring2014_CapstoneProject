@@ -18,14 +18,14 @@ namespace EnvironmentalApp.Gui.Controllers
             return View();
         }
 
-        public ActionResult Index2(string id)
+        public ActionResult Index2(string id,string sdate, string edate)
         {
             var dataList = new List<Models.DataList>();
             var dataModel = new Models.DataList();
-            if (id == null) { id = "AirTemp"; }
+            if (id == null) { id = "AirTemp"; sdate = DateTime.Now.AddDays(-4).ToString("MM/dd/yyyy"); edate = DateTime.Now.ToString("MM/dd/yyyy"); ; }
             switch (id.ToLower()) {
                 case "airtemp":
-                    getData_AirTemp(dataList, dataModel);
+                    getData_AirTemp(dataList, dataModel,sdate,edate);
                     break;
                 case "chilledwater":
                     getData_ChilledWater(dataList, dataModel);
@@ -63,12 +63,23 @@ namespace EnvironmentalApp.Gui.Controllers
             return View(dataList);
         }
 
-        private static void getData_AirTemp(List<Models.DataList> dataList, Models.DataList dataModel)
+        private static string convertDate(string date)
+        {
+            var convDate = "";
+
+            convDate = Convert.ToDateTime(date).ToString("dd-MMM-yy");
+
+            return convDate;
+        }
+
+        private static void getData_AirTemp(List<Models.DataList> dataList, Models.DataList dataModel,string sdate, string edate)
         {
             Pi_AirTempService artmp = new Pi_AirTempService();
 
-            var airTemp = artmp.Get_AirTemp_ByDateRange(AirTempSource.OutsideTemp, "-2d", "today");
+            var airTemp = artmp.Get_AirTemp_ByDateRange(AirTempSource.OutsideTemp, convertDate(sdate), convertDate(edate));
             dataModel.LineName = "Air Temperature";
+            dataModel.StartDate = sdate;
+            dataModel.EndDate = edate;
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < airTemp.Count; i++)

@@ -6,6 +6,8 @@
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/styles.css")" />
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/jquery.jqplot.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.20.js")"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
 
     <link class="include" rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jqPlot/jquery.jqplot.min.css")" />
     <!--[if lt IE 9]><script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/excanvas.min.js")"></script><![endif]-->
@@ -115,9 +117,47 @@
         </div>*@
 
         @{var pageTitle = Model.FirstOrDefault().LineName;}
+        @{var StartDate = Model.FirstOrDefault().StartDate;}
+        @{var EndDate = Model.FirstOrDefault().EndDate;}
 
         <h3>@pageTitle</h3>
+        <h5>Date Range: @StartDate - @EndDate</h5>
+        <form id="datePicker" action="?id=airtemp" method="post">
+            <label for="from">From</label>
+            <input type="text" id="from" name="sdate">
+            <label for="to">to</label>
+            <input type="text" id="to" name="edate">
+            <input type="submit" />
+        </form>
+
         <div id="chartdiv" >
         </div>
 
     </div>
+
+<script>
+
+    $(function () {
+        $("#from").datepicker({
+            defaultDate: "*",
+            changeMonth: true,
+            numberOfMonths:1,
+            maxDate: new Date,
+            onClose: function (selectedDate) {
+                $("#to").datepicker("option", "minDate", selectedDate);
+            }
+        });
+        $("#to").datepicker({
+            defaultDate: "*",
+            changeMonth: true,
+            numberOfMonths: 1,
+            maxDate: new Date,
+            onClose: function (selectedDate) {
+                $("#from").datepicker("option", "maxDate", selectedDate);
+            }
+        });
+
+
+
+    });
+  </script>
