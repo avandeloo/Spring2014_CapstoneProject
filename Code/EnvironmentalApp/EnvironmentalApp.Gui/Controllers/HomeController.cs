@@ -76,7 +76,7 @@ namespace EnvironmentalApp.Gui.Controllers
         {
             Pi_ChilledWaterService cws = new Pi_ChilledWaterService();
 
-            var chilledWater = cws.Get_ChilledWater_ByTime(ChilledWaterSources.PBB_ChilledWater, "-2d", "today");
+            var chilledWater = cws.Get_ChilledWater_ByDateRange(ChilledWaterSources.PBB_ChilledWater, "-2d", "today");
             dataModel.LineName = "ChilledWater";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
@@ -89,7 +89,7 @@ namespace EnvironmentalApp.Gui.Controllers
         {
             Pi_ElectricService elec = new Pi_ElectricService();
 
-            var electric = elec.Get_Electric_ByTime(ElectricSources.PBB_Electric, "-2d", "today");
+            var electric = elec.Get_Electric_ByDateRange(ElectricSources.PBB_Electric, "-2d", "today");
             dataModel.LineName = "Electric";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
@@ -128,7 +128,7 @@ namespace EnvironmentalApp.Gui.Controllers
         {
             Pi_SolarService sol = new Pi_SolarService();
 
-            var solar = sol.Get_Solar_ByDateRange(SolarSources.BusBarn, "-2d", "today");
+            var solar = sol.Get_SolarBusBarn_ByDateRange(SolarSources.BusBarn, "-2d", "today");
             dataModel.LineName = "Solar";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
@@ -141,7 +141,7 @@ namespace EnvironmentalApp.Gui.Controllers
         {
             Pi_SolarService sol = new Pi_SolarService();
 
-            var solar = sol.Get_Solar_ByDateRange(SolarSources.CarPort, "-2d", "today");
+            var solar = sol.Get_SolarCarCharger_ByDateRange(SolarSources.CarPort, "-2d", "today");
             dataModel.LineName = "Solar";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();

@@ -51,6 +51,9 @@ namespace EnvironmentalApp.Data.SQLServer
         public DbSet<SolarDailyTotals_CarCharger> SOLAR_CAR_CHARGING_SUM_BY_DAY { get; set; }
         public DbSet<SolarRadiation> SOLAR_RADIATION { get; set; }
         public DbSet<SolarRadiationDailyTotals> SOLAR_RADIATION_SUM_BY_DAY { get; set; }
+        //Wind
+        public DbSet<Wind> WIND { get; set; }
+        public DbSet<WindDailyTotals> WIND_SUM_BY_DAY { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -77,6 +80,8 @@ namespace EnvironmentalApp.Data.SQLServer
             modelBuilder.Configurations.Add(new TOTAL_CAMPUS_CHILLED_WATERMap());
             modelBuilder.Configurations.Add(new TOTAL_CAMPUS_ELECTRICITYMap());
             modelBuilder.Configurations.Add(new TOTAL_CAMPUS_STEAMMap());
+            modelBuilder.Configurations.Add(new WIND_SUM_BY_DAYMap());
+            modelBuilder.Configurations.Add(new WINDMap());
         }
     }
 }

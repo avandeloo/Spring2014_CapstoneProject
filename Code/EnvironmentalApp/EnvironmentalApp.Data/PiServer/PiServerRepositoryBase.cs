@@ -85,5 +85,6 @@ namespace EnvironmentalApp.Data.PiServer
             }
             return decReading;
         }
+
     }
 }

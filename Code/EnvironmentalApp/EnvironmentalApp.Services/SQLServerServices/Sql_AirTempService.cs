@@ -43,12 +43,12 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return airTempList;
         }
 
-        public int Create_AirTemp(AirTemp entity)
+        public int Create_AirTemp_Record(AirTemp entity)
         {
             return airRepo.Create(entity);
         }
 
-        public int Create_AirTemp_List(List<Core.Models.AirTemp> entityList)
+        public int Create_AirTemp_List_Of_Records(List<Core.Models.AirTemp> entityList)
         {
             return airRepo.Create(entityList);
         }

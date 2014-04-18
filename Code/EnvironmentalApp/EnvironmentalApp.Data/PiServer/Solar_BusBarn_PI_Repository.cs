@@ -19,14 +19,14 @@ namespace EnvironmentalApp.Data.PiServer
 
         public Core.Models.Solar_BusBarn GetByTime(Core.PiServerTableTags.SolarSources solarSource, string time)
         {
-            var selectCmd = SelectCommand("*", "piinterp", GetEnumDescription(solarSource), "today");
+            var selectCmd = SelectCommand("*", "piinterp", GetEnumDescription(solarSource), time);
             var solar = (Core.Models.Solar_BusBarn)ExecuteQuery(selectCmd)[0];
             return solar;
         }
 
         public List<Core.Models.Solar_BusBarn> GetByTime(Core.PiServerTableTags.SolarSources solarSource, string startDateTime, string endDateTime)
         {
-            var selectCmd = SelectCommand("*", "piinterp", GetEnumDescription(solarSource), "today");
+            var selectCmd = SelectCommand("*", "piinterp", GetEnumDescription(solarSource), startDateTime, endDateTime);
             var solar = ExecuteQuery(selectCmd);
             return solar;
         }
@@ -50,9 +50,11 @@ namespace EnvironmentalApp.Data.PiServer
                 {
                     solar = new Core.Models.Solar_BusBarn();
                     var currentRow = reader[rowIdx]; //tag
+                    solar.Id = Guid.NewGuid();
                     solar.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
                     solar.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//(decimal)Double.Parse(reader[rowIdx + 2].ToString(), System.Globalization.NumberStyles.Float);
                     solar.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
+                    solar.TimeStamp = DateTime.Now;
                     solar.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 
                     solarList.Add(solar);

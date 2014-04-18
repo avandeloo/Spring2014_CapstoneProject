@@ -237,6 +237,7 @@
     <Content Include="..\EnvironmentalApp.Data\Data.config">
       <Link>Data.config</Link>
     </Content>
+    <None Include="Properties\PublishProfiles\EnvironmentalApp.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\EnviroHawk2.png" />
     <Content Include="Scripts\jqPlot\changes.txt" />

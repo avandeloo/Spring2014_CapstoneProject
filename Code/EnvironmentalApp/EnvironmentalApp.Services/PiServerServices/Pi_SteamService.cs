@@ -18,6 +18,9 @@ namespace EnvironmentalApp.Services.PiServerServices
             steamRepo = new Steam_PI_Repository();
             steam_Campus_Repo = new Steam_Campus_PI_Repository();
         }
+
+        // Steam
+
         public Core.Models.Steam Get_Steam_ByTime(SteamSources source, string dateTime="today")
         {
             var steam = new Core.Models.Steam();
@@ -34,5 +37,26 @@ namespace EnvironmentalApp.Services.PiServerServices
         {
             return steamRepo.GetByTime(source, startDateTime, endDateTime);
         }
+
+        // Steam Campus
+        
+        public Core.Models.Steam_Campus Get_SteamCampus_ByTime(SteamSources source, string dateTime = "today")
+        {
+            var steamCampus = new Core.Models.Steam_Campus();
+            if (dateTime.ToLower() == "today")
+            {
+                steamCampus = steam_Campus_Repo.GetToday(source);
+            }
+            else
+            {
+                steamCampus = steam_Campus_Repo.GetByTime(source, dateTime);
+            }
+            return steamCampus;
+        }
+        public List<Core.Models.Steam_Campus> Get_SteamCampus_ByDateRange(SteamSources source, string startDateTime, string endDateTime)
+        {
+            return steam_Campus_Repo.GetByTime(source, startDateTime, endDateTime);
+        }
+
     }
 }
