@@ -123,3 +123,33 @@ nav ul#menu li {
         nav ul#menu li ul li:first-child {
             border-top:none;
         }
+
+
+
+span.date {
+    font-size:16px;
+    margin-left:10px;
+}
+
+#datePicker {
+    margin:10px 0px;
+}
+
+#datePicker label {
+    display: inline !important;
+}
+
+#datePicker {
+    font-size: 10px;
+}
+
+    #datePicker input[type=text] {
+        width: 100px !important;
+    }
+
+        #datePicker input[type=submit] {
+            font-size: 10px;
+            border-radius: 3px;
+            padding:5px 15px;
+            margin-left:10px;
+        }

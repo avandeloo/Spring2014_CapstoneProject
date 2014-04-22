@@ -120,14 +120,16 @@
         @{var StartDate = Model.FirstOrDefault().StartDate;}
         @{var EndDate = Model.FirstOrDefault().EndDate;}
 
-        <h3>@pageTitle</h3>
-        <h5>Date Range: @StartDate - @EndDate</h5>
+        <h2>@pageTitle  <span class="date">@StartDate - @EndDate</span></h2>
+        <br />
+        <hr /><br />
+        View readings from another date range:
         <form id="datePicker" action="?id=airtemp" method="post">
             <label for="from">From</label>
             <input type="text" id="from" name="sdate">
-            <label for="to">to</label>
+            <label for="to">To</label>
             <input type="text" id="to" name="edate">
-            <input type="submit" />
+            <input type="submit" value="View" />
         </form>
 
         <div id="chartdiv" >
