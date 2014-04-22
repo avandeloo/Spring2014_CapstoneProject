@@ -59,6 +59,13 @@
     <Compile Include="ETLServiceTests\ETLElectricTest.cs" />
     <Compile Include="ETLServiceTests\ETLAirTempTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PiServer\AirTempRepositoryTest.cs" />
+    <Compile Include="PiServer\ChilledWaterRespositoryTest.cs" />
+    <Compile Include="PiServer\ElectricRepositoryTest.cs" />
+    <Compile Include="PiServer\HumidityRepositoryTest.cs" />
+    <Compile Include="PiServer\SolarRadiationRespositoryTest.cs" />
+    <Compile Include="PiServer\SolarRepositoryTest.cs" />
+    <Compile Include="PiServer\SteamRepositoryTest.cs" />
     <Compile Include="SqlServer\Sql_WindServiceTest.cs" />
     <Compile Include="SqlServer\Sql_AirTempServiceTest.cs" />
     <Compile Include="SqlServer\Sql_ChilledWaterServiceTest.cs" />
@@ -84,9 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Data.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

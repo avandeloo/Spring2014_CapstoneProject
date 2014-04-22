@@ -19,9 +19,9 @@ namespace EnvironmentalApp.Data.Tests.SqlServer
            
             steamList = steamList = new List<Steam> 
                 { 
-                    new Steam { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Now.AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Steam { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Now.AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Steam { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Now.AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new Steam { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Now.AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Steam { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Now.AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Steam { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Now.AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
         

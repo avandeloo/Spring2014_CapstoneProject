@@ -19,7 +19,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                 {
 
                     var dailyTotals = new WindDailyTotals();
-                    var readings = (List<decimal>)entityList.Select(x => x.Reading).ToList();
+                    var readings = (List<float>)entityList.Select(x => x.Reading).ToList();
 
                     dailyTotals.Id = Guid.NewGuid();
                     dailyTotals.ReadingDateTime = DateTime.Now;
