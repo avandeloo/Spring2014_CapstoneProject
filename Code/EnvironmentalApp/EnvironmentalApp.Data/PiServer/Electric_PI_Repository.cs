@@ -14,21 +14,21 @@ namespace EnvironmentalApp.Data.PiServer
         
         public Core.Models.Electric GetToday(ElectricSources source)
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source));
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), "today");
             var electric = (Core.Models.Electric)ExecuteQuery(selectCmd)[0];
             return electric;
         }
 
         public Core.Models.Electric GetByTime(ElectricSources source,string time)
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source));
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), time);
             var electric = (Core.Models.Electric)ExecuteQuery(selectCmd)[0];
             return electric;
         }
 
         public List<Core.Models.Electric> GetByTime(ElectricSources source,string startDateTime, string endDateTime)
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source));
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), startDateTime, endDateTime);
             var electric = ExecuteQuery(selectCmd);
             return electric;
         }
@@ -46,9 +46,11 @@ namespace EnvironmentalApp.Data.PiServer
                 {
                     electric = new Core.Models.Electric();
                     var currentRow = reader[rowIdx]; //tag
+                    electric.Id = Guid.NewGuid();
                     electric.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
                     electric.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//Convert.ToDecimal(reader[rowIdx + 2].ToString());
                     electric.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
+                    electric.TimeStamp = DateTime.Now;
                     electric.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 
                     electricList.Add(electric);

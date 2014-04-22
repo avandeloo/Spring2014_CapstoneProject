@@ -8,16 +8,26 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class ChilledWater_Campus_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<CW_DailyTotals_Campus,ChilledWater>
+    public class ChilledWater_Campus_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<CW_DailyTotals_Campus,ChilledWater_Campus>
     {
-        public int Create(List<Core.Models.ChilledWater> entityList)
+        public int Create(List<Core.Models.ChilledWater_Campus> entityList)
         {
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    var totalCampusChilledWaterDailyTotalsList = new List<CW_DailyTotals_Campus>();
-                   
+
+                    var dailyTotals = new CW_DailyTotals_Campus();
+                    var readings = (List<float>)entityList.Select(x => x.Reading).ToList();
+
+                    dailyTotals.Id = Guid.NewGuid();
+                    dailyTotals.ReadingDateTime = DateTime.Now;
+                    dailyTotals.DailySum = SumReadings(readings);
+                    dailyTotals.DailyAverage = AverageReadings(readings);
+                    dailyTotals.HighValue = MaxReading(readings);
+                    dailyTotals.LowValue = MinReading(readings);
+
+                    ctx.TC_CHILLED_WATER_SUM_BY_DAY.Add(dailyTotals);
 
                     int result = ctx.SaveChanges();
                     return result;

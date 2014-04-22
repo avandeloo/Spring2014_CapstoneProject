@@ -22,7 +22,7 @@ namespace EnvironmentalApp.Data.PiServer
 
         public Core.Models.Humidity GetByTime(HumiditySources source,string time)
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), "today");
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), time);
             var humidity = (Core.Models.Humidity)ExecuteQuery(selectCmd)[0];
             return humidity;
         }
@@ -48,9 +48,11 @@ namespace EnvironmentalApp.Data.PiServer
                 {
                     humidity = new Core.Models.Humidity();
                     var currentRow = reader[rowIdx]; //tag
+                    humidity.Id = Guid.NewGuid();
                     humidity.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
                     humidity.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//Convert.ToDecimal(reader[rowIdx + 2].ToString());
                     humidity.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
+                    humidity.TimeStamp = DateTime.Now;
                     humidity.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 
                     humidityList.Add(humidity);

@@ -18,7 +18,7 @@ namespace EnvironmentalApp.Services.PiServerServices
             Solar_CarCharger_Repo = new Solar_CarCharger_PI_Repository();
             Solar_BusBarn_Repo = new Solar_BusBarn_PI_Repository();
         }
-        public Core.Models.Solar_CarCharger Get_Solar_ByTime(SolarSources source, string dateTime="today")
+        public Core.Models.Solar_CarCharger Get_SolarCarCharger_ByTime(SolarSources source, string dateTime="today")
         {
             var solar = new Core.Models.Solar_CarCharger();
             if (dateTime.ToLower() == "today")
@@ -30,9 +30,29 @@ namespace EnvironmentalApp.Services.PiServerServices
             }
             return solar;
         }
-        public List<Core.Models.Solar_CarCharger> Get_Solar_ByDateRange(SolarSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.Solar_CarCharger> Get_SolarCarCharger_ByDateRange(SolarSources source, string startDateTime, string endDateTime)
         {
             return Solar_CarCharger_Repo.GetByTime(source, startDateTime, endDateTime);
+        }
+
+        // Solar Bus Barn
+
+        public Core.Models.Solar_BusBarn Get_SolarBusBarn_ByTime(SolarSources source, string dateTime = "today")
+        {
+            var solar = new Core.Models.Solar_BusBarn();
+            if (dateTime.ToLower() == "today")
+            {
+                solar = Solar_BusBarn_Repo.GetToday(source);
+            }
+            else
+            {
+                solar = Solar_BusBarn_Repo.GetByTime(source, dateTime);
+            }
+            return solar;
+        }
+        public List<Core.Models.Solar_BusBarn> Get_SolarBusBarn_ByDateRange(SolarSources source, string startDateTime, string endDateTime)
+        {
+            return Solar_BusBarn_Repo.GetByTime(source, startDateTime, endDateTime);
         }
     }
 }

@@ -14,20 +14,20 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             var config =new Configuration();
             ConnString = config.GetSqlServerConnectionString();
         }
-        internal static decimal SumReadings(List<decimal> readings)
+        internal static float SumReadings(List<float> readings)
         {
 
             return readings.Sum();
         }
-        internal static decimal AverageReadings(List<decimal> readings)
+        internal static float AverageReadings(List<float> readings)
         {
             return readings.Average();
         }
-        internal static decimal MinReading(List<decimal> readings)
+        internal static float MinReading(List<float> readings)
         {
             return readings.Min();
         }
-        internal static decimal MaxReading(List<decimal> readings)
+        internal static float MaxReading(List<float> readings)
         {
             return readings.Max();
         }

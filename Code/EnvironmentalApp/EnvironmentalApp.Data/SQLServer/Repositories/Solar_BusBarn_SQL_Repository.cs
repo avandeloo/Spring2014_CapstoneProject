@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Solar_BusBarn_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISolarSQLRepository<Solar_BusBarn>
+    public class Solar_BusBarn_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBaseRepository<Solar_BusBarn>
     {
 
         public int Create(Core.Models.Solar_BusBarn entity)

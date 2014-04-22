@@ -10,19 +10,26 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
     public class Solar_BusBarn_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<SolarDailyTotals_BusBarn,Solar_BusBarn>
     {
-      
+
         public int Create(List<Core.Models.Solar_BusBarn> entityList)
         {
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    var solarBusBarnDailyTotalsList = new List<SolarDailyTotals_BusBarn>();
-                    for (int i = 0; i < solarBusBarnDailyTotalsList.Count; i++)
-                    {
-                        ctx.SOLAR_BUS_BARN_SUM_BY_DAY.Add(solarBusBarnDailyTotalsList[i]);
-                        
-                    }
+
+                    var dailyTotals = new SolarDailyTotals_BusBarn();
+                    var readings = (List<float>)entityList.Select(x => x.Reading).ToList();
+
+                    dailyTotals.Id = Guid.NewGuid();
+                    dailyTotals.ReadingDateTime = DateTime.Now;
+                    dailyTotals.DailySum = SumReadings(readings);
+                    dailyTotals.DailyAverage = AverageReadings(readings);
+                    dailyTotals.HighValue = MaxReading(readings);
+                    dailyTotals.LowValue = MinReading(readings);
+
+                    ctx.SOLAR_BUS_BARN_SUM_BY_DAY.Add(dailyTotals);
+
                     int result = ctx.SaveChanges();
                     return result;
                 }

@@ -28,6 +28,13 @@ namespace EnvironmentalApp.Data.SQLServer.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
+            this.Property(t => t.Active)
+                .IsRequired();
+
+            this.Property(t => t.UpdatedBy)
+              .IsRequired()
+              .HasMaxLength(50);
+
             // Table & Column Mappings
             this.ToTable("REPORT");
             this.Property(t => t.ReportID).HasColumnName("ReportID");
@@ -40,6 +47,9 @@ namespace EnvironmentalApp.Data.SQLServer.Mapping
             this.Property(t => t.GraphStyle).HasColumnName("GraphStyle");
             this.Property(t => t.DateCreated).HasColumnName("DateCreated");
             this.Property(t => t.GeneratedBy).HasColumnName("GeneratedBy");
+            this.Property(t => t.Active).HasColumnName("Active");
+            this.Property(t => t.UpdatedDate).HasColumnName("UpdatedDate");
+            this.Property(t => t.UpdatedBy).HasColumnName("UpdatedBy");
         }
     }
 }

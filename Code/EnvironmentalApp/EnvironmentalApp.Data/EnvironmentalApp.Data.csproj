@@ -54,6 +54,7 @@
     <Compile Include="PiServer\AirTemp_PI_Repository.cs" />
     <Compile Include="PiServer\ChilledWater_Campus_PI_Repository.cs" />
     <Compile Include="PiServer\ChilledWater_PI_Repository.cs" />
+    <Compile Include="PiServer\Wind_PI_Repository.cs" />
     <Compile Include="PiServer\Electric_Campus_PI_Repository.cs" />
     <Compile Include="PiServer\Electric_PI_Repository.cs" />
     <Compile Include="PiServer\Humidity_PI_Repository.cs" />
@@ -65,6 +66,8 @@
     <Compile Include="PiServer\Steam_PI_Repository.cs" />
     <Compile Include="SQLServer\EnergyDataContext.cs" />
     <Compile Include="SQLServer\Mapping\AIR_TEMP_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\WIND_SUM_BY_DAYMap.cs" />
+    <Compile Include="SQLServer\Mapping\WINDMap.cs" />
     <Compile Include="SQLServer\Mapping\HUMIDITY_SUM_BY_DAYMap.cs" />
     <Compile Include="SQLServer\Mapping\OUTSIDE_AIR_TEMPMap.cs" />
     <Compile Include="SQLServer\Mapping\OUTSIDE_HUMIDITYMap.cs" />
@@ -91,6 +94,11 @@
     <Compile Include="SQLServer\Repositories\AirTemp_DailyTotals_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\AirTemp_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\Base_SQL_Repository.cs" />
+    <Compile Include="SQLServer\Repositories\Report_SQL_Repository.cs" />
+    <Compile Include="SQLServer\Repositories\Wind_DailyTotals_SQL_Repository.cs" />
+    <Compile Include="SQLServer\Repositories\Wind_SQL_Repository.cs" />
+    <Compile Include="SQLServer\Repositories\SolarRadiation_SQL_Repository.cs" />
+    <Compile Include="SQLServer\Repositories\SolarRadiation_DailyTotals_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\Humidity_DailyTotals_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\Solar_BusBarn_DailyTotals_SQL_Repository.cs" />
     <Compile Include="SQLServer\Repositories\Solar_CarCharger_DailyTotals_SQL_Repository.cs" />

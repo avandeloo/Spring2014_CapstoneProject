@@ -47,6 +47,7 @@
     <Compile Include="Data\PiServer\ISolarRepository.cs" />
     <Compile Include="Data\PiServer\ISteamRepository.cs" />
     <Compile Include="Data\PiServer\IWindRepository.cs" />
+    <Compile Include="Data\SQLServer\IReportRepository.cs" />
     <Compile Include="Data\SQLServer\IWindSQLRepository.cs" />
     <Compile Include="Data\SQLServer\IChilledWaterSQLRepository.cs" />
     <Compile Include="Data\SQLServer\ISolarRadiationSQLRepository.cs" />

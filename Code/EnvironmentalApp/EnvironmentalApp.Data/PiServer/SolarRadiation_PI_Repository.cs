@@ -21,14 +21,14 @@ namespace EnvironmentalApp.Data.PiServer
 
         public Core.Models.SolarRadiation GetByTime(SolarRadiationSources source,string time)
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), "today");
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), time);
             var solarRadiation = (Core.Models.SolarRadiation)ExecuteQuery(selectCmd)[0];
             return solarRadiation;
         }
 
         public List<Core.Models.SolarRadiation> GetByTime(SolarRadiationSources source,string startDateTime, string endDateTime)
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), "today");
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), startDateTime, endDateTime);
             var solarRadiation = (List<Core.Models.SolarRadiation>)ExecuteQuery(selectCmd);
             return solarRadiation;
         }
@@ -46,9 +46,11 @@ namespace EnvironmentalApp.Data.PiServer
                 {
                     solarRadiation = new Core.Models.SolarRadiation();
                     var currentRow = reader[rowIdx]; //tag
+                    solarRadiation.Id = Guid.NewGuid();
                     solarRadiation.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
                     solarRadiation.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//Convert.ToDecimal(reader[rowIdx + 2].ToString());
                     solarRadiation.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
+                    solarRadiation.TimeStamp = DateTime.Now;
                     solarRadiation.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 
                     solarRadiationList.Add(solarRadiation);

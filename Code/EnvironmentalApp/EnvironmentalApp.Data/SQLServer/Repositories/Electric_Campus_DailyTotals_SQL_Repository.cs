@@ -10,14 +10,26 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
     public class Electric_Campus_DailyTotals_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBase_DailySumRepository<ElectricDailyTotals_Campus,Electric_Campus>
     {
-      
+
         public int Create(List<Core.Models.Electric_Campus> entityList)
         {
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                 
+
+                    var dailyTotals = new ElectricDailyTotals_Campus();
+                    var readings = (List<float>)entityList.Select(x => x.Reading).ToList();
+
+                    dailyTotals.Id = Guid.NewGuid();
+                    dailyTotals.ReadingDateTime = DateTime.Now;
+                    dailyTotals.DailySum = SumReadings(readings);
+                    dailyTotals.DailyAverage = AverageReadings(readings);
+                    dailyTotals.HighValue = MaxReading(readings);
+                    dailyTotals.LowValue = MinReading(readings);
+
+                    ctx.TC_ELECTRICITY_SUM_BY_DAY.Add(dailyTotals);
+
                     int result = ctx.SaveChanges();
                     return result;
                 }

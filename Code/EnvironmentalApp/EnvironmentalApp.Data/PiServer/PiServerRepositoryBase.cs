@@ -62,25 +62,29 @@ namespace EnvironmentalApp.Data.PiServer
 
         
         /// <summary>
-        ///readings from Pi server can be either a decimal or scientific number
+        ///readings from Pi server can be either a float or scientific number
         ///ConvertReadingToDecimal checks for type of string is being passed in 
-        ///and converts accordingly. Returning a decimal rounded to the 8th digit.
+        ///and converts accordingly. Returning a float rounded to the 8th digit.
         /// </summary>
         /// <param name="reading"></param>
         /// <returns></returns>
-        protected decimal ConvertReadingToDecimal(string reading)
+        protected float ConvertReadingToDecimal(string reading)
         {
-            decimal decReading;
+            float decReading;
+            
             //if string is scientific number
-            if (reading.Contains("E+"))
+            if (reading.Contains("E"))
             {
-                decReading = (decimal)Math.Round(Double.Parse(reading, System.Globalization.NumberStyles.Float),8);
+                var t = Double.Parse(reading, System.Globalization.NumberStyles.Any);
+
+                decReading = (float)Math.Round(Double.Parse(reading, System.Globalization.NumberStyles.Float),4);
             }
             else
             {
-                decReading = Convert.ToDecimal(reading);
+                decReading = Convert.ToSingle(reading);
             }
             return decReading;
         }
+
     }
 }

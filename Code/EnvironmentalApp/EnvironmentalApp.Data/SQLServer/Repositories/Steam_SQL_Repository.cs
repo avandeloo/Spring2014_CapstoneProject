@@ -9,7 +9,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Steam_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISteamSQLRepository<Core.Models.Steam>
+    public class Steam_SQL_Repository:Base_SQL_Repository, Core.Data.SQLServer.ISQLServerBaseRepository<Steam>
     {
 
         public int Create(Core.Models.Steam entity)

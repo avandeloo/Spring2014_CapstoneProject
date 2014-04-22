@@ -15,5 +15,8 @@ namespace EnvironmentalApp.Core.Models
         public string GraphStyle { get; set; }
         public System.DateTime DateCreated { get; set; }
         public string GeneratedBy { get; set; }
+        public bool Active { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
     }
 }

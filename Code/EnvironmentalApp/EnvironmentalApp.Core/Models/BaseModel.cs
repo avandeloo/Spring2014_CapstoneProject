@@ -11,7 +11,7 @@ namespace EnvironmentalApp.Core.Models
         public Guid Id { get; set; }
         public DateTime TimeStamp { get; set; }
         public DateTime ReadingDateTime { get; set; }
-        public decimal Reading { get; set; }
+        public float Reading { get; set; }
         public int TimeStep { get; set; }
         public int Status { get; set; }
 

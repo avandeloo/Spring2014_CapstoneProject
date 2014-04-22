@@ -28,7 +28,7 @@ namespace EnvironmentalApp.Data.PiServer
 
         public List<Core.Models.Steam> GetByTime(SteamSources source,string startDateTime, string endDateTime)
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), "today");
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), startDateTime, endDateTime);
             var steam = ExecuteQuery(selectCmd);
             return steam;
         }
@@ -46,9 +46,11 @@ namespace EnvironmentalApp.Data.PiServer
                 {
                     steam = new Core.Models.Steam();
                     var currentRow = reader[rowIdx]; //tag
+                    steam.Id = Guid.NewGuid();
                     steam.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
                     steam.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//Convert.ToDecimal(reader[rowIdx + 2].ToString());
                     steam.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
+                    steam.TimeStamp = DateTime.Now;
                     steam.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());
 
                     steamList.Add(steam);

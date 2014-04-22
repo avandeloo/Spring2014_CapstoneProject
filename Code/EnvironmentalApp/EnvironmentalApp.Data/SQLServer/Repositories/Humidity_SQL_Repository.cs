@@ -8,7 +8,7 @@ using EnvironmentalApp.Data.SQLServer;
 
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
-    public class Humidity_SQL_Repository:Base_SQL_Repository,Core.Data.SQLServer.IHumiditySQLRepository
+    public class Humidity_SQL_Repository:Base_SQL_Repository,Core.Data.SQLServer.ISQLServerBaseRepository<Humidity>
     {
         public int Create(Humidity entity)
         {

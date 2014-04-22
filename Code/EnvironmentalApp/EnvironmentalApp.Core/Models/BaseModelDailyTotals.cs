@@ -10,10 +10,10 @@ namespace EnvironmentalApp.Core.Models
     {
         public Guid Id { get; set; }
         public DateTime ReadingDateTime { get; set; }
-        public decimal DailySum { get; set; }
-        public decimal DailyAverage { get; set; }
-        public decimal HighValue { get; set; }
-        public decimal LowValue { get; set; }
+        public float DailyAverage { get; set; }
+        public float HighValue { get; set; }
+        public float LowValue { get; set; }
+        public float DailySum { get; set; }
 
     }
 }
