@@ -19,6 +19,7 @@
       <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js")"></script>
 </head>
 
+            @{var dataValue = Model.FirstOrDefault().DataUnit;}
 
     <script type="text/javascript">
 
@@ -34,9 +35,8 @@
                     }
                 <text>line.push(line</text>@m.Id<text>);</text>
                 }
-          
+         
             function plotData(line) {
-
             var plot=    $.jqplot('chartdiv', line, {
                     seriesDefaults: {
                         renderer: $.jqplot.trendline,
@@ -53,7 +53,7 @@
                             }
                         },
                         yaxis: {
-                            label: 'Value',
+                            label: '@dataValue',
                             labelrenderer: $.jqplot.CanvasAxisLabelRenderer
                         }
                     }

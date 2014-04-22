@@ -20,5 +20,6 @@ namespace EnvironmentalApp.Gui.Models
         public List<DataModel> dataListData { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
+        public string DataUnit { get; set; }
     }
 }

@@ -81,6 +81,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Air Temperature";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
+            dataModel.DataUnit = "Fahrenheit";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < airTemp.Count; i++)
@@ -96,6 +97,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Chilled Water";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
+            dataModel.DataUnit = "MM BTU/HR";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < chilledWater.Count; i++)
@@ -111,6 +113,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Papa John Electric";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
+            dataModel.DataUnit = "Total KW";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < electric.Count; i++)
@@ -126,6 +129,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Campus Electric";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
+            dataModel.DataUnit = "Total KW";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < electric.Count; i++)
@@ -141,6 +145,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Humidity";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
+            dataModel.DataUnit = "Percentage";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < humidity.Count; i++)
@@ -171,6 +176,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Solar Bus Barn";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
+            dataModel.DataUnit = "Giga Watts";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solar.Count; i++)
@@ -186,6 +192,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Solar Car Port";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
+            dataModel.DataUnit = "Giga Watts";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solar.Count; i++)
@@ -201,6 +208,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Steam PBB";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
+            dataModel.DataUnit = "MM BTU/HR";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < steamPBB.Count; i++)
@@ -216,6 +224,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Steam Campus";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
+            dataModel.DataUnit = "MM BTU/HR";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < steamCampus.Count; i++)
