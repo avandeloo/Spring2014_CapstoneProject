@@ -49,3 +49,11 @@ Code/EnvironmentalApp/EnvironmentalApp.Core/obj/Release/TemporaryGeneratedFile_E
 Code/EnvironmentalApp/EnvironmentalApp.Data.Tests/obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
 Code/EnvironmentalApp/EnvironmentalApp.Data.Tests/obj/Release/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
 Code/EnvironmentalApp/EnvironmentalApp.Data.Tests/obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+*.force
+Code/EnvironmentalApp/EnvironmentalApp.Services.Test/obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+Code/EnvironmentalApp/EnvironmentalApp.Gui/Properties/PublishProfiles/Local.pubxml
+Code/EnvironmentalApp/EnvironmentalApp.Services.Test/obj/Release/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+Code/EnvironmentalApp/EnvironmentalApp.Services.Test/obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+patch.diff
+Code/EnvironmentalApp/EnvironmentalApp.Data.Tests/obj/Release/EnvironmentalApp.Data.Tests.csproj.FileListAbsolute.txt
+Code/EnvironmentalApp/EnvironmentalApp.Data/PiServer/ve-C1DB.tmp
