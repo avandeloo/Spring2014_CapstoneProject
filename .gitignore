@@ -1,4 +1,4 @@
-
+*.orig
 *.suo
 *.cache
 *.pdb
@@ -57,3 +57,4 @@ Code/EnvironmentalApp/EnvironmentalApp.Services.Test/obj/Release/TemporaryGenera
 patch.diff
 Code/EnvironmentalApp/EnvironmentalApp.Data.Tests/obj/Release/EnvironmentalApp.Data.Tests.csproj.FileListAbsolute.txt
 Code/EnvironmentalApp/EnvironmentalApp.Data/PiServer/ve-C1DB.tmp
+*.csproj.FileListAbsolute.txt
