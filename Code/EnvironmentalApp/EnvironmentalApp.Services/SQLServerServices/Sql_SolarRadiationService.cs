@@ -35,7 +35,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.SolarRadiation> Get_SolarRadiation_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.SolarRadiation> Get_SolarRadiation_ByTime(DateTime startDate, DateTime endDate)
         {
             var solarRadiationList = new List<Core.Models.SolarRadiation>();
             solarRadiationList = solarRadiationRepo.Get(startDate, endDate);
@@ -65,7 +65,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.SolarRadiationDailyTotals> Get_SolarRadiationDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.SolarRadiationDailyTotals> Get_SolarRadiationDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var solarRadiationDailyTotalsList = new List<Core.Models.SolarRadiationDailyTotals>();
             solarRadiationDailyTotalsList = solarRadiationDailyTotals.Get(startDate, endDate);
@@ -75,7 +75,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_SolarRadiation_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var solarRadiationDailyTotalsList = Get_SolarRadiation_ByDateRange(startDate, endDate);
+            var solarRadiationDailyTotalsList = Get_SolarRadiation_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return solarRadiationDailyTotals.Create(solarRadiationDailyTotalsList);
         }

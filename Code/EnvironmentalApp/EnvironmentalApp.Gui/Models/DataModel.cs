@@ -7,8 +7,6 @@ namespace EnvironmentalApp.Gui.Models
 {
     public class DataModel
     {
-        //public string Label { get; set; }
-        //public decimal[] Series { get; set; }
         public DateTime Date { get; set; }
         public float Value { get; set; }
     }

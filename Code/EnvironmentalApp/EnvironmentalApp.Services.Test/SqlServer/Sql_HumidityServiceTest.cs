@@ -21,13 +21,13 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
         {
             humidityList = new List<Humidity> 
                 { 
-                    new Humidity { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Humidity { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Humidity { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new Humidity { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Humidity { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Humidity { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
 
-            humidityRecord = new Humidity { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            humidityRecord = new Humidity { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
 
         }
 
@@ -69,7 +69,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var HumidityRepo = new Sql_HumidityService();
             var startDate = Convert.ToDateTime("2014-04-10 23:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-12 23:00:00.000");
-            var result = HumidityRepo.Get_Humidity_ByDateRange(startDate, endDate);
+            var result = HumidityRepo.Get_Humidity_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Humidity), "Collection does not contain the correct object type");
@@ -107,7 +107,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var HumidityDailyTotalsRepo = new Sql_HumidityService();
             var startDate = Convert.ToDateTime("2014-04-16 02:16:19.500");
             var endDate = Convert.ToDateTime("2014-04-16 17:46:00.833");
-            var result = HumidityDailyTotalsRepo.Get_HumidityDailyTotals_ByDateRange(startDate, endDate);
+            var result = HumidityDailyTotalsRepo.Get_HumidityDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.HumidityDailyTotals), "Collection does not contain the correct object type");

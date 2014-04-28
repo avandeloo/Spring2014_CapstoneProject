@@ -30,7 +30,7 @@ namespace EnvironmentalApp.Services.PiServerServices
             }
             return solar;
         }
-        public List<Core.Models.Solar_CarCharger> Get_SolarCarCharger_ByDateRange(SolarSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.Solar_CarCharger> Get_SolarCarCharger_ByTime(SolarSources source, string startDateTime, string endDateTime)
         {
             return Solar_CarCharger_Repo.GetByTime(source, startDateTime, endDateTime);
         }
@@ -50,7 +50,7 @@ namespace EnvironmentalApp.Services.PiServerServices
             }
             return solar;
         }
-        public List<Core.Models.Solar_BusBarn> Get_SolarBusBarn_ByDateRange(SolarSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.Solar_BusBarn> Get_SolarBusBarn_ByTime(SolarSources source, string startDateTime, string endDateTime)
         {
             return Solar_BusBarn_Repo.GetByTime(source, startDateTime, endDateTime);
         }

@@ -40,7 +40,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.Steam> Get_Steam_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.Steam> Get_Steam_ByTime(DateTime startDate, DateTime endDate)
         {
             var steamList = new List<Core.Models.Steam>();
             steamList = steamRepo.Get(startDate, endDate);
@@ -70,7 +70,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.SteamDailyTotals> Get_SteamDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.SteamDailyTotals> Get_SteamDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var steamDailyTotalsList = new List<Core.Models.SteamDailyTotals>();
             steamDailyTotalsList = steamDailyTotals.Get(startDate, endDate);
@@ -80,7 +80,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_Steam_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var steamDailyTotalsList = Get_Steam_ByDateRange(startDate, endDate);
+            var steamDailyTotalsList = Get_Steam_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return steamDailyTotals.Create(steamDailyTotalsList);
         }
@@ -101,7 +101,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.Steam_Campus> Get_SteamCampus_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.Steam_Campus> Get_SteamCampus_ByTime(DateTime startDate, DateTime endDate)
         {
             var steamCampusList = new List<Core.Models.Steam_Campus>();
             steamCampusList = steamCampusRepo.Get(startDate, endDate);
@@ -134,7 +134,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.SteamDailyTotals_Campus> Get_SteamCampusDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.SteamDailyTotals_Campus> Get_SteamCampusDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var steamCampusDailyTotalsList = new List<Core.Models.SteamDailyTotals_Campus>();
             steamCampusDailyTotalsList = steamCampusDailyTotals.Get(startDate, endDate);
@@ -144,7 +144,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_SteamCampus_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var steamCampusDailyTotalsList = Get_SteamCampus_ByDateRange(startDate, endDate);
+            var steamCampusDailyTotalsList = Get_SteamCampus_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return steamCampusDailyTotals.Create(steamCampusDailyTotalsList);
         }

@@ -20,12 +20,12 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
         {
             airTempList = new List<AirTemp> 
                 { 
-                    new AirTemp { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new AirTemp { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new AirTemp { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new AirTemp { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new AirTemp { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new AirTemp { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
-            airTempRecord = new AirTemp { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            airTempRecord = new AirTemp { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
         }
 
         // Air Temp
@@ -65,7 +65,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var airTempRepo = new Sql_AirTempService();
             var startDate = Convert.ToDateTime("2014-04-14 22:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-15 00:00:00.000");
-            var result = airTempRepo.Get_AirTemp_ByDateRange(startDate, endDate);
+            var result = airTempRepo.Get_AirTemp_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.AirTemp), "Collection does not contain the correct object type");
@@ -102,7 +102,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var airTempDailyTotalsRepo = new Sql_AirTempService();
             var startDate = Convert.ToDateTime("2014-04-15 23:55:53.513");
             var endDate = Convert.ToDateTime("2014-04-16 16:03:06.027");
-            var result = airTempDailyTotalsRepo.Get_AirTempDailyTotals_ByDateRange(startDate, endDate);
+            var result = airTempDailyTotalsRepo.Get_AirTempDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.AirTempDailyTotals), "Collection does not contain the correct object type");

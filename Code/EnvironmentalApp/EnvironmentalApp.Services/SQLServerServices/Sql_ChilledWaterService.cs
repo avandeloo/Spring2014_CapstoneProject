@@ -39,7 +39,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.ChilledWater> Get_ChilledWater_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.ChilledWater> Get_ChilledWater_ByTime(DateTime startDate, DateTime endDate)
         {
             var chilledWaterList = new List<Core.Models.ChilledWater>();
             chilledWaterList = chilledWaterRepo.Get(startDate, endDate);
@@ -69,7 +69,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.CW_DailyTotals> Get_ChilledWaterDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.CW_DailyTotals> Get_ChilledWaterDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var airTempList = new List<Core.Models.CW_DailyTotals>();
             airTempList = chilledWaterDailyTotals.Get(startDate, endDate);
@@ -79,7 +79,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_ChilledWater_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var chilledWaterDailyTotalsList = Get_ChilledWater_ByDateRange(startDate, endDate);
+            var chilledWaterDailyTotalsList = Get_ChilledWater_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return chilledWaterDailyTotals.Create(chilledWaterDailyTotalsList);
         }
@@ -100,7 +100,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.ChilledWater_Campus> Get_ChilledWaterCampus_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.ChilledWater_Campus> Get_ChilledWaterCampus_ByTime(DateTime startDate, DateTime endDate)
         {
             var chilledWaterCampusList = new List<Core.Models.ChilledWater_Campus>();
             chilledWaterCampusList = chilledWaterCampusRepo.Get(startDate, endDate);
@@ -133,7 +133,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.CW_DailyTotals_Campus> Get_ChilledWaterCampusDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.CW_DailyTotals_Campus> Get_ChilledWaterCampusDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var chilledWaterCampusDailyTotalsList = new List<Core.Models.CW_DailyTotals_Campus>();
             chilledWaterCampusDailyTotalsList = chilledWaterCampusDailyTotals.Get(startDate, endDate);
@@ -143,7 +143,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_ChilledWaterCampus_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var chilledWaterCampusDailyTotalsList = Get_ChilledWaterCampus_ByDateRange(startDate, endDate);
+            var chilledWaterCampusDailyTotalsList = Get_ChilledWaterCampus_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return chilledWaterCampusDailyTotals.Create(chilledWaterCampusDailyTotalsList);
         }

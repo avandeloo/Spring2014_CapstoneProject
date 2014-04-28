@@ -23,23 +23,23 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
         {
             electricList = new List<Electric> 
                 { 
-                    new Electric { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Electric { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Electric { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new Electric { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Electric { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Electric { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
 
-            electricRecord = new Electric { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            electricRecord = new Electric { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
 
             electricCampusList = new List<Electric_Campus> 
                 { 
-                    new Electric_Campus { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Electric_Campus { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Electric_Campus { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new Electric_Campus { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Electric_Campus { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Electric_Campus { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
 
-            electricCampusRecord = new Electric_Campus { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            electricCampusRecord = new Electric_Campus { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
 
         }
 
@@ -81,7 +81,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var ElectricRepo = new Sql_ElectricService();
             var startDate = Convert.ToDateTime("2014-04-10 23:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-12 23:00:00.000");
-            var result = ElectricRepo.Get_Electric_ByDateRange(startDate, endDate);
+            var result = ElectricRepo.Get_Electric_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Electric), "Collection does not contain the correct object type");
@@ -119,7 +119,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var ElectricDailyTotalsRepo = new Sql_ElectricService();
             var startDate = Convert.ToDateTime("2014-04-15 23:55:53.177");
             var endDate = Convert.ToDateTime("2014-04-15 23:55:53.177");
-            var result = ElectricDailyTotalsRepo.Get_ElectricDailyTotals_ByDateRange(startDate, endDate);
+            var result = ElectricDailyTotalsRepo.Get_ElectricDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.ElectricDailyTotals), "Collection does not contain the correct object type");
@@ -165,7 +165,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var ElectricCampusRepo = new Sql_ElectricService();
             var startDate = Convert.ToDateTime("2014-04-10 23:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-12 23:00:00.000");
-            var result = ElectricCampusRepo.Get_ElectricCampus_ByDateRange(startDate, endDate);
+            var result = ElectricCampusRepo.Get_ElectricCampus_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Electric_Campus), "Collection does not contain the correct object type");
@@ -203,7 +203,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var ElectricCampusDailyTotalsRepo = new Sql_ElectricService();
             var startDate = Convert.ToDateTime("2014-04-15 23:55:53.267");
             var endDate = Convert.ToDateTime("2014-04-15 23:55:53.267");
-            var result = ElectricCampusDailyTotalsRepo.Get_ElectricCampusDailyTotals_ByDateRange(startDate, endDate);
+            var result = ElectricCampusDailyTotalsRepo.Get_ElectricCampusDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.ElectricDailyTotals_Campus), "Collection does not contain the correct object type");

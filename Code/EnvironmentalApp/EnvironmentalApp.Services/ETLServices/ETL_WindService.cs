@@ -16,7 +16,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlWind = new SQLServerServices.Sql_WindService();
             var PiWind = new PiServerServices.Pi_WindService();
-            var windList = PiWind.Get_Wind_ByDateRange(WindSources.WindTurbine, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var windList = PiWind.Get_Wind_ByTime(WindSources.WindTurbine, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
             var result = SqlWind.Create_Wind_List_Of_Records(windList);
             return result;
         }

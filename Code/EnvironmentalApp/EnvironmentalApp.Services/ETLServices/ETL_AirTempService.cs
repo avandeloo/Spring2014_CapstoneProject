@@ -17,7 +17,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlAirTemp = new SQLServerServices.Sql_AirTempService();
             var PiAirTemp = new PiServerServices.Pi_AirTempService();
-            var airTempList = PiAirTemp.Get_AirTemp_ByDateRange(AirTempSource.OutsideTemp, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var airTempList = PiAirTemp.Get_AirTemp_ByTime(AirTempSource.OutsideTemp, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
             var result = SqlAirTemp.Create_AirTemp_List_Of_Records(airTempList);
             return result;
         }

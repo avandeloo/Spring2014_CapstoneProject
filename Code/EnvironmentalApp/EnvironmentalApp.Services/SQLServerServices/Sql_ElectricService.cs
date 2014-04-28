@@ -40,7 +40,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.Electric> Get_Electric_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.Electric> Get_Electric_ByTime(DateTime startDate, DateTime endDate)
         {
             var electricList = new List<Core.Models.Electric>();
             electricList = electricRepo.Get(startDate, endDate);
@@ -70,7 +70,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.ElectricDailyTotals> Get_ElectricDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.ElectricDailyTotals> Get_ElectricDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var electricList = new List<Core.Models.ElectricDailyTotals>();
             electricList = electricDailyTotals.Get(startDate, endDate);
@@ -80,7 +80,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_Electric_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var electricDailyTotalsList = Get_Electric_ByDateRange(startDate, endDate);
+            var electricDailyTotalsList = Get_Electric_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return electricDailyTotals.Create(electricDailyTotalsList);
         }
@@ -101,7 +101,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.Electric_Campus> Get_ElectricCampus_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.Electric_Campus> Get_ElectricCampus_ByTime(DateTime startDate, DateTime endDate)
         {
             var electricCampusList = new List<Core.Models.Electric_Campus>();
             electricCampusList = electricCampusRepo.Get(startDate, endDate);
@@ -134,7 +134,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.ElectricDailyTotals_Campus> Get_ElectricCampusDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.ElectricDailyTotals_Campus> Get_ElectricCampusDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var electricCampusDailyTotalsList = new List<Core.Models.ElectricDailyTotals_Campus>();
             electricCampusDailyTotalsList = electricCampusDailyTotals.Get(startDate, endDate);
@@ -144,7 +144,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_ElectricCampus_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var electricCampusDailyTotalsList = Get_ElectricCampus_ByDateRange(startDate, endDate);
+            var electricCampusDailyTotalsList = Get_ElectricCampus_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return electricCampusDailyTotals.Create(electricCampusDailyTotalsList);
         }

@@ -20,13 +20,13 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
         {
             solarRadiationList = new List<SolarRadiation> 
                 { 
-                    new SolarRadiation { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new SolarRadiation { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new SolarRadiation { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new SolarRadiation { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new SolarRadiation { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new SolarRadiation { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
 
-            solarRadiationRecord = new SolarRadiation { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            solarRadiationRecord = new SolarRadiation { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
 
         }
 
@@ -69,7 +69,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SolarRadiationRepo = new Sql_SolarRadiationService();
             var startDate = Convert.ToDateTime("2014-04-13 22:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-16 01:51:11.127");
-            var result = SolarRadiationRepo.Get_SolarRadiation_ByDateRange(startDate, endDate);
+            var result = SolarRadiationRepo.Get_SolarRadiation_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.SolarRadiation), "Collection does not contain the correct object type");
@@ -107,7 +107,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SolarRadiationDailyTotalsRepo = new Sql_SolarRadiationService();
             var startDate = Convert.ToDateTime("2014-04-16 01:49:45.967");
             var endDate = Convert.ToDateTime("2014-04-16 01:49:45.967");
-            var result = SolarRadiationDailyTotalsRepo.Get_SolarRadiationDailyTotals_ByDateRange(startDate, endDate);
+            var result = SolarRadiationDailyTotalsRepo.Get_SolarRadiationDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.SolarRadiationDailyTotals), "Collection does not contain the correct object type");

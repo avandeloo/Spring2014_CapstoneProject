@@ -20,12 +20,12 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
         {
             windList = new List<Wind> 
                 { 
-                    new Wind { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Wind { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Wind { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new Wind { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Wind { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Wind { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
-            windRecord = new Wind { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            windRecord = new Wind { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
         }
 
         // Wind
@@ -65,7 +65,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var windRepo = new Sql_WindService();
             var startDate = Convert.ToDateTime("2014-04-14 22:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-15 00:00:00.000");
-            var result = windRepo.Get_Wind_ByDateRange(startDate, endDate);
+            var result = windRepo.Get_Wind_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Wind), "Collection does not contain the correct object type");
@@ -102,7 +102,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var windDailyTotalsRepo = new Sql_WindService();
             var startDate = Convert.ToDateTime("2014-04-15 23:55:53.513");
             var endDate = Convert.ToDateTime("2014-04-16 16:03:06.027");
-            var result = windDailyTotalsRepo.Get_WindDailyTotals_ByDateRange(startDate, endDate);
+            var result = windDailyTotalsRepo.Get_WindDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.WindDailyTotals), "Collection does not contain the correct object type");

@@ -36,7 +36,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.AirTemp> Get_AirTemp_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.AirTemp> Get_AirTemp_ByTime(DateTime startDate, DateTime endDate)
         {
             var airTempList = new List<Core.Models.AirTemp>();
             airTempList = airRepo.Get(startDate, endDate);
@@ -66,7 +66,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.AirTempDailyTotals> Get_AirTempDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.AirTempDailyTotals> Get_AirTempDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var airTempList = new List<Core.Models.AirTempDailyTotals>();
             airTempList = airRepoDailyTotals.Get(startDate, endDate);
@@ -76,7 +76,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_AirTemp_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var airTempDailyTotalsList = Get_AirTemp_ByDateRange(startDate, endDate);
+            var airTempDailyTotalsList = Get_AirTemp_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return airRepoDailyTotals.Create(airTempDailyTotalsList);
         }

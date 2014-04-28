@@ -23,23 +23,23 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
         {
             steamList = new List<Steam> 
                 { 
-                    new Steam { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Steam { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Steam { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new Steam { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Steam { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Steam { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
 
-            steamRecord = new Steam { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            steamRecord = new Steam { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
 
             steamCampusList = new List<Steam_Campus> 
                 { 
-                    new Steam_Campus { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Steam_Campus { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Steam_Campus { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new Steam_Campus { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Steam_Campus { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Steam_Campus { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
 
-            steamCampusRecord = new Steam_Campus { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            steamCampusRecord = new Steam_Campus { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
 
         }
 
@@ -81,7 +81,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SteamRepo = new Sql_SteamService();
             var startDate = Convert.ToDateTime("2014-04-10 23:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-12 23:00:00.000");
-            var result = SteamRepo.Get_Steam_ByDateRange(startDate, endDate);
+            var result = SteamRepo.Get_Steam_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Steam), "Collection does not contain the correct object type");
@@ -119,7 +119,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SteamDailyTotalsRepo = new Sql_SteamService();
             var startDate = Convert.ToDateTime("2014-04-14 20:19:44.450");
             var endDate = Convert.ToDateTime("2014-04-15 23:55:53.027");
-            var result = SteamDailyTotalsRepo.Get_SteamDailyTotals_ByDateRange(startDate, endDate);
+            var result = SteamDailyTotalsRepo.Get_SteamDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.SteamDailyTotals), "Collection does not contain the correct object type");
@@ -164,7 +164,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SteamCampusRepo = new Sql_SteamService();
             var startDate = Convert.ToDateTime("2014-04-10 23:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-12 23:00:00.000");
-            var result = SteamCampusRepo.Get_SteamCampus_ByDateRange(startDate, endDate);
+            var result = SteamCampusRepo.Get_SteamCampus_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Steam_Campus), "Collection does not contain the correct object type");
@@ -202,7 +202,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SteamCampusDailyTotalsRepo = new Sql_SteamService();
             var startDate = Convert.ToDateTime("2014-04-15 23:55:53.103");
             var endDate = Convert.ToDateTime("2014-04-15 23:55:53.103");
-            var result = SteamCampusDailyTotalsRepo.Get_SteamCampusDailyTotals_ByDateRange(startDate, endDate);
+            var result = SteamCampusDailyTotalsRepo.Get_SteamCampusDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.SteamDailyTotals_Campus), "Collection does not contain the correct object type");

@@ -39,7 +39,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.Solar_CarCharger> Get_SolarCarCharger_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.Solar_CarCharger> Get_SolarCarCharger_ByTime(DateTime startDate, DateTime endDate)
         {
             var solarCarChargerList = new List<Core.Models.Solar_CarCharger>();
             solarCarChargerList = solarCarChargerRepo.Get(startDate, endDate);
@@ -69,7 +69,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.SolarDailyTotals_CarCharger> Get_SolarCarChargerDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.SolarDailyTotals_CarCharger> Get_SolarCarChargerDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var solarCarChargerList = new List<Core.Models.SolarDailyTotals_CarCharger>();
             solarCarChargerList = solarCarChargerDailyTotals.Get(startDate, endDate);
@@ -79,7 +79,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_SolarCarCharger_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var solarCarChargerDailyTotalsList = Get_SolarCarCharger_ByDateRange(startDate, endDate);
+            var solarCarChargerDailyTotalsList = Get_SolarCarCharger_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return solarCarChargerDailyTotals.Create(solarCarChargerDailyTotalsList);
         }
@@ -100,7 +100,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.Solar_BusBarn> Get_SolarBusBarn_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.Solar_BusBarn> Get_SolarBusBarn_ByTime(DateTime startDate, DateTime endDate)
         {
             var solarBusBarnList = new List<Core.Models.Solar_BusBarn>();
             solarBusBarnList = solarBusBarnRepo.Get(startDate, endDate);
@@ -133,7 +133,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.SolarDailyTotals_BusBarn> Get_SolarBusBarnDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.SolarDailyTotals_BusBarn> Get_SolarBusBarnDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var solarBusBarnDailyTotalsList = new List<Core.Models.SolarDailyTotals_BusBarn>();
             solarBusBarnDailyTotalsList = solarBusBarnDailyTotals.Get(startDate, endDate);
@@ -143,7 +143,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_SolarBusBarn_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var solarBusBarnDailyTotalsList = Get_SolarBusBarn_ByDateRange(startDate, endDate);
+            var solarBusBarnDailyTotalsList = Get_SolarBusBarn_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return solarBusBarnDailyTotals.Create(solarBusBarnDailyTotalsList);
         }

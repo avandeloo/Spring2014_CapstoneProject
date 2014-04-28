@@ -34,7 +34,7 @@ namespace EnvironmentalApp.Services.PiServerServices
             return result;
         }
 
-        public List<Core.Models.Wind> Get_Wind_ByDateRange(Core.PiServerTableTags.WindSources windSource, string startDate, string endDate)
+        public List<Core.Models.Wind> Get_Wind_ByTime(Core.PiServerTableTags.WindSources windSource, string startDate, string endDate)
         {
             var windList = new List<Core.Models.Wind>();
             windList = windRepo.GetByTime(windSource, startDate, endDate);

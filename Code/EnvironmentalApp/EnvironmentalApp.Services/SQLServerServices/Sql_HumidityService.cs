@@ -35,7 +35,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.Humidity> Get_Humidity_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.Humidity> Get_Humidity_ByTime(DateTime startDate, DateTime endDate)
         {
             var humidityList = new List<Core.Models.Humidity>();
             humidityList = humidityRepo.Get(startDate, endDate);
@@ -65,7 +65,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.HumidityDailyTotals> Get_HumidityDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.HumidityDailyTotals> Get_HumidityDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var humidityList = new List<Core.Models.HumidityDailyTotals>();
             humidityList = humidityDailyTotals.Get(startDate, endDate);
@@ -75,7 +75,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_Humidity_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var humidityDailyTotalsList = Get_Humidity_ByDateRange(startDate, endDate);
+            var humidityDailyTotalsList = Get_Humidity_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return humidityDailyTotals.Create(humidityDailyTotalsList);
         }

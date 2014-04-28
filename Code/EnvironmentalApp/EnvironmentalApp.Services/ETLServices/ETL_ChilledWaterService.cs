@@ -16,7 +16,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlChilledWater = new SQLServerServices.Sql_ChilledWaterService();
             var PiChilledWater = new PiServerServices.Pi_ChilledWaterService();
-            var ChilledWaterList = PiChilledWater.Get_ChilledWater_ByDateRange(ChilledWaterSources.PBB_ChilledWater, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var ChilledWaterList = PiChilledWater.Get_ChilledWater_ByTime(ChilledWaterSources.PBB_ChilledWater, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
             var result = SqlChilledWater.Create_ChilledWater_List_Of_Records(ChilledWaterList);
             return result;
         }
@@ -25,7 +25,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlChilledWaterCampus = new SQLServerServices.Sql_ChilledWaterService();
             var PiChilledWaterCampus = new PiServerServices.Pi_ChilledWaterService();
-            var ChilledWaterCampusList = PiChilledWaterCampus.Get_ChilledWaterCampus_ByDateRange(ChilledWaterSources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var ChilledWaterCampusList = PiChilledWaterCampus.Get_ChilledWaterCampus_ByTime(ChilledWaterSources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
             var result = SqlChilledWaterCampus.Create_ChilledWaterCampus_List_Of_Records(ChilledWaterCampusList);
             return result;
         }

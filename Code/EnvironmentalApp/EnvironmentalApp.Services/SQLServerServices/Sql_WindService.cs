@@ -36,7 +36,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.Wind> Get_Wind_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.Wind> Get_Wind_ByTime(DateTime startDate, DateTime endDate)
         {
             var windList = new List<Core.Models.Wind>();
             windList = windRepo.Get(startDate, endDate);
@@ -66,7 +66,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return result;
         }
 
-        public List<Core.Models.WindDailyTotals> Get_WindDailyTotals_ByDateRange(DateTime startDate, DateTime endDate)
+        public List<Core.Models.WindDailyTotals> Get_WindDailyTotals_ByTime(DateTime startDate, DateTime endDate)
         {
             var windDailyTotalsList = new List<Core.Models.WindDailyTotals>();
             windDailyTotalsList = windRepoDailyTotals.Get(startDate, endDate);
@@ -76,7 +76,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public int Create_Wind_DailyTotals(DateTime startDate, DateTime endDate)
         {
             // get daily range from SQL server
-            var windDailyTotalsList = Get_Wind_ByDateRange(startDate, endDate);
+            var windDailyTotalsList = Get_Wind_ByTime(startDate, endDate);
             // insert/create list into Create daily totals server method
             return windRepoDailyTotals.Create(windDailyTotalsList);
         }

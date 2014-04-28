@@ -34,7 +34,7 @@ namespace EnvironmentalApp.Services.PiServerServices
 
             return cWater;
         }
-        public List<Core.Models.ChilledWater> Get_ChilledWater_ByDateRange(ChilledWaterSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.ChilledWater> Get_ChilledWater_ByTime(ChilledWaterSources source, string startDateTime, string endDateTime)
         {
 
             return chilledWaterRepo.GetByTime(source, startDateTime, endDateTime);
@@ -56,7 +56,7 @@ namespace EnvironmentalApp.Services.PiServerServices
 
             return cWater;
         }
-        public List<Core.Models.ChilledWater_Campus> Get_ChilledWaterCampus_ByDateRange(ChilledWaterSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.ChilledWater_Campus> Get_ChilledWaterCampus_ByTime(ChilledWaterSources source, string startDateTime, string endDateTime)
         {
 
             return chilledWater_Campus_Repo.GetByTime(source, startDateTime, endDateTime);

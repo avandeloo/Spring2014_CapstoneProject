@@ -33,7 +33,7 @@ namespace EnvironmentalApp.Services.PiServerServices
             }
             return steam;
         }
-        public List<Core.Models.Steam> Get_Steam_ByDateRange(SteamSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.Steam> Get_Steam_ByTime(SteamSources source, string startDateTime, string endDateTime)
         {
             return steamRepo.GetByTime(source, startDateTime, endDateTime);
         }
@@ -53,7 +53,7 @@ namespace EnvironmentalApp.Services.PiServerServices
             }
             return steamCampus;
         }
-        public List<Core.Models.Steam_Campus> Get_SteamCampus_ByDateRange(SteamSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.Steam_Campus> Get_SteamCampus_ByTime(SteamSources source, string startDateTime, string endDateTime)
         {
             return steam_Campus_Repo.GetByTime(source, startDateTime, endDateTime);
         }

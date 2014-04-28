@@ -23,23 +23,23 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
         {
             chilledWaterList = new List<ChilledWater> 
                 { 
-                    new ChilledWater { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new ChilledWater { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new ChilledWater { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new ChilledWater { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new ChilledWater { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new ChilledWater { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
         
-            chilledWaterRecord = new ChilledWater { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            chilledWaterRecord = new ChilledWater { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
 
             chilledWaterCampusList = new List<ChilledWater_Campus> 
                 { 
-                    new ChilledWater_Campus { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new ChilledWater_Campus { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new ChilledWater_Campus { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new ChilledWater_Campus { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new ChilledWater_Campus { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new ChilledWater_Campus { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
 
-            chilledWaterCampusRecord = new ChilledWater_Campus { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            chilledWaterCampusRecord = new ChilledWater_Campus { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
         
         }
 
@@ -80,7 +80,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var chilledWaterRepo = new Sql_ChilledWaterService();
             var startDate = Convert.ToDateTime("2014-04-10 23:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-12 23:00:00.000");
-            var result = chilledWaterRepo.Get_ChilledWater_ByDateRange(startDate, endDate);
+            var result = chilledWaterRepo.Get_ChilledWater_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.ChilledWater), "Collection does not contain the correct object type");
@@ -118,7 +118,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var chilledWaterDailyTotalsRepo = new Sql_ChilledWaterService();
             var startDate = Convert.ToDateTime("2014-04-15 23:55:53.350");
             var endDate = Convert.ToDateTime("2014-04-15 23:55:53.350");
-            var result = chilledWaterDailyTotalsRepo.Get_ChilledWaterDailyTotals_ByDateRange(startDate, endDate);
+            var result = chilledWaterDailyTotalsRepo.Get_ChilledWaterDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.CW_DailyTotals), "Collection does not contain the correct object type");
@@ -164,7 +164,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var chilledWaterCampusRepo = new Sql_ChilledWaterService();
             var startDate = Convert.ToDateTime("2014-04-10 23:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-12 23:00:00.000");
-            var result = chilledWaterCampusRepo.Get_ChilledWaterCampus_ByDateRange(startDate, endDate);
+            var result = chilledWaterCampusRepo.Get_ChilledWaterCampus_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.ChilledWater_Campus), "Collection does not contain the correct object type");
@@ -202,7 +202,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var chilledWaterCampusDailyTotalsRepo = new Sql_ChilledWaterService();
             var startDate = Convert.ToDateTime("2014-04-15 23:55:53.437");
             var endDate = Convert.ToDateTime("2014-04-15 23:55:53.437");
-            var result = chilledWaterCampusDailyTotalsRepo.Get_ChilledWaterCampusDailyTotals_ByDateRange(startDate, endDate);
+            var result = chilledWaterCampusDailyTotalsRepo.Get_ChilledWaterCampusDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.CW_DailyTotals_Campus), "Collection does not contain the correct object type");

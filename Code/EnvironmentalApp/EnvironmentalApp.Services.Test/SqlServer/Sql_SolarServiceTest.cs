@@ -22,23 +22,23 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
         {
             solarCarChargerList = new List<Solar_CarCharger> 
                 { 
-                    new Solar_CarCharger { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Solar_CarCharger { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Solar_CarCharger { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new Solar_CarCharger { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Solar_CarCharger { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Solar_CarCharger { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
 
-            solarCarChargerRecord = new Solar_CarCharger { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            solarCarChargerRecord = new Solar_CarCharger { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
 
             solarBusBarnList = new List<Solar_BusBarn> 
                 { 
-                    new Solar_BusBarn { Id = Guid.NewGuid(), Reading = 20.2m, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Solar_BusBarn { Id = Guid.NewGuid(), Reading = 32.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
-                    new Solar_BusBarn { Id = Guid.NewGuid(), Reading = -48.2m, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
+                    new Solar_BusBarn { Id = Guid.NewGuid(), Reading = 20.2f, ReadingDateTime = DateTime.Today.AddDays(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Solar_BusBarn { Id = Guid.NewGuid(), Reading = 32.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-1), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600},
+                    new Solar_BusBarn { Id = Guid.NewGuid(), Reading = -48.2f, ReadingDateTime = DateTime.Today.AddDays(-1).AddHours(-2), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600}
 
                 };
 
-            solarBusBarnRecord = new Solar_BusBarn { Id = Guid.NewGuid(), Reading = 40.2m, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
+            solarBusBarnRecord = new Solar_BusBarn { Id = Guid.NewGuid(), Reading = 40.2f, ReadingDateTime = DateTime.Today.AddDays(-4), Status = 1, TimeStamp = DateTime.Now, TimeStep = 3600 };
 
         }
 
@@ -80,7 +80,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SolarCarChargerRepo = new Sql_SolarService();
             var startDate = Convert.ToDateTime("2014-04-10 23:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-12 23:00:00.000");
-            var result = SolarCarChargerRepo.Get_SolarCarCharger_ByDateRange(startDate, endDate);
+            var result = SolarCarChargerRepo.Get_SolarCarCharger_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Solar_CarCharger), "Collection does not contain the correct object type");
@@ -118,7 +118,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SolarCarChargerDailyTotalsRepo = new Sql_SolarService();
             var startDate = Convert.ToDateTime("2014-04-15 23:55:52.543");
             var endDate = Convert.ToDateTime("2014-04-15 23:55:52.543");
-            var result = SolarCarChargerDailyTotalsRepo.Get_SolarCarChargerDailyTotals_ByDateRange(startDate, endDate);
+            var result = SolarCarChargerDailyTotalsRepo.Get_SolarCarChargerDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.SolarDailyTotals_CarCharger), "Collection does not contain the correct object type");
@@ -164,7 +164,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SolarBusBarnRepo = new Sql_SolarService();
             var startDate = Convert.ToDateTime("2014-04-10 23:00:00.000");
             var endDate = Convert.ToDateTime("2014-04-12 23:00:00.000");
-            var result = SolarBusBarnRepo.Get_SolarBusBarn_ByDateRange(startDate, endDate);
+            var result = SolarBusBarnRepo.Get_SolarBusBarn_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.Solar_BusBarn), "Collection does not contain the correct object type");
@@ -202,7 +202,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var SolarBusBarnDailyTotalsRepo = new Sql_SolarService();
             var startDate = Convert.ToDateTime("2014-04-15 23:55:52.817");
             var endDate = Convert.ToDateTime("2014-04-15 23:55:52.817");
-            var result = SolarBusBarnDailyTotalsRepo.Get_SolarBusBarnDailyTotals_ByDateRange(startDate, endDate);
+            var result = SolarBusBarnDailyTotalsRepo.Get_SolarBusBarnDailyTotals_ByTime(startDate, endDate);
 
             Assert.IsNotNull(result, "Object is null");
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Core.Models.SolarDailyTotals_BusBarn), "Collection does not contain the correct object type");
