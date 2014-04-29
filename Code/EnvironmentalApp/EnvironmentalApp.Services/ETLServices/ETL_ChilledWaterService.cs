@@ -10,9 +10,9 @@ using EnvironmentalApp.Core;
 
 namespace EnvironmentalApp.Services.ETLServices
 {
-    public class ETL_ChilledWaterService : ETLBaseService
+    public class ETL_ChilledWaterService : ETLBaseService,Core.Services.IServices,Core.Services.ICampusServices
     {
-        public int ChilledWater_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+        public int TransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlChilledWater = new SQLServerServices.Sql_ChilledWaterService();
             var PiChilledWater = new PiServerServices.Pi_ChilledWaterService();
@@ -21,7 +21,7 @@ namespace EnvironmentalApp.Services.ETLServices
             return result;
         }
 
-        public int ChilledWaterCampus_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+        public int CampusTransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlChilledWaterCampus = new SQLServerServices.Sql_ChilledWaterService();
             var PiChilledWaterCampus = new PiServerServices.Pi_ChilledWaterService();
@@ -30,5 +30,19 @@ namespace EnvironmentalApp.Services.ETLServices
             return result;
         }
 
+
+
+        public int CreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_ChilledWaterService();
+            return sqlService.Create_ChilledWater_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
+
+
+        public int CampusCreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_ChilledWaterService();
+            return sqlService.Create_ChilledWaterCampus_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
     }
 }

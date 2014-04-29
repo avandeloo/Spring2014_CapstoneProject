@@ -14,8 +14,5 @@ namespace EnvironmentalApp.Core.PiServerTableTags
         [Description("EL_MSSB_S388_KV2.KW")]
         CarPort
 
-        //el_mssb_s388.kv2.kw-- carport
-        //el_mssb_s387.kv2.kw-- bus
-
     }
 }

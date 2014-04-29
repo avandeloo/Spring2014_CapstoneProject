@@ -10,5 +10,6 @@ namespace EnvironmentalApp.Core.Configuration
     {
          string GetPiServerConnectionString();
          string GetSqlServerConnectionString();
+         bool SqlDatabaseExists(string connString);
     }
 }

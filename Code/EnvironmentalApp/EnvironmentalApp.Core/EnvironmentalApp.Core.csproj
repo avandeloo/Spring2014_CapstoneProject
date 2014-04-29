@@ -95,6 +95,7 @@
     <Compile Include="PiServerTableTags\WindSources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PiServerTableTags\SolarSources.cs" />
+    <Compile Include="Services\IServices.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

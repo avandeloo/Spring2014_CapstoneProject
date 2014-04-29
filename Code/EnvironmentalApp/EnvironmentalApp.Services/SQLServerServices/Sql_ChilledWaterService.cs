@@ -31,11 +31,9 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public Core.Models.ChilledWater Get_ChilledWater_ByTime(DateTime dateTime)
         {
             Core.Models.ChilledWater result = null;
-            if(dateTime==DateTime.Today){
-             result = chilledWaterRepo.Get(DateTime.Today);
-        }else{
+         
             result = chilledWaterRepo.Get(dateTime);
-            }
+           
             return result;
         }
 

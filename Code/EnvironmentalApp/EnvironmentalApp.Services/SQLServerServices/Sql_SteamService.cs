@@ -32,11 +32,9 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public Core.Models.Steam Get_Steam_ByTime(DateTime dateTime)
         {
             Core.Models.Steam result = null;
-            if(dateTime==DateTime.Today){
-            result = steamRepo.Get(DateTime.Today);
-        }else{
+      
             result = steamRepo.Get(dateTime);
-            }
+          
             return result;
         }
 

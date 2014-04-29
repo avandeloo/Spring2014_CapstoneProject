@@ -10,10 +10,10 @@ using EnvironmentalApp.Core;
 
 namespace EnvironmentalApp.Services.ETLServices
 {
-    public class ETL_SolarRadiationService : ETLBaseService
+    public class ETL_SolarRadiationService : ETLBaseService,Core.Services.IServices
     {
 
-        public int SolarRadiation_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+        public int TransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlSolarRadiaton = new SQLServerServices.Sql_SolarRadiationService();
             var PiSolarRadiaton = new PiServerServices.Pi_SolarRadiationService();
@@ -23,5 +23,12 @@ namespace EnvironmentalApp.Services.ETLServices
         }
 
 
+
+
+        public int CreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_SolarRadiationService();
+            return sqlService.Create_SolarRadiation_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
     }
 }

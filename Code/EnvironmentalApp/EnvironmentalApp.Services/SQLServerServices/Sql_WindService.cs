@@ -28,11 +28,9 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public Core.Models.Wind Get_Wind_ByTime(DateTime dateTime)
         {
             Core.Models.Wind result = null;
-            if(dateTime==DateTime.Today){
-            result = windRepo.Get(DateTime.Today);
-        }else{
+           
             result = windRepo.Get(dateTime);
-            }
+          
             return result;
         }
 

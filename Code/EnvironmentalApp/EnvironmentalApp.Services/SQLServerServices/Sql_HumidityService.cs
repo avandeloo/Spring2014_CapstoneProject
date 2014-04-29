@@ -27,11 +27,9 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public Core.Models.Humidity Get_Humidity_ByTime(DateTime dateTime)
         {
             Core.Models.Humidity result = null;
-            if(dateTime==DateTime.Today){
-             result = humidityRepo.Get(DateTime.Today);
-        }else{
+          
             result = humidityRepo.Get(dateTime);
-            }
+          
             return result;
         }
 

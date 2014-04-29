@@ -18,7 +18,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void HumidityCanFetchAndDumpData()
         {
             var humidity = new ETL_HumidityService();
-            var result = humidity.Humidity_Fetch_And_Dump_Data_ByDateRange(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = humidity.TransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);

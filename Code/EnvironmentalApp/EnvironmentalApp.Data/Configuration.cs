@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Odbc;
 using System.Data.SqlClient;
+using System.Data.Entity;
 
 namespace EnvironmentalApp.Data
 {
@@ -40,7 +41,10 @@ namespace EnvironmentalApp.Data
             var connString = System.Configuration.ConfigurationManager.ConnectionStrings["EnergyDataContext"].ConnectionString;
             return connString;
         }
-
+        public bool SqlDatabaseExists(string connString)
+        {
+            return Database.Exists(connString);
+        }
         public static SqlConnection GetSqlServerConnection(string sqlServerConnectionString)
         {
             SqlConnection sqlConnection = null;

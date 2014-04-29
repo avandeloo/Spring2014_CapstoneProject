@@ -58,11 +58,9 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public Core.Models.AirTempDailyTotals Get_AirTempDailyTotals_ByTime(DateTime dateTime)
         {
             Core.Models.AirTempDailyTotals result = null;
-            if(dateTime==DateTime.Today){
-            result = airRepoDailyTotals.Get(DateTime.Today);
-        }else{
+           
                 result = airRepoDailyTotals.Get(dateTime);
-            }
+           
             return result;
         }
 

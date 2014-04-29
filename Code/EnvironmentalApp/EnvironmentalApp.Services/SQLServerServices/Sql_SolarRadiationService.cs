@@ -57,11 +57,8 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public Core.Models.SolarRadiationDailyTotals Get_SolarRadiationDailyTotals_ByTime(DateTime dateTime)
         {
             Core.Models.SolarRadiationDailyTotals result = null;
-            if(dateTime==DateTime.Today){
-            result = solarRadiationDailyTotals.Get(DateTime.Today);
-        }else{
+          
             result = solarRadiationDailyTotals.Get(dateTime);
-            }
             return result;
         }
 

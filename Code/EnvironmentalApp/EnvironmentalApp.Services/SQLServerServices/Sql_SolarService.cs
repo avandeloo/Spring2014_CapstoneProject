@@ -31,11 +31,9 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public Core.Models.Solar_CarCharger Get_SolarCarCharger_ByTime(DateTime dateTime)
         {
             Core.Models.Solar_CarCharger result = null;
-            if(dateTime==DateTime.Today){
-            result = solarCarChargerRepo.Get(DateTime.Today);
-        }else{
+      
             result = solarCarChargerRepo.Get(dateTime);
-            }
+           
             return result;
         }
 

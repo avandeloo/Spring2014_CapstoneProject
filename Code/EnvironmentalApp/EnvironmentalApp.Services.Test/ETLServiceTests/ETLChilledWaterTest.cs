@@ -18,7 +18,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void ChilledWaterCanFetchAndDumpData()
         {
             var chilledWater = new ETL_ChilledWaterService();
-            var result = chilledWater.ChilledWater_Fetch_And_Dump_Data_ByDateRange(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = chilledWater.TransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);
@@ -28,7 +28,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void ChilledWaterCampusCanFetchAndDumpData()
         {
             var chilledWaterCampus = new ETL_ChilledWaterService();
-            var result = chilledWaterCampus.ChilledWaterCampus_Fetch_And_Dump_Data_ByDateRange(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = chilledWaterCampus.CampusTransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);

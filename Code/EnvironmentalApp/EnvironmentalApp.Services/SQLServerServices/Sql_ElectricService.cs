@@ -32,11 +32,8 @@ namespace EnvironmentalApp.Services.SQLServerServices
         public Core.Models.Electric Get_Electric_ByTime(DateTime dateTime)
         {
             Core.Models.Electric result = null;
-            if(dateTime==DateTime.Today){
-             result = electricRepo.Get(DateTime.Today);
-        }else{
+        
             result = electricRepo.Get(dateTime);
-            }
             return result;
         }
 

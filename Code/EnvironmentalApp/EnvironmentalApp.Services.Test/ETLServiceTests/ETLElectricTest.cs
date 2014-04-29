@@ -18,7 +18,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void ElectricCanFetchAndDumpData()
         {
             var electric = new ETL_ElectricService();
-            var result = electric.Electric_Fetch_And_Dump_Data_ByDateRange(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = electric.TransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);
@@ -28,7 +28,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void ElectricCampusCanFetchAndDumpData()
         {
             var electricCampus = new ETL_ElectricService();
-            var result = electricCampus.ElectricCampus_Fetch_And_Dump_Data_ByDateRange(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = electricCampus.CampusTransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);

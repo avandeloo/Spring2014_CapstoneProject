@@ -58,3 +58,5 @@ patch.diff
 Code/EnvironmentalApp/EnvironmentalApp.Data.Tests/obj/Release/EnvironmentalApp.Data.Tests.csproj.FileListAbsolute.txt
 Code/EnvironmentalApp/EnvironmentalApp.Data/PiServer/ve-C1DB.tmp
 *.csproj.FileListAbsolute.txt
+*/Debug/*
+Code/EnvironmentalApp/EnvironmentalApp.Console/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs

@@ -18,7 +18,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void SolarRadiationCanFetchAndDumpData()
         {
             var solarRadiation = new ETL_SolarRadiationService();
-            var result = solarRadiation.SolarRadiation_Fetch_And_Dump_Data_ByDateRange(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = solarRadiation.TransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);

@@ -10,9 +10,9 @@ using EnvironmentalApp.Core;
 
 namespace EnvironmentalApp.Services.ETLServices
 {
-    public class ETL_ElectricService : ETLBaseService
+    public class ETL_ElectricService : ETLBaseService,Core.Services.IServices,Core.Services.ICampusServices
     {
-        public int Electric_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+        public int TransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlElectric = new SQLServerServices.Sql_ElectricService();
             var PiElectric = new PiServerServices.Pi_ElectricService();
@@ -21,7 +21,7 @@ namespace EnvironmentalApp.Services.ETLServices
             return result;
         }
 
-        public int ElectricCampus_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+        public int CampusTransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlElectricCampus = new SQLServerServices.Sql_ElectricService();
             var PiElectricCampus = new PiServerServices.Pi_ElectricService();
@@ -30,5 +30,19 @@ namespace EnvironmentalApp.Services.ETLServices
             return result;
         }
 
+
+
+        public int CreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_ElectricService();
+            return sqlService.Create_Electric_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
+
+
+        public int CampusCreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_ElectricService();
+            return sqlService.Create_ElectricCampus_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
     }
 }

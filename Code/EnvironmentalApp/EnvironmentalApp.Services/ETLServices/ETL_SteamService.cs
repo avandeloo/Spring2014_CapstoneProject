@@ -10,9 +10,9 @@ using EnvironmentalApp.Core;
 
 namespace EnvironmentalApp.Services.ETLServices
 {
-    public class ETL_SteamService : ETLBaseService
+    public class ETL_SteamService : ETLBaseService,Core.Services.IServices,Core.Services.ICampusServices
     {
-        public int Steam_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+        public int TransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlSteam = new SQLServerServices.Sql_SteamService();
             var PiSteam = new PiServerServices.Pi_SteamService();
@@ -21,7 +21,7 @@ namespace EnvironmentalApp.Services.ETLServices
             return result;
         }
 
-        public int SteamCampus_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+        public int CampusTransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlSteamCampus = new SQLServerServices.Sql_SteamService();
             var PiSteamCampus = new PiServerServices.Pi_SteamService();
@@ -30,5 +30,19 @@ namespace EnvironmentalApp.Services.ETLServices
             return result;
         }
 
+
+
+        public int CreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_SteamService();
+            return sqlService.Create_Steam_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
+
+
+        public int CampusCreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_SteamService();
+            return sqlService.Create_SteamCampus_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
     }
 }

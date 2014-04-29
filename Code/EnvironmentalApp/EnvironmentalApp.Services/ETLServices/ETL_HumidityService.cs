@@ -10,10 +10,10 @@ using EnvironmentalApp.Core;
 
 namespace EnvironmentalApp.Services.ETLServices
 {
-    public class ETL_HumidityService : ETLBaseService
+    public class ETL_HumidityService : ETLBaseService,Core.Services.IServices
     {
 
-        public int Humidity_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+        public int TransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlHumidity = new SQLServerServices.Sql_HumidityService();
             var PiHumidity = new PiServerServices.Pi_HumidityService();
@@ -23,5 +23,12 @@ namespace EnvironmentalApp.Services.ETLServices
         }
 
 
+
+
+        public int CreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_HumidityService();
+            return sqlService.Create_Humidity_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
     }
 }

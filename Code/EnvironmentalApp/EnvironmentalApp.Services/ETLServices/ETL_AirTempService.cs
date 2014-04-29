@@ -5,15 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using EnvironmentalApp.Services;
 using EnvironmentalApp.Core.PiServerTableTags;
-using EnvironmentalApp.Core;
+
 
 
 namespace EnvironmentalApp.Services.ETLServices
 {
-    public class ETL_AirTempService: ETLBaseService
+    public class ETL_AirTempService : ETLBaseService, Core.Services.IServices
     {
 
-        public int AirTemp_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+
+        public int TransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlAirTemp = new SQLServerServices.Sql_AirTempService();
             var PiAirTemp = new PiServerServices.Pi_AirTempService();
@@ -23,5 +24,12 @@ namespace EnvironmentalApp.Services.ETLServices
         }
 
 
+
+
+        public int CreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_AirTempService();
+            return sqlService.Create_AirTemp_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
     }
 }

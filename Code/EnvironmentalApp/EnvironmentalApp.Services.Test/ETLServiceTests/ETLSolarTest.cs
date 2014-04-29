@@ -18,7 +18,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void SolarCarChargerCanFetchAndDumpData()
         {
             var solarCarCharger = new ETL_SolarService();
-            var result = solarCarCharger.SolarCarCharger_Fetch_And_Dump_Data_ByDateRange(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = solarCarCharger.SolarCarChargerTransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);
@@ -28,7 +28,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void SolarBusBarnCanFetchAndDumpData()
         {
             var solarBusBarn = new ETL_SolarService();
-            var result = solarBusBarn.SolarBusBarn_Fetch_And_Dump_Data_ByDateRange(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = solarBusBarn.SolarBusBarnTransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);

@@ -10,9 +10,9 @@ using EnvironmentalApp.Core;
 
 namespace EnvironmentalApp.Services.ETLServices
 {
-    public class ETL_WindService : ETLBaseService
+    public class ETL_WindService : ETLBaseService,Core.Services.IServices
     {
-        public int Wind_Fetch_And_Dump_Data_ByDateRange(DateTime startDate, DateTime endDate)
+        public int TransferPiHourlyToSqlHourly(DateTime startDate, DateTime endDate)
         {
             var SqlWind = new SQLServerServices.Sql_WindService();
             var PiWind = new PiServerServices.Pi_WindService();
@@ -21,5 +21,12 @@ namespace EnvironmentalApp.Services.ETLServices
             return result;
         }
 
+
+
+        public int CreateDailyTotalsValues()
+        {
+            var sqlService = new SQLServerServices.Sql_WindService();
+            return sqlService.Create_Wind_DailyTotals(DateTime.Now.AddMinutes(-1), DateTime.Now.AddDays(-1));
+        }
     }
 }
