@@ -58,6 +58,7 @@
     <Compile Include="PiServerServices\Pi_SolarService.cs" />
     <Compile Include="PiServerServices\Pi_SteamService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLServerServices\Sql_ReportService.cs" />
     <Compile Include="SQLServerServices\Sql_WindService.cs" />
     <Compile Include="SQLServerServices\Sql_AirTempService.cs" />
     <Compile Include="SQLServerServices\Sql_ChilledWaterService.cs" />

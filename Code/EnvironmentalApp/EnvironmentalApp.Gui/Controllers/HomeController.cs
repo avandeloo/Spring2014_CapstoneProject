@@ -243,7 +243,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "KW";
-            dataModel.Id = 1;
+            dataModel.Id = "wind";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < steamCampus.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = steamCampus[i].ReadingDateTime, Value = steamCampus[i].Reading });
