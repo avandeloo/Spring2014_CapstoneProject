@@ -82,7 +82,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "Fahrenheit";
-            dataModel.Id = 1;
+            dataModel.Id = "airtemp";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < airTemp.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = airTemp[i].ReadingDateTime, Value = airTemp[i].Reading });
@@ -98,7 +98,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "MM BTU/HR";
-            dataModel.Id = 1;
+            dataModel.Id = "chilledwater";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < chilledWater.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = chilledWater[i].ReadingDateTime, Value = chilledWater[i].Reading });
@@ -114,7 +114,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "Total KW";
-            dataModel.Id = 1;
+            dataModel.Id = "pbbelectric";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < electric.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = electric[i].ReadingDateTime, Value = electric[i].Reading });
@@ -130,7 +130,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "Total KW";
-            dataModel.Id = 1;
+            dataModel.Id = "campuselectric";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < electric.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = electric[i].ReadingDateTime, Value = electric[i].Reading });
@@ -146,7 +146,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "Percentage";
-            dataModel.Id = 1;
+            dataModel.Id = "humidity";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < humidity.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = humidity[i].ReadingDateTime, Value = humidity[i].Reading });
@@ -161,7 +161,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Solar Radiation";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
-            dataModel.Id = 1;
+            dataModel.Id = "solarradiation";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solarrad.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = solarrad[i].ReadingDateTime, Value = solarrad[i].Reading });
@@ -177,7 +177,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "Giga Watts";
-            dataModel.Id = 1;
+            dataModel.Id = "solarbusbarn";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solar.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = solar[i].ReadingDateTime, Value = solar[i].Reading });
@@ -193,7 +193,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "Giga Watts";
-            dataModel.Id = 1;
+            dataModel.Id = "solarbusbarn";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solar.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = solar[i].ReadingDateTime, Value = solar[i].Reading });
@@ -209,7 +209,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "MM BTU/HR";
-            dataModel.Id = 1;
+            dataModel.Id = "steampbb";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < steamPBB.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = steamPBB[i].ReadingDateTime, Value = steamPBB[i].Reading });
@@ -225,7 +225,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "MM BTU/HR";
-            dataModel.Id = 1;
+            dataModel.Id = "steamcampus";
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < steamCampus.Count; i++)
                 dataModel.dataListData.Add(new Models.DataModel() { Date = steamCampus[i].ReadingDateTime, Value = steamCampus[i].Reading });
