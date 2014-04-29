@@ -10,6 +10,5 @@ C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Co
 C:\Capstone\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\obj\Debug\EnvironmentalApp.Core.csprojResolveAssemblyReference.cache
 Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\bin\Debug\EnvironmentalApp.Core.dll
 Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\bin\Debug\EnvironmentalApp.Core.pdb
-Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\obj\Debug\EnvironmentalApp.Core.csprojResolveAssemblyReference.cache
 Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\obj\Debug\EnvironmentalApp.Core.dll
 Z:\Users\Matt\Spring2014_CapstoneProject\Code\EnvironmentalApp\EnvironmentalApp.Core\obj\Debug\EnvironmentalApp.Core.pdb

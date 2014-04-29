@@ -17,13 +17,13 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.highlighter.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js")"></script>
       <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.highlighter.js")"></script>
 </head>
 
             @{var dataValue = Model.FirstOrDefault().DataUnit;}
 
     <script type="text/javascript">
 
-        //attempt two
         $(document).ready(function () {
             var line = [];
                 @foreach (var m in Model)
@@ -56,75 +56,35 @@
                             label: '@dataValue',
                             labelrenderer: $.jqplot.CanvasAxisLabelRenderer
                         }
-                    }
+                    },
+                highlighter: {
+                    show: true,
+                    formatstring: '@dataValue',
+                    sizeAdjust: 7.5
+                },
+                cursor: {
+                    show: true
+                }
 
                 })
-           // plot.redraw();
             }
             var plot = plotData(line);
-           
-
-            //var plot2 = $.jqplot('chartdiv', [line], {
-            //    //series: labels,
-            //    //legend: {
-            //    //    show: true,
-            //    //    placement: 'outsidegrid'
-            //    //},
-            //    ////                highlighter: {
-            //    //                    show: true,
-            //    //                    showtooltip: true,
-            //    //                    yvalues: 2,
-            //    //                    formatstring: '<table class="jqplot-highlighter"><tr><td>point </td><td>"%s"</td></tr><tr><td>value </td><td>"%s"</td></tr><tr><td>series </td><td>"%s"</td></tr></table>'
-            //    //                },
-            //    //cursor: {
-            //    //    show: true,
-            //    //    tooltiplocation: 'sw'
-            //    //},
-            //    axes: {
-            //        xaxis: {
-            //           // tickrenderer: $.jqplot.CanvasAxisTickRenderer,
-            //            renderer: $.jqplot.DateAxisRenderer//,
-            //            //label: 'Date',
-            //            //tickoptions: {
-            //            //    angle: -15,
-            //            //    formatstring: '%m/%d/%y'
-            //            //}
-            //        }//,
-            //        //yaxis: {
-            //        //    label: 'Value',
-            //        //    labelrenderer: $.jqplot.CanvasAxisLabelRenderer
-            //        //}
-            //    }
-            //});
 
         });
     </script>
 
     <div id="pageContainer">
 
-
-        @*      <div id="mainContent">
-            <div id="leftColumn">
-                <div id="nav"></div>
-            </div>
-
-            <div id="rightColumn">
-                <div id="mainGraph"></div>
-                <div id="statsBox"></div>
-                <div id="statsBox"></div>
-            </div>
-
-        </div>*@
-
         @{var pageTitle = Model.FirstOrDefault().LineName;}
         @{var StartDate = Model.FirstOrDefault().StartDate;}
         @{var EndDate = Model.FirstOrDefault().EndDate;}
+        @{var tagID = Model.FirstOrDefault().Id;}
 
         <h2>@pageTitle  <span class="date">@StartDate - @EndDate</span></h2>
         <br />
         <hr /><br />
         View readings from another date range:
-        <form id="datePicker" action="?id=airtemp" method="post">
+        <form id="datePicker" action="?id=@tagID" method="post">
             <label for="from">From</label>
             <input type="text" id="from" name="sdate">
             <label for="to">To</label>
