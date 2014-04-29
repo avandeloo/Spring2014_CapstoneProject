@@ -59,6 +59,9 @@ namespace EnvironmentalApp.Gui.Controllers
                 case "steamcampus":
                     getData_SteamCampus(dataList, dataModel, sdate, edate);
                     break;
+                case "wind":
+                    getData_Wind(dataList, dataModel, sdate, edate);
+                    break;
             }
   
             return View(dataList);
@@ -176,7 +179,7 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.LineName = "Solar Bus Barn";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
-            dataModel.DataUnit = "Giga Watts";
+            dataModel.DataUnit = "KW";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < solar.Count; i++)
@@ -225,6 +228,21 @@ namespace EnvironmentalApp.Gui.Controllers
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "MM BTU/HR";
+            dataModel.Id = 1;
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < steamCampus.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = steamCampus[i].ReadingDateTime, Value = steamCampus[i].Reading });
+            dataList.Add(dataModel);
+        }
+        private static void getData_Wind(List<Models.DataList> dataList, Models.DataList dataModel, string sdate, string edate)
+        {
+            Pi_WindService windService = new Pi_WindService();
+
+            var steamCampus = windService.Get_Wind_ByTime(WindSources.WindTurbine, convertDate(sdate), convertDate(edate));
+            dataModel.LineName = "Wind Turbine";
+            dataModel.StartDate = sdate;
+            dataModel.EndDate = edate;
+            dataModel.DataUnit = "KW";
             dataModel.Id = 1;
             dataModel.dataListData = new List<Models.DataModel>();
             for (int i = 0; i < steamCampus.Count; i++)
