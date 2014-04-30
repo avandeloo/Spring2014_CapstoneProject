@@ -9,11 +9,6 @@
 /Code/EnvironmentalApp/EnvironmentalApp.Services/bin/Debug/*.dll
 /Code/EnvironmentalApp/EnvironmentalApp.Services/bin/Debug/*.pdb
 bin
-bin
-bin
-bin
-bin
-bin
 *.dll
 /Debug/*
 *.user
@@ -23,3 +18,15 @@ patch.diff
 */Debug/*
 */obj/Release/*
 /obj/Release/*
+*/obj/Debug/
+/obj/
+Code/EnvironmentalApp/EnvironmentalApp.Core.Tests/obj/
+Code/EnvironmentalApp/EnvironmentalApp.Console/obj/
+Code/EnvironmentalApp/EnvironmentalApp.Core/obj/
+Code/EnvironmentalApp/EnvironmentalApp.Data.Tests/obj/
+Code/EnvironmentalApp/EnvironmentalApp.Data/obj/
+Code/EnvironmentalApp/EnvironmentalApp.Gui/obj/
+Code/EnvironmentalApp/EnvironmentalApp.Services.Test/obj/
+Code/EnvironmentalApp/EnvironmentalApp.Services/obj/
+*.tmp
+Code/EnvironmentalApp/EnvironmentalApp.Gui/Properties/PublishProfiles/Local.pubxml
