@@ -27,9 +27,9 @@ namespace EnvironmentalApp.Data.PiServer
             return humidity;
         }
 
-        public List<Core.Models.Humidity> GetByTime(HumiditySources source,string startDateTime, string endDateTime)
+        public List<Core.Models.Humidity> GetByTime(HumiditySources source, string startDateTime, string endDateTime, string timeStep = "1h")
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), startDateTime, endDateTime);
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), startDateTime, endDateTime,timeStep);
             var humidity = (List<Core.Models.Humidity>)ExecuteQuery(selectCmd);
             return humidity;
         }

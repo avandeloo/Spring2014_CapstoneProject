@@ -10,6 +10,6 @@ namespace EnvironmentalApp.Core.Data.PiServer
     {
         T GetToday(PiServerTableTags.ElectricSources value);
         T GetByTime(PiServerTableTags.ElectricSources value, string time);
-        List<T> GetByTime(PiServerTableTags.ElectricSources value, string startDateTime, string endDateTime);
+        List<T> GetByTime(PiServerTableTags.ElectricSources value, string startDateTime, string endDateTime, string timeStep = "1h");
     }
 }

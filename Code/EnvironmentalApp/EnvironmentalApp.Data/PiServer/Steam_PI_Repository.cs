@@ -26,9 +26,9 @@ namespace EnvironmentalApp.Data.PiServer
             return steam;
         }
 
-        public List<Core.Models.Steam> GetByTime(SteamSources source,string startDateTime, string endDateTime)
+        public List<Core.Models.Steam> GetByTime(SteamSources source, string startDateTime, string endDateTime, string timeStep = "1h")
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), startDateTime, endDateTime);
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), startDateTime, endDateTime,timeStep);
             var steam = ExecuteQuery(selectCmd);
             return steam;
         }

@@ -16,7 +16,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlElectric = new SQLServerServices.Sql_ElectricService();
             var PiElectric = new PiServerServices.Pi_ElectricService();
-            var ElectricList = PiElectric.Get_Electric_ByTime(ElectricSources.PBB_Electric, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var ElectricList = PiElectric.Get_Electric_ByTime(ElectricSources.PBB_Electric, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate), "15m");
             var result = SqlElectric.Create_Electric_List_Of_Records(ElectricList);
             return result;
         }
@@ -25,7 +25,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlElectricCampus = new SQLServerServices.Sql_ElectricService();
             var PiElectricCampus = new PiServerServices.Pi_ElectricService();
-            var ElectricCampusList = PiElectricCampus.Get_ElectricCampus_ByTime(ElectricSources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var ElectricCampusList = PiElectricCampus.Get_ElectricCampus_ByTime(ElectricSources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate), "15m");
             var result = SqlElectricCampus.Create_ElectricCampus_List_Of_Records(ElectricCampusList);
             return result;
         }

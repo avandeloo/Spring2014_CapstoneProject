@@ -28,9 +28,9 @@ namespace EnvironmentalApp.Services.PiServerServices
             }
             return solarRad;
         }
-        public List<Core.Models.SolarRadiation> Get_SolarRadiation_ByTime(SolarRadiationSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.SolarRadiation> Get_SolarRadiation_ByTime(SolarRadiationSources source, string startDateTime, string endDateTime, string timeStep = "1h")
         {
-            return solarRadRepo.GetByTime(source, startDateTime, endDateTime);
+            return solarRadRepo.GetByTime(source, startDateTime, endDateTime,timeStep);
         }
     }
 }

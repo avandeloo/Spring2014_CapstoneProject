@@ -27,9 +27,9 @@ namespace EnvironmentalApp.Data.PiServer
             return airTemp;
         }
 
-        public List<Core.Models.AirTemp> GetByTime(AirTempSource airTempSource,string startDateTime, string endDateTime)
+        public List<Core.Models.AirTemp> GetByTime(AirTempSource airTempSource,string startDateTime, string endDateTime,string timeStep="1h")
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(airTempSource), startDateTime, endDateTime);
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(airTempSource), startDateTime, endDateTime,timeStep);
             var airTemp = ExecuteQuery(selectCmd);
             return airTemp;
         }

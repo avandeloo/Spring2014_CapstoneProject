@@ -10,7 +10,7 @@ namespace EnvironmentalApp.Core.Data.PiServer
     {
         Core.Models.Humidity GetToday(PiServerTableTags.HumiditySources value);
         Core.Models.Humidity GetByTime(PiServerTableTags.HumiditySources value, string time);
-        List<Core.Models.Humidity> GetByTime(PiServerTableTags.HumiditySources value, string startDateTime, string endDateTime);
+        List<Core.Models.Humidity> GetByTime(PiServerTableTags.HumiditySources value, string startDateTime, string endDateTime, string timeStep = "1h");
    
     }
 }

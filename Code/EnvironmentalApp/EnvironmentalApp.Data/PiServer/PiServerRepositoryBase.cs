@@ -53,9 +53,9 @@ namespace EnvironmentalApp.Data.PiServer
         /// <param name="startDateTimeFilter"></param>
         /// <param name="endDateTimeFilter"></param>
         /// <returns></returns>
-        protected string SelectCommand(string fields, string piTableType, string tag, string startDateTimeFilter, string endDateTimeFilter)
+        protected string SelectCommand(string fields, string piTableType, string tag, string startDateTimeFilter, string endDateTimeFilter,string timeStep)
         {
-            var selectCmd = String.Format("Select {0} From {1} WHERE tag = '{2}' and (time >='{3}' and time<='{4}')", fields, piTableType, tag, startDateTimeFilter, endDateTimeFilter);
+            var selectCmd = String.Format("Select {0} From {1} WHERE tag = '{2}' and (time >='{3}' and time<='{4}') and TIMESTEP = RELDATE('{5}')", fields, piTableType, tag, startDateTimeFilter, endDateTimeFilter,timeStep);
 
             return selectCmd;
         }

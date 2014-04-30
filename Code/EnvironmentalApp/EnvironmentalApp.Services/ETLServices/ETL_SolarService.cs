@@ -16,7 +16,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlSolarCarCharger = new SQLServerServices.Sql_SolarService();
             var PiSolarCarCharger = new PiServerServices.Pi_SolarService();
-            var SolarCarChargerList = PiSolarCarCharger.Get_SolarCarCharger_ByTime(SolarSources.CarPort, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var SolarCarChargerList = PiSolarCarCharger.Get_SolarCarCharger_ByTime(SolarSources.CarPort, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate), "15m");
             var result = SqlSolarCarCharger.Create_SolarCarCharger_List_Of_Records(SolarCarChargerList);
             return result;
         }
@@ -25,7 +25,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlSolarBusBarn = new SQLServerServices.Sql_SolarService();
             var PiSolarBusBarn = new PiServerServices.Pi_SolarService();
-            var SolarBusBarnList = PiSolarBusBarn.Get_SolarBusBarn_ByTime(SolarSources.BusBarn, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var SolarBusBarnList = PiSolarBusBarn.Get_SolarBusBarn_ByTime(SolarSources.BusBarn, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate), "15m");
             var result = SqlSolarBusBarn.Create_SolarBusBarn_List_Of_Records(SolarBusBarnList);
             return result;
         }

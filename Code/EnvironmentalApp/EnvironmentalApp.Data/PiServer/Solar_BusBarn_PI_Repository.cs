@@ -24,9 +24,9 @@ namespace EnvironmentalApp.Data.PiServer
             return solar;
         }
 
-        public List<Core.Models.Solar_BusBarn> GetByTime(Core.PiServerTableTags.SolarSources solarSource, string startDateTime, string endDateTime)
+        public List<Core.Models.Solar_BusBarn> GetByTime(Core.PiServerTableTags.SolarSources solarSource, string startDateTime, string endDateTime, string timeStep = "1h")
         {
-            var selectCmd = SelectCommand("*", "piinterp", GetEnumDescription(solarSource), startDateTime, endDateTime);
+            var selectCmd = SelectCommand("*", "piinterp", GetEnumDescription(solarSource), startDateTime, endDateTime,timeStep);
             var solar = ExecuteQuery(selectCmd);
             return solar;
         }

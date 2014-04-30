@@ -17,7 +17,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlHumidity = new SQLServerServices.Sql_HumidityService();
             var PiHumidity = new PiServerServices.Pi_HumidityService();
-            var HumidityList = PiHumidity.Get_Humidity_ByTime(HumiditySources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var HumidityList = PiHumidity.Get_Humidity_ByTime(HumiditySources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate), "15m");
             var result = SqlHumidity.Create_Humidity_List_Of_Records(HumidityList);
             return result;
         }

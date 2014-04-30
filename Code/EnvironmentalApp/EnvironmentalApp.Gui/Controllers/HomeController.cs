@@ -28,8 +28,11 @@ namespace EnvironmentalApp.Gui.Controllers
                 case "airtemp":
                     getData_AirTemp(dataList, dataModel,sdate,edate);
                     break;
-                case "chilledwater":
+                case "pbbchilledwater":
                     getData_ChilledWater(dataList, dataModel, sdate, edate);
+                    break;
+                case "campuschilledwater":
+                    getData_Camp_ChilledWater(dataList, dataModel, sdate, edate);
                     break;
                 case "pbbelectric":
                     getData_PBB_Electric(dataList, dataModel, sdate, edate);
@@ -67,6 +70,8 @@ namespace EnvironmentalApp.Gui.Controllers
             return View(dataList);
         }
 
+        
+
         private static string convertDate(string date)
         {
             var convDate = "";
@@ -97,7 +102,22 @@ namespace EnvironmentalApp.Gui.Controllers
             Pi_ChilledWaterService cws = new Pi_ChilledWaterService();
 
             var chilledWater = cws.Get_ChilledWater_ByTime(ChilledWaterSources.PBB_ChilledWater, convertDate(sdate), convertDate(edate));
-            dataModel.LineName = "Chilled Water";
+            dataModel.LineName = "PBB Chilled Water";
+            dataModel.StartDate = sdate;
+            dataModel.EndDate = edate;
+            dataModel.DataUnit = "MM BTU/HR";
+            dataModel.Id = "pbbchilledwater";
+            dataModel.dataListData = new List<Models.DataModel>();
+            for (int i = 0; i < chilledWater.Count; i++)
+                dataModel.dataListData.Add(new Models.DataModel() { Date = chilledWater[i].ReadingDateTime, Value = chilledWater[i].Reading });
+            dataList.Add(dataModel);
+        }
+        private void getData_Camp_ChilledWater(List<Models.DataList> dataList, Models.DataList dataModel, string sdate, string edate)
+        {
+            Pi_ChilledWaterService cws = new Pi_ChilledWaterService();
+
+            var chilledWater = cws.Get_ChilledWater_ByTime(ChilledWaterSources.Campus_Total, convertDate(sdate), convertDate(edate));
+            dataModel.LineName = "Campus Chilled Water";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "MM BTU/HR";
@@ -107,13 +127,12 @@ namespace EnvironmentalApp.Gui.Controllers
                 dataModel.dataListData.Add(new Models.DataModel() { Date = chilledWater[i].ReadingDateTime, Value = chilledWater[i].Reading });
             dataList.Add(dataModel);
         }
-
         private static void getData_PBB_Electric(List<Models.DataList> dataList, Models.DataList dataModel, string sdate, string edate)
         {
             Pi_ElectricService elec = new Pi_ElectricService();
 
             var electric = elec.Get_Electric_ByTime(ElectricSources.PBB_Electric, convertDate(sdate), convertDate(edate));
-            dataModel.LineName = "Papa John Electric";
+            dataModel.LineName = "PBB Electric";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "Total KW";
@@ -208,7 +227,7 @@ namespace EnvironmentalApp.Gui.Controllers
             Pi_SteamService stPBB = new Pi_SteamService();
 
             var steamPBB = stPBB.Get_Steam_ByTime(SteamSources.PBB_Steam, convertDate(sdate), convertDate(edate));
-            dataModel.LineName = "Steam PBB";
+            dataModel.LineName = "PBB Steam";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "MM BTU/HR";
@@ -224,7 +243,7 @@ namespace EnvironmentalApp.Gui.Controllers
             Pi_SteamService stCampus = new Pi_SteamService();
 
             var steamCampus = stCampus.Get_SteamCampus_ByTime(SteamSources.Campus_Total, convertDate(sdate), convertDate(edate));
-            dataModel.LineName = "Steam Campus";
+            dataModel.LineName = "Campus Steam";
             dataModel.StartDate = sdate;
             dataModel.EndDate = edate;
             dataModel.DataUnit = "MM BTU/HR";

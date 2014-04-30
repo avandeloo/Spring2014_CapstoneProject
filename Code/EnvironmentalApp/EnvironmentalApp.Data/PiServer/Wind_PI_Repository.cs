@@ -27,9 +27,9 @@ namespace EnvironmentalApp.Data.PiServer
             return wind;
         }
 
-        public List<Core.Models.Wind> GetByTime(WindSources windSource, string startDateTime, string endDateTime)
+        public List<Core.Models.Wind> GetByTime(WindSources windSource, string startDateTime, string endDateTime, string timeStep = "1h")
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(windSource), startDateTime, endDateTime);
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(windSource), startDateTime, endDateTime,timeStep);
             var wind = ExecuteQuery(selectCmd);
             return wind;
         }

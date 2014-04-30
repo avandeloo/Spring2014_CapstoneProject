@@ -17,7 +17,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlSolarRadiaton = new SQLServerServices.Sql_SolarRadiationService();
             var PiSolarRadiaton = new PiServerServices.Pi_SolarRadiationService();
-            var SolarRadiatonList = PiSolarRadiaton.Get_SolarRadiation_ByTime(SolarRadiationSources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var SolarRadiatonList = PiSolarRadiaton.Get_SolarRadiation_ByTime(SolarRadiationSources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate), "15m");
             var result = SqlSolarRadiaton.Create_SolarRadiation_List_Of_Records(SolarRadiatonList);
             return result;
         }

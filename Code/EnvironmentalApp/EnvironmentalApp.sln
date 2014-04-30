@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentalApp.Gui", "Env
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentalApp.Services.Tests", "EnvironmentalApp.Services.Test\EnvironmentalApp.Services.Tests.csproj", "{35F984F7-4257-4C18-9037-3D2E73ED074F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentalApp.Console", "EnvironmentalApp.Console\EnvironmentalApp.Console.csproj", "{22794287-13D0-462A-B761-2C49DC131F1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentalApp.ConsoleApp", "EnvironmentalApp.Console\EnvironmentalApp.ConsoleApp.csproj", "{22794287-13D0-462A-B761-2C49DC131F1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

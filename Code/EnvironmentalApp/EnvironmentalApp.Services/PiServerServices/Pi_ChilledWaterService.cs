@@ -34,10 +34,10 @@ namespace EnvironmentalApp.Services.PiServerServices
 
             return cWater;
         }
-        public List<Core.Models.ChilledWater> Get_ChilledWater_ByTime(ChilledWaterSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.ChilledWater> Get_ChilledWater_ByTime(ChilledWaterSources source, string startDateTime, string endDateTime, string timeStep = "1h")
         {
 
-            return chilledWaterRepo.GetByTime(source, startDateTime, endDateTime);
+            return chilledWaterRepo.GetByTime(source, startDateTime, endDateTime,timeStep);
         }
 
         // Chilled Water Campus
@@ -56,10 +56,10 @@ namespace EnvironmentalApp.Services.PiServerServices
 
             return cWater;
         }
-        public List<Core.Models.ChilledWater_Campus> Get_ChilledWaterCampus_ByTime(ChilledWaterSources source, string startDateTime, string endDateTime)
+        public List<Core.Models.ChilledWater_Campus> Get_ChilledWaterCampus_ByTime(ChilledWaterSources source, string startDateTime, string endDateTime, string timeStep = "1h")
         {
 
-            return chilledWater_Campus_Repo.GetByTime(source, startDateTime, endDateTime);
+            return chilledWater_Campus_Repo.GetByTime(source, startDateTime, endDateTime,timeStep);
         }
 
     }

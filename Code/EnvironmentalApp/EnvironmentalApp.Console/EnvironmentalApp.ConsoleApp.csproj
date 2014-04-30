@@ -7,8 +7,8 @@
     <ProjectGuid>{22794287-13D0-462A-B761-2C49DC131F1D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EnvironmentalApp.Console</RootNamespace>
-    <AssemblyName>EnvironmentalApp.Console</AssemblyName>
+    <RootNamespace>EnvironmentalApp.ConsoleApp</RootNamespace>
+    <AssemblyName>EnvironmentalApp.ConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contollers\DailyTotalsCalculationController.cs" />
     <Compile Include="Contollers\DataTransferController.cs" />
+    <Compile Include="Contollers\HourlyDataTransferController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

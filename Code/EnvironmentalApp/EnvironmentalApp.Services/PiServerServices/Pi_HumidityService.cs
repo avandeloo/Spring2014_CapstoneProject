@@ -28,9 +28,9 @@ namespace EnvironmentalApp.Services.PiServerServices
             }
             return humidity;
         }
-        public List<Core.Models.Humidity> Get_Humidity_ByTime(HumiditySources source, string startDateTime, string endDateTime)
+        public List<Core.Models.Humidity> Get_Humidity_ByTime(HumiditySources source, string startDateTime, string endDateTime, string timeStep = "1h")
         {
-            return humRepo.GetByTime(source, startDateTime, endDateTime);
+            return humRepo.GetByTime(source, startDateTime, endDateTime,timeStep);
         }
     }
 }

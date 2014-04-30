@@ -36,13 +36,13 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-
+                    int result=0;
                     for (int i = 0; i < entityList.Count; i++)
                     {
                         ctx.TOTAL_CAMPUS_CHILLED_WATER.Add(entityList[i]);
-
+                        result += ctx.SaveChanges();
                     }
-                    int result = ctx.SaveChanges();
+                    
                     return result;
                 }
             }

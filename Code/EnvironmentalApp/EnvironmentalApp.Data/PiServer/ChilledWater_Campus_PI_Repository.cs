@@ -26,10 +26,10 @@ namespace EnvironmentalApp.Data.PiServer
             return chilledWater;
         }
 
-        public List<ChilledWater_Campus> GetByTime(ChilledWaterSources chilledWaterSource,string startDateTime, string endDateTime)
+        public List<ChilledWater_Campus> GetByTime(ChilledWaterSources chilledWaterSource,string startDateTime, string endDateTime,string timeStep="1h")
         {
 
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(chilledWaterSource), startDateTime, endDateTime);
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(chilledWaterSource), startDateTime, endDateTime,timeStep);
             var chilledWater = (List<ChilledWater_Campus>)ExecuteQuery(selectCmd);
             return chilledWater;
 

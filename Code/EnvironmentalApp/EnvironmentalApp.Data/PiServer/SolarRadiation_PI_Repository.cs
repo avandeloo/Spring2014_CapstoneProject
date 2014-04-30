@@ -26,9 +26,9 @@ namespace EnvironmentalApp.Data.PiServer
             return solarRadiation;
         }
 
-        public List<Core.Models.SolarRadiation> GetByTime(SolarRadiationSources source,string startDateTime, string endDateTime)
+        public List<Core.Models.SolarRadiation> GetByTime(SolarRadiationSources source, string startDateTime, string endDateTime, string timeStep = "1h")
         {
-            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), startDateTime, endDateTime);
+            var selectCmd = SelectCommand("*", "piinterp", EnumerationHelper.GetEnumDescription(source), startDateTime, endDateTime,timeStep);
             var solarRadiation = (List<Core.Models.SolarRadiation>)ExecuteQuery(selectCmd);
             return solarRadiation;
         }

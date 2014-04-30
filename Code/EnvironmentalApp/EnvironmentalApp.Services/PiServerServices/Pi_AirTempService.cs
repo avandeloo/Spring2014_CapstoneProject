@@ -34,10 +34,10 @@ namespace EnvironmentalApp.Services.PiServerServices
             return result;
         }
 
-        public List<Core.Models.AirTemp> Get_AirTemp_ByTime(Core.PiServerTableTags.AirTempSource airTempSource, string startDate, string endDate)
+        public List<Core.Models.AirTemp> Get_AirTemp_ByTime(Core.PiServerTableTags.AirTempSource airTempSource, string startDate, string endDate, string timeStep = "1h")
         {
             var airTempList = new List<Core.Models.AirTemp>();
-            airTempList = airRepo.GetByTime(airTempSource, startDate, endDate);
+            airTempList = airRepo.GetByTime(airTempSource, startDate, endDate,timeStep);
             return airTempList;
         }
     }

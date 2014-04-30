@@ -16,7 +16,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlSteam = new SQLServerServices.Sql_SteamService();
             var PiSteam = new PiServerServices.Pi_SteamService();
-            var steamList = PiSteam.Get_Steam_ByTime(SteamSources.PBB_Steam, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var steamList = PiSteam.Get_Steam_ByTime(SteamSources.PBB_Steam, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate), "15m");
             var result = SqlSteam.Create_Steam_List_Of_Records(steamList);
             return result;
         }
@@ -25,7 +25,7 @@ namespace EnvironmentalApp.Services.ETLServices
         {
             var SqlSteamCampus = new SQLServerServices.Sql_SteamService();
             var PiSteamCampus = new PiServerServices.Pi_SteamService();
-            var steamCampusList = PiSteamCampus.Get_SteamCampus_ByTime(SteamSources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate));
+            var steamCampusList = PiSteamCampus.Get_SteamCampus_ByTime(SteamSources.Campus_Total, DateTime_To_PiDateTime(startDate), DateTime_To_PiDateTime(endDate), "15m");
             var result = SqlSteamCampus.Create_SteamCampus_List_Of_Records(steamCampusList);
             return result;
         }
