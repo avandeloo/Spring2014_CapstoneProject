@@ -1,5 +1,4 @@
 ﻿@model List<EnvironmentalApp.Gui.Models.DataList>
-@*using (Html.BeginForm("Index2", "HomeController", new { id = "AirTemp" }, FormMethod.Post))*@
 
 <head>
     <title>BAIS Capstone</title>
@@ -16,17 +15,19 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.dateAxisRenderer.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.highlighter.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js")"></script>
-      <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.highlighter.js")"></script>
 </head>
 
-            @{var dataValue = Model.FirstOrDefault().DataUnit;}
+@{var dataValue = Model.FirstOrDefault().DataUnit;}
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-        $(document).ready(function () {
-            var line = [];
-                @foreach (var m in Model)
+    $(document).ready(function () {
+        var line = [];
+            @try
+            {
+                foreach (var m in Model)
                 { 
              <text> var line</text>@m.Id<text> = [];</text>
                     foreach (var l in m.dataListData)
@@ -35,11 +36,15 @@
                     }
                 <text>line.push(line</text>@m.Id<text>);</text>
                 }
-         
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred reading values from server");
+            }
             function plotData(line) {
-            var plot=    $.jqplot('chartdiv', line, {
+                var plot = $.jqplot('chartdiv', line, {
                     seriesDefaults: {
-                        renderer: $.jqplot.trendline,
+                        renderer: $.jqplot.TrendLine,
                         rendererOptions: { fillToZero: true }
                     },
                     axes: {
@@ -66,24 +71,25 @@
                     show: true
                 }
 
-                })
-            }
+            })
+        }
             var plot = plotData(line);
 
         });
-    </script>
+</script>
 
-    <div id="pageContainer">
+<div id="pageContainer">
 
-        @{var pageTitle = Model.FirstOrDefault().LineName;}
-        @{var StartDate = Model.FirstOrDefault().StartDate;}
-        @{var EndDate = Model.FirstOrDefault().EndDate;}
-        @{var tagID = Model.FirstOrDefault().Id;}
+    @{var pageTitle = Model.FirstOrDefault().LineName;}
+    @{var StartDate = Model.FirstOrDefault().StartDate;}
+    @{var EndDate = Model.FirstOrDefault().EndDate;}
+    @{var tagID = Model.FirstOrDefault().Id;}
 
-        <h2>@pageTitle  <span class="date">@StartDate - @EndDate</span></h2>
-        <br />
-        <hr /><br />
-        View readings from another date range:
+    <h2>@pageTitle  <span class="date">@StartDate - @EndDate</span></h2>
+    <br />
+    <hr />
+    <br />
+    View readings from another date range:
         <form id="datePicker" action="?id=@tagID" method="post">
             <label for="from">From</label>
             <input type="text" id="from" name="sdate">
@@ -92,10 +98,10 @@
             <input type="submit" value="View" />
         </form>
 
-        <div id="chartdiv" >
-        </div>
-
+    <div id="chartdiv">
     </div>
+
+</div>
 
 <script>
 
@@ -103,7 +109,7 @@
         $("#from").datepicker({
             defaultDate: "*",
             changeMonth: true,
-            numberOfMonths:1,
+            numberOfMonths: 1,
             maxDate: new Date,
             onClose: function (selectedDate) {
                 $("#to").datepicker("option", "minDate", selectedDate);
@@ -122,4 +128,4 @@
 
 
     });
-  </script>
+</script>

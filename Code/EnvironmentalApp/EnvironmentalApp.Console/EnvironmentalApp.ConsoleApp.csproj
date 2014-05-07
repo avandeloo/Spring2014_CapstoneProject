@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleApp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ConsoleApp.settings</DependentUpon>
+    </Compile>
     <Compile Include="Contollers\DailyTotalsCalculationController.cs" />
     <Compile Include="Contollers\DataTransferController.cs" />
     <Compile Include="Contollers\HourlyDataTransferController.cs" />
@@ -52,6 +57,10 @@
       <Link>Data.config</Link>
     </None>
     <None Include="App.config" />
+    <None Include="ConsoleApp.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ConsoleApp.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnvironmentalApp.Core\EnvironmentalApp.Core.csproj">

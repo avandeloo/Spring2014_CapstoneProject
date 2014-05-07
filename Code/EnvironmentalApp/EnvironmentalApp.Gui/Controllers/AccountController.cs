@@ -14,7 +14,7 @@ using EnvironmentalApp.Gui.Models;
 namespace EnvironmentalApp.Gui.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
+   // [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
@@ -54,7 +54,7 @@ namespace EnvironmentalApp.Gui.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index2", "Home");
         }
 
         //
@@ -81,7 +81,7 @@ namespace EnvironmentalApp.Gui.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index2", "Home");
                 }
                 catch (MembershipCreateUserException e)
                 {

@@ -41,6 +41,27 @@ namespace EnvironmentalApp.Data
             var connString = System.Configuration.ConfigurationManager.ConnectionStrings["EnergyDataContext"].ConnectionString;
             return connString;
         }
+        public string GetSqlServerConnectionStringName()
+        {
+            var connName = "";
+            var connStringCollection =System.Configuration.ConfigurationManager.ConnectionStrings;
+            for (int i = 0; i <connStringCollection.Count; i++)
+            {
+               var providerName= connStringCollection[i].ProviderName;
+               var key = connStringCollection[i].Name;
+               if (key == String.Empty || key == "LocalSqlServer")
+               {
+                   continue;
+               }
+               if (providerName == "System.Data.SqlClient")
+               {
+                   connName = connStringCollection[i].Name;
+                   break;
+               }
+            
+            }
+            return connName;
+        }
         public bool SqlDatabaseExists(string connString)
         {
             return Database.Exists(connString);

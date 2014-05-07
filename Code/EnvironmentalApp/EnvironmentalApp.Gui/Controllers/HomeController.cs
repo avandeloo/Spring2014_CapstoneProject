@@ -11,12 +11,7 @@ namespace EnvironmentalApp.Gui.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
-        }
+      
 
         public ActionResult Index2(string id,string sdate, string edate)
         {
@@ -270,19 +265,5 @@ namespace EnvironmentalApp.Gui.Controllers
         }
 
        
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

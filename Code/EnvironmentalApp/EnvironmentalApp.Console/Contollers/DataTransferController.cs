@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using EnvironmentalApp.Services.ETLServices;
 
 namespace EnvironmentalApp.ConsoleApp.Contollers
 {
@@ -16,6 +15,9 @@ namespace EnvironmentalApp.ConsoleApp.Contollers
         {
             hourlyProcess = new HourlyDataTransferController();
             var midNight = new TimeSpan(00, 10, 00, 00);
+#if DEBUG
+            dailyProcess = new DailyTotalsCalculationController();
+#endif
             if (DateTime.Now.TimeOfDay <= midNight)
             {
                 dailyProcess = new DailyTotalsCalculationController();
@@ -25,16 +27,16 @@ namespace EnvironmentalApp.ConsoleApp.Contollers
         public bool CanConnectToSQLServer()
         {
             Core.Configuration.IConfiguration config = new Data.Configuration();
-           
-            string connString =config.GetSqlServerConnectionString();
+
+            string connString = config.GetSqlServerConnectionString();
 
             return config.SqlDatabaseExists(connString);
         }
 
-        public void RunHourlyTransfer()
+        public void RunHourlyTransfer(DateTime currentTime)
         {
-            var start = DateTime.Now.AddHours(-1);
-            var end = DateTime.Now.AddMinutes(-1);
+            var start = currentTime.AddHours(-1);
+            var end = currentTime.AddMinutes(-1);
             if (hourlyProcess.DataTransfer_AirTemp(start, end) < 1)
             {
                 throw new Exception("Air Temp updated failed");
@@ -85,13 +87,23 @@ namespace EnvironmentalApp.ConsoleApp.Contollers
             }
         }
 
-        public int RunDailyTotalsTransfer()
+        public void RunDailyTotalsTransfer(DateTime calculateDate)
         {
+            dailyProcess.setCalculatreDate(calculateDate);
 
-            int result = 0;
-
-            return result;
+            dailyProcess.CalculateDailyTotals_AirTemp();
+            dailyProcess.CalculateDailyTotals_ChilledWater();
+            dailyProcess.CalculateDailyTotals_ChilledWaterCampus();
+            dailyProcess.CalculateDailyTotals_Electric();
+            dailyProcess.CalculateDailyTotals_ElectricCampus();
+            dailyProcess.CalculateDailyTotals_Humidity();
+            dailyProcess.CalculateDailyTotals_SolarBusBarn();
+            dailyProcess.CalculateDailyTotals_SolarCarCharger();
+            dailyProcess.CalculateDailyTotals_SolarRadiation();
+            dailyProcess.CalculateDailyTotals_Steam();
+            dailyProcess.CalculateDailyTotals_SteamCampus();
+            dailyProcess.CalculateDailyTotals_Wind();
         }
-        
+
     }
 }

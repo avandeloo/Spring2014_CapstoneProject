@@ -5,6 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using EnvironmentalApp.Gui.Models;
+using EnvironmentalApp.Core.Configuration;
 
 namespace EnvironmentalApp.Gui.Filters
 {
@@ -26,7 +27,9 @@ namespace EnvironmentalApp.Gui.Filters
             public SimpleMembershipInitializer()
             {
                 Database.SetInitializer<UsersContext>(null);
-
+                IConfiguration config = new EnvironmentalApp.Data.Configuration();
+                var connName = config.GetSqlServerConnectionStringName();
+                //TODO: 
                 try
                 {
                     using (var context = new UsersContext())
@@ -38,7 +41,7 @@ namespace EnvironmentalApp.Gui.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection(connName, "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {

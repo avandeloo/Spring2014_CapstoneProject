@@ -55,6 +55,10 @@ namespace EnvironmentalApp.Data.SQLServer
         public DbSet<Wind> WIND { get; set; }
         public DbSet<WindDailyTotals> WIND_SUM_BY_DAY { get; set; }
 
+        //Authenication
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AIR_TEMP_SUM_BY_DAYMap());
@@ -68,6 +72,7 @@ namespace EnvironmentalApp.Data.SQLServer
             modelBuilder.Configurations.Add(new PBB_STEAMMap());
             modelBuilder.Configurations.Add(new PBB_STEAM_SUM_BY_DAYMap());
             modelBuilder.Configurations.Add(new REPORTMap());
+            modelBuilder.Configurations.Add(new RoleMap());
             modelBuilder.Configurations.Add(new SOLAR_BUS_BARNMap());
             modelBuilder.Configurations.Add(new SOLAR_BUS_BARN_SUM_BY_DAYMap());
             modelBuilder.Configurations.Add(new SOLAR_CAR_CHARGINGMap());
@@ -80,6 +85,7 @@ namespace EnvironmentalApp.Data.SQLServer
             modelBuilder.Configurations.Add(new TOTAL_CAMPUS_CHILLED_WATERMap());
             modelBuilder.Configurations.Add(new TOTAL_CAMPUS_ELECTRICITYMap());
             modelBuilder.Configurations.Add(new TOTAL_CAMPUS_STEAMMap());
+            modelBuilder.Configurations.Add(new UserRoleMap());
             modelBuilder.Configurations.Add(new WIND_SUM_BY_DAYMap());
             modelBuilder.Configurations.Add(new WINDMap());
         }

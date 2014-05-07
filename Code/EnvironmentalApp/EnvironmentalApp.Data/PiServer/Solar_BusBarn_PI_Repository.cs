@@ -52,7 +52,7 @@ namespace EnvironmentalApp.Data.PiServer
                     var currentRow = reader[rowIdx]; //tag
                     solar.Id = Guid.NewGuid();
                     solar.ReadingDateTime = Convert.ToDateTime(reader[rowIdx + 1].ToString());
-                    solar.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());//(float)Double.Parse(reader[rowIdx + 2].ToString(), System.Globalization.NumberStyles.Float);
+                    solar.Reading = ConvertReadingToDecimal(reader[rowIdx + 2].ToString());
                     solar.Status = Convert.ToInt32(reader[rowIdx + 3].ToString());
                     solar.TimeStamp = DateTime.Now;
                     solar.TimeStep = Convert.ToInt32(reader[rowIdx + 4].ToString());

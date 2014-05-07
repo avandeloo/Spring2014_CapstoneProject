@@ -16,8 +16,14 @@ namespace EnvironmentalApp.Gui
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index2", id = UrlParameter.Optional }
-            );
+                defaults: new { controller = "Home", action = "Index2", id = UrlParameter.Optional });
+           
+            routes.MapPageRoute("Report", "Report", "~/Views/Report/Index.chtml");
+            //     routes.MapRoute(
+            //    name: "Report",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Report", action = "Index", id = UrlParameter.Optional }
+            //);
         }
     }
 }

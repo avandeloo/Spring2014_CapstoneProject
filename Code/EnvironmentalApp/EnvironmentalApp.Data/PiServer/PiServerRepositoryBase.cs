@@ -75,8 +75,7 @@ namespace EnvironmentalApp.Data.PiServer
             //if string is scientific number
             if (reading.Contains("E"))
             {
-                var t = Double.Parse(reading, System.Globalization.NumberStyles.Any);
-
+               
                 decReading = (float)Math.Round(Double.Parse(reading, System.Globalization.NumberStyles.Float),4);
             }
             else
