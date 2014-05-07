@@ -13,6 +13,8 @@ namespace EnvironmentalApp.Gui
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapPageRoute("Report", "Report", "~/Views/Report/Build.cshtml");
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

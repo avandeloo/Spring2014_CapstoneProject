@@ -1,5 +1,4 @@
 ﻿@model List<EnvironmentalApp.Gui.Models.DataList>
-@*using (Html.BeginForm("Index2", "HomeController", new { id = "AirTemp" }, FormMethod.Post))*@
 
 <head>
     <title>BAIS Capstone</title>
@@ -94,7 +93,6 @@
 
         <div id="chartdiv" >
         </div>
-
     </div>
 
 <script>
@@ -103,7 +101,7 @@
         $("#from").datepicker({
             defaultDate: "*",
             changeMonth: true,
-            numberOfMonths:1,
+            numberOfMonths: 1,
             maxDate: new Date,
             onClose: function (selectedDate) {
                 $("#to").datepicker("option", "minDate", selectedDate);
