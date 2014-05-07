@@ -1,0 +1,95 @@
+﻿<head>
+    <title>BAIS Capstone</title>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/styles.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.20.js")"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+
+</head>
+
+<div id="reportBuilder">
+
+            <form name="reportBuild" id="datePicker" action="#" method="post">
+                <div class="dataChooser">
+                    <h4>Hourly Intervals</h4>
+                    <div class="col">
+                        <input type="checkbox" name="airtemp" /> Air Temperature<br />
+                        <input type="checkbox" name="chilledwaterpbb" /> Chilled Water Papajohn<br />
+                        <input type="checkbox" name="chilledwatercampus" /> Chilled Water Campus<br />
+                        <input type="checkbox" name="electricpbb" /> Electric Papajohn<br />
+                        <input type="checkbox" name="electriccampus" /> Electric Campus<br />
+                        <input type="checkbox" name="steampbb" /> Steam Papajohn<br />
+                    </div>
+                    <div class="col">
+                        <input type="checkbox" name="steamcampus" /> Steam Campus<br />
+                        <input type="checkbox" name="wind" /> Wind<br />
+                        <input type="checkbox" name="solarbusbarn" /> Solar Bus Barn<br />
+                        <input type="checkbox" name="solarcarport" /> Solar Car Port<br />
+                        <input type="checkbox" name="solarradiation" /> Solar Radiation<br />
+                        <input type="checkbox" name="humidity" /> Humidity
+                    </div>
+                </div>
+
+                <div class="dataChooser">
+                    <h4>Daily Averages</h4>
+                    <div class="col">
+                        <input type="checkbox" name="d_airtemp" /> Air Temperature<br />
+                        <input type="checkbox" name="d_chilledwaterpbb" /> Chilled Water Papajohn<br />
+                        <input type="checkbox" name="d_chilledwatercampus" /> Chilled Water Campus<br />
+                        <input type="checkbox" name="d_electricpbb" /> Electric Papajohn<br />
+                        <input type="checkbox" name="d_electriccampus" /> Electric Campus<br />
+                        <input type="checkbox" name="d_steampbb" /> Steam Papajohn<br />
+                    </div>
+                    <div class="col">
+                        <input type="checkbox" name="d_steamcampus" /> Steam Campus<br />
+                        <input type="checkbox" name="d_wind" /> Wind<br />
+                        <input type="checkbox" name="d_solarbusbarn" /> Solar Bus Barn<br />
+                        <input type="checkbox" name="d_solarcarport" /> Solar Car Port<br />
+                        <input type="checkbox" name="d_solarradiation" /> Solar Radiation<br />
+                        <input type="checkbox" name="d_humidity" /> Humidity
+                    </div>
+                </div>
+
+                <div id="reportInfo">
+                    <h4>Report Name</h4>
+                    <input type="text" id="reportname" name="reportname" />
+                    Graph Type: <select name="graphtype"><option>Line</option><option>Bar</option></select><br />
+                    <h4>Date Range</h4>
+                    <label for="from">From</label>
+                    <input type="text" id="from" name="sdate">
+                    <label for="to">To</label>
+                    <input type="text" id="to" name="edate"><br /><br />
+                    <input type="submit" value="Build" />
+                </div>
+                
+            </form>
+
+        </div>
+
+
+<script>
+
+    $(function () {
+        $("#from").datepicker({
+            defaultDate: "*",
+            changeMonth: true,
+            numberOfMonths: 1,
+            maxDate: new Date,
+            onClose: function (selectedDate) {
+                $("#to").datepicker("option", "minDate", selectedDate);
+            }
+        });
+        $("#to").datepicker({
+            defaultDate: "*",
+            changeMonth: true,
+            numberOfMonths: 1,
+            maxDate: new Date,
+            onClose: function (selectedDate) {
+                $("#from").datepicker("option", "maxDate", selectedDate);
+            }
+        });
+
+
+
+    });
+  </script>
