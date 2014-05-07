@@ -17,7 +17,9 @@ namespace EnvironmentalApp.Gui
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index2", id = UrlParameter.Optional }
+
             );
+            routes.MapPageRoute("Report", "Report", "~/Views/Report/ReportDisplay.chtml");
         }
     }
 }

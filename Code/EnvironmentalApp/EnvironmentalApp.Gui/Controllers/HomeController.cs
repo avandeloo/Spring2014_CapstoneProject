@@ -7,6 +7,7 @@ using EnvironmentalApp.Services.PiServerServices;
 using EnvironmentalApp.Core.Models;
 using EnvironmentalApp.Core.PiServerTableTags;
 
+
 namespace EnvironmentalApp.Gui.Controllers
 {
     public class HomeController : Controller
@@ -268,8 +269,6 @@ namespace EnvironmentalApp.Gui.Controllers
                 dataModel.dataListData.Add(new Models.DataModel() { Date = steamCampus[i].ReadingDateTime, Value = steamCampus[i].Reading });
             dataList.Add(dataModel);
         }
-
-       
 
         public ActionResult About()
         {

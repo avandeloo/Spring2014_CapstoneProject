@@ -18,7 +18,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void AirTempCanFetchAndDumpData()
         {
             var airTemp = new ETL_AirTempService();
-            var result = airTemp.TransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = airTemp.TransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-9), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);

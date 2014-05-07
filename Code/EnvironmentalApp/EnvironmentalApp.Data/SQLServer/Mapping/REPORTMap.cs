@@ -48,7 +48,7 @@ namespace EnvironmentalApp.Data.SQLServer.Mapping
             this.Property(t => t.DateCreated).HasColumnName("DateCreated");
             this.Property(t => t.GeneratedBy).HasColumnName("GeneratedBy");
             this.Property(t => t.Active).HasColumnName("Active");
-            this.Property(t => t.UpdatedDate).HasColumnName("UpdatedDate");
+            this.Property(t => t.UpdatedDate).HasColumnName("UpdateDate");
             this.Property(t => t.UpdatedBy).HasColumnName("UpdatedBy");
         }
     }

@@ -156,6 +156,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var result = SteamCampusRepo.Get_SteamCampus_ByTime(dateTime);
 
             Assert.IsNotNull(result, "Object is null");
+            Assert.IsInstanceOfType(result, typeof(Core.Models.Steam_Campus), "Not an instance of Steam Campus");
         }
 
         [TestMethod]

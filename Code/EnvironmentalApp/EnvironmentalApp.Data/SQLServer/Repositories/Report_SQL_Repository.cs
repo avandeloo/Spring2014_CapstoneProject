@@ -27,33 +27,14 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
 
         }
 
-        public List<Report> Get(string propertyName, string value)
+        public Report GetByReportName(string value)
         {
-            var reportList = new List<Report>();
+            var reportList = new Report();
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    switch (propertyName)
-                    {
-                        case "Name":
-                            reportList = ctx.REPORTs.AsEnumerable().Where(x => x.Name == value).ToList();
-                            break;
-                        case "GeneratedBy":
-                            reportList = ctx.REPORTs.AsEnumerable().Where(x => x.GeneratedBy == value).ToList();
-                            break;
-                        case "UpdatedBy":
-                            reportList = ctx.REPORTs.AsEnumerable().Where(x => x.UpdatedBy == value).ToList();
-                            break;
-                        //case "DateCreated":
-                        //    reportList = ctx.REPORTs.AsEnumerable().Where(x => x.DateCreated == Convert.ToDateTime(value)).ToList();
-                        //    break;
-                        //case "UpdatedDate":
-                        //    reportList = ctx.REPORTs.AsEnumerable().Where(x => x.UpdatedDate == Convert.ToDateTime(value)).ToList();
-                        //    break;
-
-                    }
-
+                    reportList = ctx.REPORTs.FirstOrDefault(x => x.Name == value);
                     return reportList;
                 }
             }
@@ -61,8 +42,80 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 throw ex;
             };
+            
         }
 
+        public Report GetByUpdatedBy(string value)
+        {
+            var reportList = new Report();
+            try
+            {
+                using (var ctx = new EnergyDataContext(ConnString))
+                {
+                    reportList = ctx.REPORTs.FirstOrDefault(x => x.UpdatedBy == value);
+                    return reportList;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            };
+
+        }
+
+        public Report GetByGeneratedBy(string value)
+        {
+            var reportList = new Report();
+            try
+            {
+                using (var ctx = new EnergyDataContext(ConnString))
+                {
+                    reportList = ctx.REPORTs.FirstOrDefault(x => x.GeneratedBy == value);
+                    return reportList;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            };
+
+        }
+
+        public List<Report> GetByDateCreated(DateTime value)
+        {
+            var reportList = new List<Report>();
+            try
+            {
+                using (var ctx = new EnergyDataContext(ConnString))
+                {
+                    reportList = ctx.REPORTs.AsEnumerable().Where(x => x.DateCreated == Convert.ToDateTime(value)).ToList();
+                    return reportList;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            };
+            
+        }
+        
+        public List<Report> GetByUpdatedDate(DateTime value)
+        {
+            var reportList = new List<Report>();
+            try
+            {
+                using (var ctx = new EnergyDataContext(ConnString))
+                {
+                    reportList = ctx.REPORTs.AsEnumerable().Where(x => x.UpdatedDate == Convert.ToDateTime(value)).ToList();
+                    return reportList;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            };
+
+        }
 
 
         public List<Report> Get(DateTime startDateTime, DateTime endDateTime)

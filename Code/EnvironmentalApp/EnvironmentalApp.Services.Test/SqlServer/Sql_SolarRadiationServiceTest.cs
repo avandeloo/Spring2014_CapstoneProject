@@ -60,7 +60,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var result = SolarRadiationRepo.Get_SolarRadiation_ByTime(dateTime);
 
             Assert.IsNotNull(result, "Object is null");
-            Assert.IsInstanceOfType(result, typeof(Core.Models.SolarRadiation), "Not an instance of Air Temp");
+            Assert.IsInstanceOfType(result, typeof(Core.Models.SolarRadiation), "Not an instance of Solar Radiation");
         }
 
         [TestMethod]
@@ -98,7 +98,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var result = SolarRadiationDailyTotalsRepo.Get_SolarRadiationDailyTotals_ByTime(dateTime);
 
             Assert.IsNotNull(result, "Object is null");
-            Assert.IsInstanceOfType(result, typeof(Core.Models.SolarRadiationDailyTotals), "Not an instance of Air Temp Daily Totals");
+            Assert.IsInstanceOfType(result, typeof(Core.Models.SolarRadiationDailyTotals), "Not an instance of Solar Radiation Daily Totals");
         }
 
         [TestMethod]

@@ -14,7 +14,7 @@ namespace EnvironmentalApp.Services.SQLServerServices
     public class Sql_ReportService
     {
         IReportRepository reportRepo = null;
-        
+
         public Sql_ReportService()
         {
             reportRepo = new Report_SQL_Repository();
@@ -29,11 +29,11 @@ namespace EnvironmentalApp.Services.SQLServerServices
             return reportList;
         }
 
-        public List<Core.Models.Report> Get_Report_ByPropertyName_And_Value(string PropertyName, string value)
+        public Core.Models.Report Get_Report_ByName(string value)
         {
-            var reportList = new List<Core.Models.Report>();
-            reportList = reportRepo.Get(PropertyName, value);
-            return reportList;
+            var reportRecord = new Report();
+            reportRecord = reportRepo.GetByReportName(value);
+            return reportRecord;
         }
 
         public int Create_Report_Record(Report entity)
@@ -50,7 +50,6 @@ namespace EnvironmentalApp.Services.SQLServerServices
         {
             return reportRepo.Update(entity);
         }
-
 
     }
 }
