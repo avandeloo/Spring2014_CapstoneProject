@@ -18,6 +18,12 @@ namespace EnvironmentalApp.Gui.Controllers
             return View(dataList);
         }
 
+        public ActionResult Build(FormCollection collection)
+        {
+            generate_Report(collection);
+            return View();
+        }
+
         public static List<Models.ReportList> ParseReport(string ReportName)
         {
 
@@ -535,135 +541,138 @@ namespace EnvironmentalApp.Gui.Controllers
         }
 
         // Generates report from user input
-    //    public void generate_Report()
-    //    {
-    //        var reportRepo = new Sql_ReportService();
-    //        var report = new Report();
-    //        report.ReportID = new Guid();
-    //        report.Name = reportname.Text;
-    //        report.StartDate = startdate.Date;
-    //        report.EndDate = enddate.Date;
-    //        report.StartTime = startdate.TimeOfDay;
-    //        report.EndTime = enddate.TimeOfDay;
-    //        if (airTemp.Checked)
-    //        {
-    //            report.DataType += "airtemp" + ",";
-    //        }
-    //        if (d_airtemp.Checked)
-    //        {
-    //            report.DataType += "airtempdailytotals" + ",";
-    //        }
-    //        if (chilledwaterpbb.Checked)
-    //        {
-    //            report.DataType += "pbbchilledwater" + ",";
-    //        }
-    //        if (d_chilledwaterpbb.Checked)
-    //        {
-    //            report.DataType += "pbbchilledwaterdailytotals" + ",";
-    //        }
-    //        if (chilledwatercampus.Checked)
-    //        {
-    //            report.DataType += "campuschilledwater" + ",";
-    //        }
-    //        if (d_chilledwatercampus.Checked)
-    //        {
-    //            report.DataType += "campuschilledwaterdailytotals" + ",";
-    //        }
-    //        if (electricpbb.Checked)
-    //        {
-    //            report.DataType += "pbbelectric" + ",";
-    //        }
-    //        if (d_electricpbb.Checked)
-    //        {
-    //            report.DataType += "pbbelectricdailytotals" + ",";
-    //        }
-    //        if (electriccampus.Checked)
-    //        {
-    //            report.DataType += "campuselectric" + ",";
-    //        }
-    //        if (d_electriccampus.Checked)
-    //        {
-    //            report.DataType += "campuselectricdailytotals" + ",";
-    //        }
-    //        if (humidity.Checked)
-    //        {
-    //            report.DataType += "humidity" + ",";
-    //        }
-    //        if (d_humidity.Checked)
-    //        {
-    //            report.DataType += "humiditydailytotals" + ",";
-    //        }
-    //        if (solarradiation.Checked)
-    //        {
-    //            report.DataType += "solarradiation" + ",";
-    //        }
-    //        if (d_solarradiation.Checked)
-    //        {
-    //            report.DataType += "solarradiationdailytotals" + ",";
-    //        }
-    //        if (solarbusbarn.Checked)
-    //        {
-    //            report.DataType += "solarbusbarn" + ",";
-    //        }
-    //        if (d_solarbusbarn.Checked)
-    //        {
-    //            report.DataType += "solarbusbarndailytotals" + ",";
-    //        }
-    //        if (solarcarcharger.Checked)
-    //        {
-    //            report.DataType += "solarcarcharger" + ",";
-    //        }
-    //        if (d_solarcarcharger.Checked)
-    //        {
-    //            report.DataType += "solarcarchargerdailytotals" + ",";
-    //        }
-    //        if (steampbb.Checked)
-    //        {
-    //            report.DataType += "pbbsteam" + ",";
-    //        }
-    //        if (d_steampbb.Checked)
-    //        {
-    //            report.DataType += "pbbsteamdailytotals" + ",";
-    //        }
-    //        if (steamcampus.Checked)
-    //        {
-    //            report.DataType += "steamcampus" + ",";
-    //        }
-    //        if (d_steamcampus.Checked)
-    //        {
-    //            report.DataType += "steamcampusdailytotals" + ",";
-    //        }
-    //        if (wind.Checked)
-    //        {
-    //            report.DataType += "wind" + ",";
-    //        }
-    //        if (d_wind.Checked)
-    //        {
-    //            report.DataType += "winddailytotals" + ",";
-    //        }
+        public void generate_Report(FormCollection recordCollection)
+        {
+            var reportRepo = new Sql_ReportService();
+            var report = new Report();
+            report.ReportID = new Guid();
+            report.Name = recordCollection.Get("reportname");
+            report.StartDate = Convert.ToDateTime(recordCollection.Get("sdate")).Date;
+            report.EndDate = Convert.ToDateTime(recordCollection.Get("edate")).Date;
+            report.StartTime = Convert.ToDateTime(recordCollection.Get("sdate")).TimeOfDay;
+            report.EndTime = Convert.ToDateTime(recordCollection.Get("edate")).TimeOfDay;
+            if (recordCollection.Get("airtemp") == "on")
+            {
+                report.DataType += "airtemp" + ",";
+            }
+            if (recordCollection.Get("d_airtemp") == "on")
+            {
+                report.DataType += "airtempdailytotals" + ",";
+            }
+            if (recordCollection.Get("chilledwaterpbb") == "on")
+            {
+                report.DataType += "pbbchilledwater" + ",";
+            }
+            if (recordCollection.Get("d_chilledwaterpbb") == "on")
+            {
+                report.DataType += "pbbchilledwaterdailytotals" + ",";
+            }
+            if (recordCollection.Get("chilledwatercampus") == "on")
+            {
+                report.DataType += "campuschilledwater" + ",";
+            }
+            if (recordCollection.Get("d_chilledwatercampus") == "on")
+            {
+                report.DataType += "campuschilledwaterdailytotals" + ",";
+            }
+            if (recordCollection.Get("electricpbb") == "on")
+            {
+                report.DataType += "pbbelectric" + ",";
+            }
+            if (recordCollection.Get("d_electricpbb") == "on")
+            {
+                report.DataType += "pbbelectricdailytotals" + ",";
+            }
+            if (recordCollection.Get("electriccampus") == "on")
+            {
+                report.DataType += "campuselectric" + ",";
+            }
+            if (recordCollection.Get("d_electriccampus") == "on")
+            {
+                report.DataType += "campuselectricdailytotals" + ",";
+            }
+            if (recordCollection.Get("humidity") == "on")
+            {
+                report.DataType += "humidity" + ",";
+            }
+            if (recordCollection.Get("d_humidity") == "on")
+            {
+                report.DataType += "humiditydailytotals" + ",";
+            }
+            if (recordCollection.Get("solarradiation") == "on")
+            {
+                report.DataType += "solarradiation" + ",";
+            }
+            if (recordCollection.Get("d_solarradiation") == "on")
+            {
+                report.DataType += "solarradiationdailytotals" + ",";
+            }
+            if (recordCollection.Get("solarbusbarn") == "on")
+            {
+                report.DataType += "solarbusbarn" + ",";
+            }
+            if (recordCollection.Get("d_solarbusbarn") == "on")
+            {
+                report.DataType += "solarbusbarndailytotals" + ",";
+            }
+            if (recordCollection.Get("solarcarcharger") == "on")
+            {
+                report.DataType += "solarcarcharger" + ",";
+            }
+            if (recordCollection.Get("d_solarcarcharger") == "on")
+            {
+                report.DataType += "solarcarchargerdailytotals" + ",";
+            }
+            if (recordCollection.Get("steampbb") == "on")
+            {
+                report.DataType += "pbbsteam" + ",";
+            }
+            if (recordCollection.Get("d_steampbb") == "on")
+            {
+                report.DataType += "pbbsteamdailytotals" + ",";
+            }
+            if (recordCollection.Get("steamcampus") == "on")
+            {
+                report.DataType += "steamcampus" + ",";
+            }
+            if (recordCollection.Get("d_steamcampus") == "on")
+            {
+                report.DataType += "steamcampusdailytotals" + ",";
+            }
+            if (recordCollection.Get("wind") == "on")
+            {
+                report.DataType += "wind" + ",";
+            }
+            if (recordCollection.Get("d_wind") == "on")
+            {
+                report.DataType += "winddailytotals" + ",";
+            }
 
-    //        report.DataType = report.DataType.Remove(report.DataType.Length - 1);
+            if (report.DataType != null)
+            {
+                report.DataType = report.DataType.Remove(report.DataType.LastIndexOf(',')).Trim();
+            }
 
-    //        if (graphtype.SelectedValue = "Line")
-    //        {
-    //            report.GraphStyle = "$.jqplot.TrendLine";
-    //        }
-    //        if (graphtype.SelectedValue = "Bar")
-    //        {
-    //            report.GraphStyle = "$.jqplot.BarRenderer";
-    //        }
-    //        //if (graphtype.SelectedValue = "Pie")
-    //        //{
-    //        //    report.GraphStyle = "jQuery.jqplot.PieRenderer";
-    //        //}
+            if (recordCollection.Get("graphtype") == "Line")
+            {
+                report.GraphStyle = "$.jqplot.TrendLine";
+            }
+            if (recordCollection.Get("graphtype") == "Bar")
+            {
+                report.GraphStyle = "$.jqplot.BarRenderer";
+            }
+            //if (recordCollection.Get("graphtype") == "Pie")
+            //{
+            //    report.GraphStyle = "jQuery.jqplot.PieRenderer";
+            //}
 
-    //        report.DateCreated = DateTime.Now;
-    //        report.GeneratedBy = "";
-    //        report.Active = true;
-    //        report.UpdatedBy = "";
-    //        report.UpdatedDate = DateTime.Now;
+            report.DateCreated = DateTime.Now;
+            report.GeneratedBy = "";
+            report.Active = true;
+            report.UpdatedBy = "";
+            report.UpdatedDate = DateTime.Now;
 
-    //        reportRepo.Create_Report_Record(report);
-    //    }
+            //reportRepo.Create_Report_Record(report);
+        }
     }
 }
