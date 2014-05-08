@@ -18,9 +18,16 @@ namespace EnvironmentalApp.Gui.Controllers
             return View(dataList);
         }
 
+        [HttpPost]
         public ActionResult Build(FormCollection collection)
         {
             generate_Report(collection);
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Build()
+        {
             return View();
         }
 
@@ -122,7 +129,6 @@ namespace EnvironmentalApp.Gui.Controllers
                         getSqlData_WindDailyTotals(reportList, reportModel, sDateTime, eDateTime, dataRecord.GraphStyle);
                         break;
                 }
-               // reportList[0].GraphType = dataRecord.GraphStyle;
 
             }
 
@@ -545,108 +551,14 @@ namespace EnvironmentalApp.Gui.Controllers
         {
             var reportRepo = new Sql_ReportService();
             var report = new Report();
-            report.ReportID = new Guid();
+            report.ReportID = Guid.NewGuid();
             report.Name = recordCollection.Get("reportname");
             report.StartDate = Convert.ToDateTime(recordCollection.Get("sdate")).Date;
             report.EndDate = Convert.ToDateTime(recordCollection.Get("edate")).Date;
             report.StartTime = Convert.ToDateTime(recordCollection.Get("sdate")).TimeOfDay;
             report.EndTime = Convert.ToDateTime(recordCollection.Get("edate")).TimeOfDay;
-            if (recordCollection.Get("airtemp") == "on")
-            {
-                report.DataType += "airtemp" + ",";
-            }
-            if (recordCollection.Get("d_airtemp") == "on")
-            {
-                report.DataType += "airtempdailytotals" + ",";
-            }
-            if (recordCollection.Get("chilledwaterpbb") == "on")
-            {
-                report.DataType += "pbbchilledwater" + ",";
-            }
-            if (recordCollection.Get("d_chilledwaterpbb") == "on")
-            {
-                report.DataType += "pbbchilledwaterdailytotals" + ",";
-            }
-            if (recordCollection.Get("chilledwatercampus") == "on")
-            {
-                report.DataType += "campuschilledwater" + ",";
-            }
-            if (recordCollection.Get("d_chilledwatercampus") == "on")
-            {
-                report.DataType += "campuschilledwaterdailytotals" + ",";
-            }
-            if (recordCollection.Get("electricpbb") == "on")
-            {
-                report.DataType += "pbbelectric" + ",";
-            }
-            if (recordCollection.Get("d_electricpbb") == "on")
-            {
-                report.DataType += "pbbelectricdailytotals" + ",";
-            }
-            if (recordCollection.Get("electriccampus") == "on")
-            {
-                report.DataType += "campuselectric" + ",";
-            }
-            if (recordCollection.Get("d_electriccampus") == "on")
-            {
-                report.DataType += "campuselectricdailytotals" + ",";
-            }
-            if (recordCollection.Get("humidity") == "on")
-            {
-                report.DataType += "humidity" + ",";
-            }
-            if (recordCollection.Get("d_humidity") == "on")
-            {
-                report.DataType += "humiditydailytotals" + ",";
-            }
-            if (recordCollection.Get("solarradiation") == "on")
-            {
-                report.DataType += "solarradiation" + ",";
-            }
-            if (recordCollection.Get("d_solarradiation") == "on")
-            {
-                report.DataType += "solarradiationdailytotals" + ",";
-            }
-            if (recordCollection.Get("solarbusbarn") == "on")
-            {
-                report.DataType += "solarbusbarn" + ",";
-            }
-            if (recordCollection.Get("d_solarbusbarn") == "on")
-            {
-                report.DataType += "solarbusbarndailytotals" + ",";
-            }
-            if (recordCollection.Get("solarcarcharger") == "on")
-            {
-                report.DataType += "solarcarcharger" + ",";
-            }
-            if (recordCollection.Get("d_solarcarcharger") == "on")
-            {
-                report.DataType += "solarcarchargerdailytotals" + ",";
-            }
-            if (recordCollection.Get("steampbb") == "on")
-            {
-                report.DataType += "pbbsteam" + ",";
-            }
-            if (recordCollection.Get("d_steampbb") == "on")
-            {
-                report.DataType += "pbbsteamdailytotals" + ",";
-            }
-            if (recordCollection.Get("steamcampus") == "on")
-            {
-                report.DataType += "steamcampus" + ",";
-            }
-            if (recordCollection.Get("d_steamcampus") == "on")
-            {
-                report.DataType += "steamcampusdailytotals" + ",";
-            }
-            if (recordCollection.Get("wind") == "on")
-            {
-                report.DataType += "wind" + ",";
-            }
-            if (recordCollection.Get("d_wind") == "on")
-            {
-                report.DataType += "winddailytotals" + ",";
-            }
+            
+            report.DataType= recordCollection["datatype"];
 
             if (report.DataType != null)
             {
@@ -667,12 +579,18 @@ namespace EnvironmentalApp.Gui.Controllers
             //}
 
             report.DateCreated = DateTime.Now;
-            report.GeneratedBy = "";
+            report.GeneratedBy = "John";
             report.Active = true;
-            report.UpdatedBy = "";
-            report.UpdatedDate = DateTime.Now;
+            report.UpdatedBy = "Anthony";
+            report.UpdateDate = DateTime.Now;
+            if (report.Name != null)
+            {
+                reportRepo.Create_Report_Record(report);
+            }
 
-            //reportRepo.Create_Report_Record(report);
+            
         }
+
+       
     }
 }

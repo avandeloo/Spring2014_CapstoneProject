@@ -16,7 +16,7 @@ namespace EnvironmentalApp.Core.Models
         public System.DateTime DateCreated { get; set; }
         public string GeneratedBy { get; set; }
         public bool Active { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public DateTime UpdateDate { get; set; }
         public string UpdatedBy { get; set; }
     }
 }

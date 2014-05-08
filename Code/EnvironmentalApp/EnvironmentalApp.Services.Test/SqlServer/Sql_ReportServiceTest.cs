@@ -18,7 +18,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
         [TestInitialize]
         public void Setup()
         {
-            reportRecord = new Report { ReportID = Guid.NewGuid(), Name = "Jon's Report", StartDate = DateTime.Now.AddDays(-1).Date, EndDate = DateTime.Now, StartTime = DateTime.Now.AddHours(-1).TimeOfDay, EndTime = DateTime.Now.TimeOfDay, DataType = "Hi, I'm Working Now", GraphStyle = "Bar, Line, Pie", DateCreated = DateTime.Now, GeneratedBy = "Jon", Active = false, UpdatedDate = DateTime.Now, UpdatedBy = "Jon" };
+            reportRecord = new Report { ReportID = Guid.NewGuid(), Name = "Jon's Report", StartDate = DateTime.Now.AddDays(-1).Date, EndDate = DateTime.Now, StartTime = DateTime.Now.AddHours(-1).TimeOfDay, EndTime = DateTime.Now.TimeOfDay, DataType = "airtemp", GraphStyle = "Bar", DateCreated = DateTime.Now, GeneratedBy = "Jon", Active = false, UpdateDate = DateTime.Now, UpdatedBy = "Jon" };
 
         }
 
