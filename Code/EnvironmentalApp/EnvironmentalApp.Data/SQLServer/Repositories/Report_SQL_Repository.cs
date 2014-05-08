@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using EnvironmentalApp.Core.Data.SQLServer;
 using EnvironmentalApp.Core.Models;
+using System.Data.Entity.Validation;
+
 namespace EnvironmentalApp.Data.SQLServer.Repositories
 {
     public class Report_SQL_Repository : Base_SQL_Repository, IReportRepository
@@ -12,18 +14,25 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
 
         public int Create(Report entity)
         {
-            int result = 0;
-            using (var ctx = new EnergyDataContext(ConnString))
+            try
             {
-
-                if (ctx.SaveChanges() == 1)
+                using (var ctx = new EnergyDataContext(ConnString))
                 {
+                    entity.Active = true;
                     ctx.REPORTs.Add(entity);
-                    result = 1;
+                    int result = ctx.SaveChanges();
+                    return result;
                 }
             }
+            catch (DbEntityValidationException ex)
+            {
+                throw ex;
+            }
 
-            return result;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
 
@@ -99,14 +108,14 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             
         }
         
-        public List<Report> GetByUpdatedDate(DateTime value)
+        public List<Report> GetByUpdateDate(DateTime value)
         {
             var reportList = new List<Report>();
             try
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    reportList = ctx.REPORTs.AsEnumerable().Where(x => x.UpdatedDate == Convert.ToDateTime(value)).ToList();
+                    reportList = ctx.REPORTs.AsEnumerable().Where(x => x.UpdateDate == Convert.ToDateTime(value)).ToList();
                     return reportList;
                 }
             }
@@ -160,7 +169,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                     report.DateCreated = entity.DateCreated;
                     report.GeneratedBy = entity.GeneratedBy;
                     report.Active = entity.Active;
-                    report.UpdatedDate = entity.UpdatedDate;
+                    report.UpdateDate = entity.UpdateDate;
                     report.UpdatedBy = entity.UpdatedBy;
 
                     ctx.Entry(report).State = System.Data.Entity.EntityState.Modified;
