@@ -60,7 +60,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var result = HumidityRepo.Get_Humidity_ByTime(dateTime);
             
             Assert.IsNotNull(result, "Object is null");
-            Assert.IsInstanceOfType(result, typeof(Core.Models.Humidity), "Not an instance of Air Temp");
+            Assert.IsInstanceOfType(result, typeof(Core.Models.Humidity), "Not an instance of Humidity");
         }
         
         [TestMethod]
@@ -98,7 +98,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var result = HumidityDailyTotalsRepo.Get_HumidityDailyTotals_ByTime(dateTime);
 
             Assert.IsNotNull(result, "Object is null");
-            Assert.IsInstanceOfType(result, typeof(Core.Models.HumidityDailyTotals), "Not an instance of Air Temp Daily Totals");
+            Assert.IsInstanceOfType(result, typeof(Core.Models.HumidityDailyTotals), "Not an instance of Humidity Daily Totals");
         }
 
         [TestMethod]

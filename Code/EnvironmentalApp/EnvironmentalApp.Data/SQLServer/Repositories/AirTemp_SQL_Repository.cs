@@ -35,7 +35,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
             {
                 using (var ctx = new EnergyDataContext(ConnString))
                 {
-                    airTempList = ctx.OUTSIDE_AIR_TEMP.AsEnumerable().Where(x => x.ReadingDateTime >= startTime && x.ReadingDateTime <= endTime).ToList();
+                    airTempList = ctx.OUTSIDE_AIR_TEMP.AsEnumerable().Where(x => x.ReadingDateTime >= startTime && x.ReadingDateTime <= endTime && x.Status == 0).ToList();
                     return airTempList;
                 }
             }

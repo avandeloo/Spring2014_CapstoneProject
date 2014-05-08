@@ -18,7 +18,7 @@ namespace EnvironmentalApp.Services.Tests.ETLServiceTests
         public void SteamCanFetchAndDumpData()
         {
             var steam = new ETL_SteamService();
-            var result = steam.TransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-1), DateTime.Now);
+            var result = steam.TransferPiHourlyToSqlHourly(DateTime.Now.AddDays(-9), DateTime.Now);
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result > 23);

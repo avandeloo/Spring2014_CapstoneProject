@@ -14,7 +14,9 @@ namespace EnvironmentalApp.Core.Data.SQLServer
         /// </summary>
         /// <param name="propertyValuePair"></param>
         /// <returns></returns>
-       List<Core.Models.Report> Get(string propertyName, string value);
+       Models.Report GetByReportName(string value);
+       //Models.Report GetByUpdatedBy(string value);
+       //Models.Report GetByGeneratedBy(string value);
        List<Core.Models.Report> Get(DateTime startDateTime, DateTime endDateTime);
 
        int Update(Core.Models.Report entity);

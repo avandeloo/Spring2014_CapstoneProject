@@ -153,3 +153,44 @@ span.date {
             padding:5px 15px;
             margin-left:10px;
         }
+
+#reportBuilder {
+    width: 100%;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    overflow: auto;
+    padding-left:50px;
+}
+
+.dataChooser {
+    width: 26%;
+    float: left;
+    overflow: auto;
+    border-right:1px solid #bbb;
+    padding:0px 15px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+
+    .dataChooser h4 {
+        text-align: center;
+    }
+
+    .dataChooser .col {
+        width: 50%;
+        overflow: auto;
+        float:left;
+    }
+
+#reportInfo {
+    width: 35%;
+    float: left;
+    overflow: auto;
+    padding-left:20px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+
+    #reportInfo input#reportname {
+        width: 150px !important;
+    }

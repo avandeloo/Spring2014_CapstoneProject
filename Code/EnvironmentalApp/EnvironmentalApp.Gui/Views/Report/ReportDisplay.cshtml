@@ -1,0 +1,97 @@
+﻿
+@model List<EnvironmentalApp.Gui.Models.ReportList>
+
+@*using (Html.BeginForm("ReportDisplay", "ReportController", new { ReportName = "Jon's Report" }, FormMethod.Post))*@
+
+<head>
+    <title>BAIS Capstone</title>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/styles.css")" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/jquery.jqplot.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.20.js")"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+
+    <link class="include" rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/jqPlot/jquery.jqplot.min.css")" />
+    <!--[if lt IE 9]><script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/excanvas.min.js")"></script><![endif]-->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.canvasTextRenderer.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.canvasAxisTickRenderer.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.dateAxisRenderer.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.highlighter.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.categoryAxisRenderer.min.js")"></script>
+      <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.barRenderer.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jqPlot/plugins/jqplot.highlighter.js")"></script>
+</head>
+
+            @*{var dataValue = Model.FirstOrDefault().DataUnit;}
+            @{var graphType = Model[0].GraphType;}*@
+            
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var line = new Array();
+                @foreach (var m in Model)
+                { 
+             <text> var line</text>@m.Id<text> = new Array();</text>
+                    foreach (var l in m.reportListData)
+                    { 
+                <text>line</text>@m.Id<text>.push(["@l.Date.ToString("MM/dd/yyyy hh:mm:ss tt")", @l.Value]);</text>
+                    }
+                <text>line.push(line</text>@m.Id<text>);</text>
+                }
+           
+            
+            var plot=    $.jqplot('chartdiv', line, {
+                    seriesDefaults: {
+                        renderer: $.jqplot.TrendLine,
+                        rendererOptions: { fillToZero: true }
+                    },
+                    axes: {
+                        xaxis: {
+                            tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                            renderer: $.jqplot.DateAxisRenderer,
+                            label: 'Date',
+                            tickOptions: {
+                                angle: -40,
+                                formatString: '%m/%d/%y %R'
+                            }
+                        },
+                        yaxis: {
+                            label: '',
+                            labelrenderer: $.jqplot.CanvasAxisLabelRenderer
+                        }
+                    },
+                highlighter: {
+                    show: true,
+                    formatstring: '',
+                    sizeAdjust: 7.5
+                },
+                cursor: {
+                    show: true
+                }
+
+                })
+            
+            
+        });
+    </script>
+
+    <div id="pageContainer">
+
+        @{var pageTitle = Model.FirstOrDefault().LineName;}
+        @{var StartDate = Model.FirstOrDefault().StartDate;}
+        @{var EndDate = Model.FirstOrDefault().EndDate;}
+        @{var tagID = Model.FirstOrDefault().Id;}
+
+        <h2>@pageTitle  <span class="date">@StartDate - @EndDate</span></h2>
+        <br />
+        <hr /><br />
+  
+        <div id="chartdiv" >
+        </div>
+
+    </div>
+
+<script>
+
+  </script>

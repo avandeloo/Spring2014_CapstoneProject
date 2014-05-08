@@ -7,6 +7,7 @@ using EnvironmentalApp.Services.PiServerServices;
 using EnvironmentalApp.Core.Models;
 using EnvironmentalApp.Core.PiServerTableTags;
 
+
 namespace EnvironmentalApp.Gui.Controllers
 {
     public class HomeController : Controller
@@ -264,6 +265,5 @@ namespace EnvironmentalApp.Gui.Controllers
             dataList.Add(dataModel);
         }
 
-       
     }
 }

@@ -14,7 +14,7 @@ namespace EnvironmentalApp.Data.Tests.PiServer
             var result = solarRRepo.GetToday(SolarRadiationSources.Campus_Total);
 
             Assert.IsNotNull(result, "Object is null");
-            Assert.IsInstanceOfType(result, typeof(Core.Models.SolarRadiation), "Not an instance of SolarRadiation");
+            Assert.IsInstanceOfType(result, typeof(Core.Models.SolarRadiation), "Not an instance of Solar Radiation");
 
         }
         [TestMethod]

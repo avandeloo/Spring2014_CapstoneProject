@@ -94,6 +94,7 @@ namespace EnvironmentalApp.Services.Tests.SqlServer
             var result = windDailyTotalsRepo.Get_WindDailyTotals_ByTime(dateTime);
 
             Assert.IsNotNull(result, "Object is null");
+            Assert.IsInstanceOfType(result, typeof(Core.Models.WindDailyTotals), "Not an instance of Wind Daily Totals");
         }
 
         [TestMethod]
