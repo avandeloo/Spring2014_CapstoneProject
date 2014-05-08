@@ -18,9 +18,16 @@ namespace EnvironmentalApp.Gui.Controllers
             return View(dataList);
         }
 
+        [HttpPost]
         public ActionResult Build(FormCollection collection)
         {
             generate_Report(collection);
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Build()
+        {
             return View();
         }
 

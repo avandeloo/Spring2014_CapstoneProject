@@ -1,81 +1,81 @@
 body {
-	background:#333;
-	margin:0;
-	padding:0;
+    background: #333;
+    margin: 0;
+    padding: 0;
 }
 
 #pageContainer {
-	width:1000px;
-	overflow:auto;
-	margin:0 auto;
-	padding-top:40px;
+    width: 1000px;
+    overflow: auto;
+    margin: 0 auto;
+    padding-top: 40px;
 }
 
-#pageContainer h3 {
-    margin:0;
-    padding:0px 60px 30px 60px;
-}
+    #pageContainer h3 {
+        margin: 0;
+        padding: 0px 60px 30px 60px;
+    }
 
 #header {
-	width: 100%;
-	height:75px;
-	margin-bottom:20px;
+    width: 100%;
+    height: 75px;
+    margin-bottom: 20px;
 }
 
 #logo {
-	width:242px;
-	height:154px;
-	float:left;
+    width: 242px;
+    height: 154px;
+    float: left;
 }
 
 #nav {
-	width:210px;
-	height:500px;
-	background:blue;
-	float:left;
+    width: 210px;
+    height: 500px;
+    background: blue;
+    float: left;
 }
 
 #leftColumn {
-	width:210px;
-	float:left;
-	overflow: auto;
+    width: 210px;
+    float: left;
+    overflow: auto;
 }
 
 #rightColumn {
-	float:right;
-	width:760px;
-	overflow: auto;
+    float: right;
+    width: 760px;
+    overflow: auto;
 }
 
 #mainContent {
-	width:100%;
-	overflow:auto;
-	padding-top:30px;
+    width: 100%;
+    overflow: auto;
+    padding-top: 30px;
 }
 
 #mainGraph {
-	width:760px;
-	height:350px;
-	margin-bottom:20px;
+    width: 760px;
+    height: 350px;
+    margin-bottom: 20px;
 }
 
 #statsBox {
-	width:370px;
-	height:350px;
-	float:left;
-	margin-right:20px;
-	background:gray;
+    width: 370px;
+    height: 350px;
+    float: left;
+    margin-right: 20px;
+    background: gray;
 }
 
-#statsBox:last-child {
-	margin-right:0px;
-}
+    #statsBox:last-child {
+        margin-right: 0px;
+    }
 
 #footer {
-	width:100%;
-	height:30px;
-	margin-top:30px;
-	background: aqua;
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+    background: aqua;
 }
 
 
@@ -84,60 +84,60 @@ nav ul#menu {
     padding: 0;
 }
 
-nav ul#menu li {
-    float:left;
-    background:#444;
-    padding:5px 10px;
-    margin:0;
-}
-
-    nav ul#menu li:hover {
-        color:#eee;
+    nav ul#menu li {
+        float: left;
+        background: #444;
+        padding: 5px 10px;
+        margin: 0;
     }
 
-    nav ul#menu li a:hover {
-        color:#eee !important;
-    }
-
-    nav ul#menu li ul {
-        display: none;
-        position: absolute;
-        padding:0;
-        margin:5px 0 0 0;
-    }
-
-    nav ul#menu li:hover ul {
-        display: block;
-    }
-
-    nav ul#menu li ul li {
-        float: none;
-        display:block !important;
-        padding:3px 30px 6px 15px;
-        margin:0;
-        text-align:left;
-        background:#444;
-        border-top:1px solid #555;
-    }
-
-        nav ul#menu li ul li:first-child {
-            border-top:none;
+        nav ul#menu li:hover {
+            color: #eee;
         }
+
+        nav ul#menu li a:hover {
+            color: #eee !important;
+        }
+
+        nav ul#menu li ul {
+            display: none;
+            position: absolute;
+            padding: 0;
+            margin: 5px 0 0 0;
+        }
+
+        nav ul#menu li:hover ul {
+            display: block;
+        }
+
+        nav ul#menu li ul li {
+            float: none;
+            display: block !important;
+            padding: 3px 30px 6px 15px;
+            margin: 0;
+            text-align: left;
+            background: #444;
+            border-top: 1px solid #555;
+        }
+
+            nav ul#menu li ul li:first-child {
+                border-top: none;
+            }
 
 
 
 span.date {
-    font-size:16px;
-    margin-left:10px;
+    font-size: 16px;
+    margin-left: 10px;
 }
 
 #datePicker {
-    margin:10px 0px;
+    margin: 10px 0px;
 }
 
-#datePicker label {
-    display: inline !important;
-}
+    #datePicker label {
+        display: inline !important;
+    }
 
 #datePicker {
     font-size: 10px;
@@ -147,29 +147,29 @@ span.date {
         width: 100px !important;
     }
 
-        #datePicker input[type=submit] {
-            font-size: 10px;
-            border-radius: 3px;
-            padding:5px 15px;
-            margin-left:10px;
-        }
+    #datePicker input[type=submit] {
+        font-size: 10px;
+        border-radius: 3px;
+        padding: 5px 15px;
+        margin-left: 10px;
+    }
 
 #reportBuilder {
     width: 100%;
-    box-sizing:border-box;
-    -moz-box-sizing:border-box;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
     overflow: auto;
-    padding-left:50px;
+    padding-left: 50px;
 }
 
 .dataChooser {
     width: 26%;
     float: left;
     overflow: auto;
-    border-right:1px solid #bbb;
-    padding:0px 15px;
-    box-sizing:border-box;
-    -moz-box-sizing:border-box;
+    border-right: 1px solid #bbb;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
     .dataChooser h4 {
@@ -179,18 +179,19 @@ span.date {
     .dataChooser .col {
         width: 50%;
         overflow: auto;
-        float:left;
+        float: left;
     }
 
 #reportInfo {
     width: 35%;
     float: left;
     overflow: auto;
-    padding-left:20px;
-    box-sizing:border-box;
-    -moz-box-sizing:border-box;
+    padding-left: 20px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
     #reportInfo input#reportname {
         width: 150px !important;
     }
+

@@ -1,14 +1,14 @@
-﻿<head>
-    <title>BAIS Capstone</title>
+﻿
+    
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/Content/styles.css")" />
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.20.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.validate.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-timepicker-addon.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-sliderAccess.js")"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
 
 
-</head>
 
 <div id="reportBuilder">
 
@@ -55,14 +55,14 @@
 
                 <div id="reportInfo">
                     <h4>Report Name</h4>
-                    <input type="text" id="reportname" name="reportname" />
+                    <input type="text" id="reportname" name="reportname" required />
                     Graph Type: <select name="graphtype"><option value="Line">Line</option><option value="Bar">Bar</option></select><br />
                     <h4>Date Time Range</h4>
                     <label for="from">From</label>
-                    <input type="text" id="from" name="sdate">
+                    <input type="text" id="from" name="sdate" required />
                     <label for="to">To</label>
-                    <input type="text" id="to" name="edate"><br /><br />
-                    <input type="submit" name="buildbtn" value="Build" />
+                    <input type="text" id="to" name="edate" required )"><br /><br />
+                    <input type="submit" id="submit" value="Build" />
                 </div>
                 
             </form>
@@ -73,6 +73,7 @@
 <script>
 
     $(function () {
+
         $("#from").datetimepicker({
             defaultDate: "*",
             changeMonth: true,
@@ -82,6 +83,7 @@
                 $("#to").datepicker("option", "minDate", selectedDate);
             }
         });
+
         $("#to").datetimepicker({
             defaultDate: "*",
             changeMonth: true,
@@ -92,7 +94,8 @@
             }
         });
 
-
-
     });
+
+
+
 </script>
