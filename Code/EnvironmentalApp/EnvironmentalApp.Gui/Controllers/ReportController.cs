@@ -271,7 +271,6 @@ namespace EnvironmentalApp.Gui.Controllers
             reportList.Add(reportModel);
         }
 
-
         private static void getSqlData_Camp_Electric(List<Models.ReportList> reportList, Models.ReportList reportModel, DateTime sdate, DateTime edate, string graphType)
         {
             Sql_ElectricService elcc = new Sql_ElectricService();
@@ -306,7 +305,6 @@ namespace EnvironmentalApp.Gui.Controllers
             reportList.Add(reportModel);
         }
 
-
         private static void getSqlData_Humidity(List<Models.ReportList> reportList, Models.ReportList reportModel, DateTime sdate, DateTime edate, string graphType)
         {
             Sql_HumidityService hmdty = new Sql_HumidityService();
@@ -340,7 +338,6 @@ namespace EnvironmentalApp.Gui.Controllers
                 reportModel.reportListData.Add(new Models.ReportModel() { Date = humidityDailyTotals[i].ReadingDateTime, Value = humidityDailyTotals[i].DailyAverage });
             reportList.Add(reportModel);
         }
-
 
         private static void getSqlData_SolarRadiation(List<Models.ReportList> reportList, Models.ReportList reportModel, DateTime sdate, DateTime edate, string graphType)
         {

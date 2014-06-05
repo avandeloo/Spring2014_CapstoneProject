@@ -45,7 +45,10 @@ namespace EnvironmentalApp.Services.SQLServerServices
         {
             return reportRepo.Delete(reportID);
         }
-
+        public List<Report> GetAllReports()
+        {
+            return reportRepo.GetAll();
+        }
         public int Update_Report_Record(Report entity)
         {
             return reportRepo.Update(entity);

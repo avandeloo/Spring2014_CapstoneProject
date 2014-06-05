@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationServices.cs" />
     <Compile Include="ETLServices\ETL_WindService.cs" />
     <Compile Include="ETLServices\ETL_ChilledWaterService.cs" />
     <Compile Include="ETLServices\ETL_SolarRadiationService.cs" />

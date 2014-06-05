@@ -15,13 +15,9 @@ namespace EnvironmentalApp.ConsoleApp.Contollers
         {
             hourlyProcess = new HourlyDataTransferController();
             var midNight = new TimeSpan(00, 10, 00, 00);
-#if DEBUG
-            dailyProcess = new DailyTotalsCalculationController();
-#endif
-            if (DateTime.Now.TimeOfDay <= midNight)
-            {
+
                 dailyProcess = new DailyTotalsCalculationController();
-            }
+            
         }
 
         public bool CanConnectToSQLServer()

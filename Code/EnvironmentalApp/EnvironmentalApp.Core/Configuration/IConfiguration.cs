@@ -9,7 +9,8 @@ namespace EnvironmentalApp.Core.Configuration
     public interface IConfiguration
     {
          string GetPiServerConnectionString();
-         string GetSqlServerConnectionString();
+         bool PiConnectionExists(string piServerConnectionString); 
+        string GetSqlServerConnectionString();
          bool SqlDatabaseExists(string connString);
          string GetSqlServerConnectionStringName();
     }

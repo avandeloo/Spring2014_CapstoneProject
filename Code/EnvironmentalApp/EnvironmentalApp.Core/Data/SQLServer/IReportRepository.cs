@@ -15,10 +15,10 @@ namespace EnvironmentalApp.Core.Data.SQLServer
         /// <param name="propertyValuePair"></param>
         /// <returns></returns>
        Models.Report GetByReportName(string value);
-       //Models.Report GetByUpdatedBy(string value);
-       //Models.Report GetByGeneratedBy(string value);
+       Models.Report GetByUpdatedBy(string value);
+       Models.Report GetByGeneratedBy(string value);
        List<Core.Models.Report> Get(DateTime startDateTime, DateTime endDateTime);
-
+       List<Models.Report> GetAll();
        int Update(Core.Models.Report entity);
        int Delete(Guid reportId);
     

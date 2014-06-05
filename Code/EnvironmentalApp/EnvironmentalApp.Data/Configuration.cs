@@ -35,6 +35,31 @@ namespace EnvironmentalApp.Data
 
            
         }
+        public bool PiConnectionExists(string piServerConnectionString)
+        {
+            OdbcConnection piConnection = null;
+          var result = false;
+          try
+          {
+              piConnection = new OdbcConnection(piServerConnectionString);
+              piConnection.Open();
+
+              result = true;
+          }
+          catch (OdbcException ex)
+          {
+              result = false;
+          }
+          finally
+          {
+              if (piConnection.State == System.Data.ConnectionState.Open)
+              {
+                  piConnection.Close();
+              }
+              
+          }
+          return result;
+        }
 
         public string GetSqlServerConnectionString()
         {
@@ -64,7 +89,17 @@ namespace EnvironmentalApp.Data
         }
         public bool SqlDatabaseExists(string connString)
         {
-            return Database.Exists(connString);
+            var result = false;
+            try
+            {
+               result=  Database.Exists(connString);
+            }catch(Exception ex){
+
+                result = false;
+            }
+            return result;
+
+
         }
         public static SqlConnection GetSqlServerConnection(string sqlServerConnectionString)
         {

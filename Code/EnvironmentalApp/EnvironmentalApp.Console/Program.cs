@@ -2,15 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using EnvironmentalApp.ConsoleApp.Contollers;
 using EnvironmentalApp.ConsoleApp;
+
 using System.Timers;
 namespace EnvironmentalApp.ConsoleApp
 {
     public class Program
     {
         public static void Main(string[] args)
+        {
+           
+            Console.WriteLine("Checking data connections");
+
+            if (!CheckDataConnections())
+            {
+                Thread.Sleep(3000);
+                Environment.Exit(-1);
+            }
+            else
+            {
+                InitiateTranferProtocol();
+            }
+        }
+
+        private static void InitiateTranferProtocol()
         {
             var dataTransfer = new DataTransferController();
             Console.WriteLine("Starting Transfer");
@@ -20,12 +38,12 @@ namespace EnvironmentalApp.ConsoleApp
                 {
                     Console.WriteLine("Default Import Start Date is: " + ConsoleApp.Default.StartDate);
                     Console.WriteLine("Do you want to change? Y/N");
-                    var toChange =Console.ReadLine().ToUpper();
-                    if ( toChange== "Y" || toChange== "YES")
+                    var toChange = Console.ReadLine().ToUpper();
+                    if (toChange == "Y" || toChange == "YES")
                     {
                         InitialTransferSetup();
                     }
-                  
+
                     RunInitialTransfer();
                     ConsoleApp.Default.IsInitialTransfer = false;
                     ConsoleApp.Default.Save();
@@ -51,6 +69,27 @@ namespace EnvironmentalApp.ConsoleApp
             }
         }
 
+        private static bool CheckDataConnections()
+        {
+            var config = new ConfigurationController();
+            if (config.CanConnectToPi())
+            {
+                if (!config.CanConnectToSql())
+                {
+                    Console.WriteLine("Can not connect or locate Sql server check connection string and try again");
+                    return false;
+                }
+                return true;
+
+            }
+            else
+            {
+                Console.WriteLine("Can not connect or locate Pi server check connection string and try again");
+                return false;
+            }
+
+        }
+
         private static void RunInitialTransfer()
         {
             Console.WriteLine("Starting intitial transfer");
@@ -66,7 +105,7 @@ namespace EnvironmentalApp.ConsoleApp
                 var stopWatch = new System.Diagnostics.Stopwatch();
                 
                 stopWatch.Start();
-               
+                Console.WriteLine("Hourly transfer started for " + startDate.Date.ToShortDateString());
                 //set endtime
                 DateTime startTime = startDate.AddHours(1);
                DateTime endDate = startDate.AddDays(1);
@@ -75,28 +114,30 @@ namespace EnvironmentalApp.ConsoleApp
                 {
                     try
                     {
+                       
+
                         processData.RunHourlyTransfer(startTime);
                     }
                     catch (Exception ex)
                     {
-                        throw ex;
+                        throw new Exception("Hourly transfer failed for "+ startTime, ex);
                     }
                     startTime = startTime.AddHours(1);
 
                 }
-                Console.WriteLine("Hourly transfer complete for " + startDate.Date);
+                Console.WriteLine("Hourly transfer complete for " + startDate.Date.ToShortDateString());
 
                 //calculate dailytotals
                 processData.RunDailyTotalsTransfer(startDate);
                 stopWatch.Stop();
-                Console.WriteLine("Daily totals calcualted for " + startDate.Date);
+                Console.WriteLine("Daily totals calcualted for " + startDate.Date.ToShortDateString());
                 Console.WriteLine(startDate.Date + " calculations took " + stopWatch.Elapsed.ToString());
                 //reduce start date
                 startDate = endDate;
             }
 
 
-            throw new NotImplementedException();
+           
         }
 
         private static void InitialTransferSetup()

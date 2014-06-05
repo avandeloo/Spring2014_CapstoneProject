@@ -21,7 +21,7 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
                     var readings = (List<float>)entityList.Select(x => x.Reading).ToList();
 
                     dailyTotals.Id = Guid.NewGuid();
-                    dailyTotals.ReadingDateTime = DateTime.Now;
+                    dailyTotals.ReadingDateTime = entityList[0].ReadingDateTime.Date;
                     dailyTotals.DailySum = SumReadings(readings);
                     dailyTotals.DailyAverage = AverageReadings(readings);
                     dailyTotals.HighValue = MaxReading(readings);

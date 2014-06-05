@@ -36,6 +36,23 @@ namespace EnvironmentalApp.Data.SQLServer.Repositories
 
         }
 
+        public List<Report> GetAll()
+        {
+            try
+            {
+                using (var ctx = new EnergyDataContext(ConnString))
+                {
+                   var  reportList = ctx.REPORTs.AsEnumerable().ToList();
+                    return reportList;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            };
+            
+        
+        }
         public Report GetByReportName(string value)
         {
             var reportList = new Report();
